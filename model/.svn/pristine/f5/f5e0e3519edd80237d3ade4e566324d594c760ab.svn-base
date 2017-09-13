@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人中心</title>
+    <link rel="stylesheet" href="../../../css/reset.css">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../../../css/jquery.ui.datepicker.css">
+    <link rel="stylesheet" href="../../../css/city-picker.css">
+    <link rel="stylesheet" type="text/css" href="../../../css/personal-homepage/basic-setup/basic-information.css"/>
+    <script src="../../../js/jquery.min.js"></script>
+    <script src="../../../js/less.js"></script>
+    <script src="../../../js/base.js"></script>
+    <script src="../../../js/jquery.SuperSlide.2.1.1.js"></script>
+    <script src="../../../js/personal-homepage/basic-setup/basic-information.js"></script>
+    <script src="../../../js/jquery.ui.core.js"></script>
+    <script src="../../../js/jquery.ui.datepicker.js"></script>
+    <script src="../../../js/citydata.js"></script>
+    <script src="../../../js/cityPicker-1.0.0.js"></script>
+</head>
+<body>
+<div class="header">
+    <div class="container">
+        <div class="logo">
+            <a href="../../../index.html">
+                <img src="../../../images/logo.png" alt="Model" >
+            </a>
+        </div>
+        <div class="nav clearfix">
+            <ul class="clearfloat">
+                <li>
+                    <a href="../../becomeGoddess.html">网站女神</a>
+                </li>
+                <li>
+                    <a href="../../model-point/still.html">模特库</a>
+                </li>
+                <li>
+                    <a href="../../dream-factory/dream-factory.html">梦工场</a>
+                </li>
+                <li>
+                    <a href="../../shijiao/shijiao.html">视角</a>
+                </li>
+                <li>
+                    <a href="../../activity/company-annunciate.html">活动</a>
+                </li>
+                <li>
+                    <a href="../../chance/company-partner.html">机会</a>
+                </li>
+            </ul>
+        </div>
+        <div class="divLink">
+            <a href="javascript:void(0)">
+                <i class="picBox"></i>
+                <h3>阳光大美女<span></span></h3>
+                <p>深圳绮梦视觉有限公司</p>
+            </a>
+			<ul class="nav-li-list">
+				<li><a href="../../model-homepage(thirdparty)/goddessPage.html">个人中心</a></li>
+				<li><a href="../../personal-homepage/message-center/order-message.html">消息中心</a></li>
+				<li><a href="../../personal-homepage/order-management/order-management.html">订单管理</a></li>
+				<li><a href="javascript:void(0)">退出</a></li>
+			</ul>
+        </div>
+    </div>
+</div>
+<div class="main">
+    <div class="main-box">
+        <div class="container">
+            <div class="grid-1 clearfloat">
+                <div class="head-img">
+                    <img src="../../../images/personal-homepage/header2.png" alt="">
+                    <i class="v"></i>
+                </div>
+                <div class="personal-info clearfloat">
+                    <div class="user-name">
+                        <span class="identity"></span>阳光大美女 <i class="sex"></i>
+                    </div>
+                    <div class="user-info clearfloat">
+                        <span class="user-info-unit"><i class="address"></i>广东深圳</span>
+                        <span class="user-info-unit"><i class="star"></i>已关注 924</span>
+                        <span class="user-info-unit"><i class="hot"></i>人气7324</span>
+                        <span class="user-info-unit"><i class="gift"></i>礼物28</span>
+                    </div>
+                </div>
+                <div class="sign-in-btn">
+                    <i class="sign-in"></i>
+                    签到获币
+                </div>
+            </div>
+            <div class="grid-2">
+                <div class="tabs1 clearfloat">
+                    <div class="hd1">
+                        <ul>
+                            <li><a href="../../personal-homepage/order-management/order-management.html">
+                                订单管理
+                                <i class="right"></i>
+                            </a>
+                            </li>
+                            <li>
+                                <a href="../../personal-homepage/photo-management/photo-management.html">
+                                    照片管理
+                                    <i class="right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../../personal-homepage/video-management/video-management.html">
+                                    视频管理
+                                    <i class="right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../../personal-homepage/subscribe-information/subscribe-information.html">
+                                    订阅信息
+                                    <i class="right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../../personal-homepage/manage-model/company.html">
+                                    模特管理
+                                    <i class="right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../../personal-homepage/manage-annunciate/annunciate-info.html">
+                                    通告管理
+                                    <i class="right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../../personal-homepage/financial-management/financial-management.html">
+                                    财务管理
+                                    <i class="right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../../personal-homepage/pay-center/pay-center.html">
+                                    充值中心
+                                    <i class="right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../../personal-homepage/message-center/order-message.html">
+                                    消息中心 <span class="news-num">12</span>
+                                    <i class="right"></i>
+                                </a>
+                            </li>
+                            <li class="on">
+                                <a href="../../personal-homepage/basic-setup/basic-information.html">
+                                    基本设置
+                                    <i class="right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bd1">
+                        <ul class="ul-1">
+                            <div class="tabs2">
+                                <div class="hd">
+                                    <ul class="clearfloat">
+                                        <li>基本资料</li>
+                                        <li>认证信息</li>
+                                        <li>收费设置</li>
+                                        <li>账号安全</li>
+                                    </ul>
+                                </div>
+                                <div class="bd">
+                                    <ul class="mod-bd1">
+                                        <div class="list name">
+                                            <p class="input-title">用户名<span>*</span></p>
+                                            <input class="list-input" type="text" placeholder="请输入用户名" id="name">
+                                            <p id="nameMessg" style="color: red;"></p>
+                                        </div>
+                                        <div class="list height">
+                                            <p class="input-title">身高(cm)<span>*</span></p>
+                                            <div class="select-box">
+                                                <input class="list-input" type="number" placeholder="请选择" id="height">
+                                                <img class="select-arrow" src="../../../images/personal-homepage/select.png" alt="">
+                                            	<p id="heightMessg" style="color: red;"></p>
+                                            </div>
+                                        </div>
+                                        <div class="list width">
+                                            <p class="input-title">体重(kg)<span>*</span></p>
+                                            <div class="select-box">
+                                                <input class="list-input" type="number" placeholder="请选择" id="weight">
+                                                <img class="select-arrow" src="../../../images/personal-homepage/select.png" alt="">
+                                            	<p id="weightMessg" style="color: red;"></p>
+                                            </div>
+                                        </div>
+                                        <div class="list age">
+                                            <p class="input-title">年龄<span>*</span></p>
+                                            <div class="select-box">
+                                                <input class="list-input" type="number" placeholder="请选择" id="Age">
+                                                <img class="select-arrow" src="../../../images/personal-homepage/select.png" alt="">
+                                            	<p id="AgeMessg" style="color: red;"></p>
+                                            </div>
+                                        </div>
+                                        <div class="list BWH">
+                                            <p class="input-title">三围<span>*</span></p>
+                                            <div class="clearfloat">
+                                                <div class="select-box">
+                                                    <input class="list-input" type="number" placeholder="胸围" id="bust">
+                                                    <img class="select-arrow" src="../../../images/personal-homepage/select.png" alt="">
+                                            		<p id="bustMessg" style="color: red;"></p>
+                                                </div>
+                                                <div class="select-box">
+                                                    <input class="list-input" type="number" placeholder="腰围" id="waist">
+                                                    <img class="select-arrow" src="../../../images/personal-homepage/select.png" alt="">
+                                            		<p id="waistMessg" style="color: red;"></p>
+                                                </div>
+                                                <div class="select-box">
+                                                    <input class="list-input" type="number" placeholder="臀围" id="hips">
+                                                    <img class="select-arrow" src="../../../images/personal-homepage/select.png" alt="">
+                                            		<p id="hipsMessg" style="color: red;"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="list sex clearfloat">
+                                            <p class="input-title">性别<span>*</span></p>
+                                            <div class="radio clearfloat active">
+                                                <span class="checked"><i class="circle"></i></span><span>女</span>
+                                            </div>
+                                            <div class="radio clearfloat">
+                                                <span class="checked"><i class="circle"></i></span><span>男</span>
+                                            </div>
+                                            <div class="radio clearfloat">
+                                                <span class="checked"><i class="circle"></i></span><span>保密</span>
+                                            </div>
+                                        </div>
+                                        <div class="list address">
+                                            <p class="input-title">所在城市<span>*</span></p>
+                                            <div class="clearfloat">
+                                                <div class="city-picker-selector" id="city-picker-selector">
+													<div class="selector-item storey province">
+														<a href="javascript:;" class="selector-name reveal">北京市</a>
+														<input type="hidden" name="userProvinceId" class="input-price val-error" value="110000" data-required="userProvinceId">
+														<div class="selector-list listing hide">
+															<ul>
+																<li>北京市</li>
+															</ul>
+														</div>
+													</div>
+													<div class="selector-item storey city">
+														<a href="javascript:;" class="selector-name reveal">北京市</a>
+														<input type="hidden" name="userCityId" class="input-price val-error" value="110100" data-required="userCityId">
+														<div class="selector-list listing hide">
+															<ul>
+																<li>北京市</li>
+															</ul>
+														</div>
+													</div>
+												</div>
+                                            </div>
+                                        </div>
+                                        <div class="list work-time">
+                                            <p class="input-title">工作档期</p>
+                                            <div class="clearfloat">
+                                                <div class="select-box">
+                                                    <input type="text" placeholder="起始日期" name="te" id="from" class="test-style width150" />
+                                                </div>
+                                                <div class="select-box">
+                                                    <input type="text" placeholder="结束日期" name="tex" id="to" class="test-style width150" />
+                                                </div>
+                                                <div class="radio clearfloat">
+                                                    <span class="checked"><i class="circle"></i></span><span>默认为全部</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="list self-info">
+                                            <p class="input-title">自我介绍</p>
+                                            <textarea name="" ></textarea>
+                                        </div>
+                                        <div class="list label">
+                                            <p class="input-title">个人标签 <span class="mr20">*</span><span>最多可选三个标签</span></p>
+                                            <div class="label-box clearfloat">
+                                                <span>外拍模特</span>
+                                                <span>外拍模特</span>
+                                                <span class="active">外拍模特</span>
+                                                <span>外拍模特</span>
+                                                <span>外拍模特</span>
+                                                <span>外拍模特</span>
+                                                <span>外拍模特</span>
+                                                <span>外拍模特</span>
+                                                <span>外拍模特</span>
+                                                <div class="add-label"><i>+</i>自定义</div>
+                                            </div>
+                                        </div>
+                                        <div class="list work-experience">
+                                            <p class="input-title">工作经历 <span>*</span></p>
+                                            <div class="clearfloat mb15">
+                                                <div class="select-box">
+                                                    <input type="text" placeholder="起始日期" name="te" id="fromb" class="test-style width150" />
+                                                </div>
+                                                <div class="select-box">
+                                                    <input type="text" placeholder="结束日期" name="tex" id="tob" class="test-style width150" />
+                                                </div>
+                                            </div>
+                                            <textarea name="" ></textarea>
+                                        </div>
+                                        <div class="add-box">
+                                            <i class="add-img"><img src="../../../images/personal-homepage/basic-setup/add-icon.png" alt=""></i>
+                                        </div>
+                                        <div class="save-btn RegisterBtn" >
+                                            保存
+                                        </div>
+                                    </ul>
+                                    <ul class="mod-bd2">
+                                        <div class="personal" style="display: none">
+                                            <div class="page-1">
+                                                <div class="list">
+                                                    <p class="input-title">真实姓名<span>*</span></p>
+                                                    <input class="list-input" type="text" placeholder="请输入姓名">
+                                                </div>
+                                                <div class="list">
+                                                    <p class="input-title">身份证号码<span>*</span></p>
+                                                    <input class="list-input" type="text" placeholder="请输入姓名">
+                                                </div>
+                                                <div class="list">
+                                                    <p class="input-title">身份证正面<span>*</span></p>
+                                                    <div class="IDcard-box clearfloat">
+                                                        <div  class="IDcard">
+                                                            <img src="../../../images/personal-homepage/basic-setup/idcard-demo.png" alt="">
+                                                            <div class="f-IDcard">
+                                                                重新上传
+                                                            </div>
+                                                        </div>
+                                                        <div  class="IDcard">
+                                                            <img src="../../../images/personal-homepage/basic-setup/idcard-demo1.png" alt="">
+                                                            <div class="IDcard-title">
+                                                                实例
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="list pb30">
+                                                    <p class="input-title">身份证反面<span>*</span></p>
+                                                    <div class="IDcard-box clearfloat">
+                                                        <div  class="add-IDcard">
+                                                            <span>上传</span>
+                                                        </div>
+                                                        <div  class="IDcard">
+                                                            <img src="../../../images/personal-homepage/basic-setup/idcard-demo2.png" alt="">
+                                                            <div class="IDcard-title">
+                                                                实例
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="submit-btn">
+                                                    提交
+                                                </div>
+                                            </div>
+                                            <div class="page-2">
+                                                <div class="u-1 clearfloat">
+                                                    <span class="u-title">真实姓名</span>
+                                                    <div class="u-info">
+                                                        刘亦菲 <img class="real-nameImg" src="../../../images/personal-homepage/basic-setup/real-pic1.png" alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="u-1 clearfloat">
+                                                    <span class="u-title">身份证号码</span>
+                                                    <div class="u-info">
+                                                        543524324343543435131
+                                                    </div>
+                                                </div>
+                                                <div class="u-1 clearfloat">
+                                                    <span class="u-title">身份证正面</span>
+                                                    <div class="u-IDcard">
+                                                        <img src="../../../images/personal-homepage/basic-setup/idcard-demo1.png" alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="u-1 clearfloat">
+                                                    <span class="u-title">身份证正面</span>
+                                                    <div class="u-IDcard">
+                                                        <img src="../../../images/personal-homepage/basic-setup/idcard-demo2.png" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="company">
+                                            <div class="page-1" style="display: none">
+                                                <p class="title">企业资质<span>*</span></p>
+                                                <div class="company-img">
+                                                    <span>上传</span>
+                                                </div>
+                                                <div class="reminder">
+                                                    <img class="reminder-img" src="../../../images/personal-homepage/basic-setup/reminder-icon.png" alt="">
+                                                    注：提交审核通过后不可修改
+                                                </div>
+                                                <div class="submit-btn">
+                                                    提交
+                                                </div>
+                                            </div>
+                                            <div class="page-2">
+                                                <p class="title">企业资质 <img src="../../../images/personal-homepage/basic-setup/real-pic2.png" alt=""></p>
+                                                <div class="company-img">
+                                                    <img src="../../../images/personal-homepage/basic-setup/company.png" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </ul>
+                                    <ul class="mod-bd3">
+                                        <div class="reminder">
+                                            <i class="reminder-icon"></i>提示：交易成功平台将收取总费用10%的运营费
+                                        </div>
+                                        <div class="mod-bd3-content">
+                                            <div class="m-plan">
+                                                <div class="u-title">
+                                                    <span class="">1</span>收费一
+                                                </div>
+                                                <div class="list">
+                                                    <p class="input-title">费用</p>
+                                                    <input class="list-input" type="text" placeholder="输入整数金额"> <span class="u">元</span>
+                                                </div>
+                                                <div class="list">
+                                                    <p class="input-title">单位</p>
+                                                    <div class="select-box">
+                                                        <input class="list-input" type="text" value="天">
+                                                        <img class="select-arrow" src="../../../images/personal-homepage/select.png" alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="list">
+                                                    <p class="input-title">说明</p>
+                                                    <textarea name=""></textarea>
+                                                </div>
+                                                <div class="delete-btn clearfloat">
+                                                    <span>删除收费</span>
+                                                </div>
+                                            </div>
+                                            <div class="m-plan">
+                                                <div class="u-title">
+                                                    <span class="">2</span>收费二
+                                                </div>
+                                                <div class="list">
+                                                    <p class="input-title">费用</p>
+                                                    <input class="list-input" type="text" placeholder="输入整数金额"> <span class="u">元</span>
+                                                </div>
+                                                <div class="list">
+                                                    <p class="input-title">单位</p>
+                                                    <div class="select-box">
+                                                        <input class="list-input" type="text" value="天">
+                                                        <img class="select-arrow" src="../../../images/personal-homepage/select.png" alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="list">
+                                                    <p class="input-title">说明</p>
+                                                    <textarea name=""></textarea>
+                                                </div>
+                                                <div class="delete-btn clearfloat">
+                                                    <span>删除收费</span>
+                                                </div>
+                                            </div>
+                                            <div class="add-box">
+                                                <i class="add-img"><img src="../../../images/personal-homepage/basic-setup/add-icon.png" alt=""></i>
+                                            </div>
+                                            <div class="save-btn">
+                                                <span>保存</span>
+                                            </div>
+                                        </div>
+                                    </ul>
+                                    <ul class="mod-bd4">
+                                        <div class="mod-1">
+                                            <div class="u-1">
+                                                <p>手机号码&nbsp;&nbsp;&nbsp;<em class="black">1380013800</em> <span>修改</span></p>
+                                            </div>
+                                            <div class="u-1">
+                                                <p>邮箱地址&nbsp;&nbsp;&nbsp;<em>未添加</em> <span>添加</span></p>
+                                            </div>
+                                            <div class="u-1">
+                                                <p>登陆密码&nbsp;&nbsp;&nbsp;<em class="black">******</em> <span>修改</span></p>
+                                            </div>
+                                        </div>
+                                        <div class="mod-2">
+                                            <div class="u-title">
+                                                我绑定的账号
+                                            </div>
+                                            <div class="u-2">
+                                                <p><i class="wechat"></i>&nbsp;&nbsp;&nbsp;<em class="black">微信账号</em> <span>去绑定</span></p>
+                                            </div>
+                                            <div class="u-2">
+                                                <p><i class="qq"></i>&nbsp;&nbsp;&nbsp;<em class="black">QQ账号</em> <span class="silver">解绑</span></p>
+                                            </div>
+                                            <div class="u-2">
+                                                <p><i class="weibo"></i>&nbsp;&nbsp;&nbsp;<em class="black">微博账号</em> <span class="silver">解绑</span></p>
+                                            </div>
+                                        </div>
+                                        <div class="mod-3">
+                                            <div class="u-title">
+                                                已绑定的银行卡
+                                            </div>
+                                            <div class="card-box clearfloat">
+                                                <div class="bank-card">
+                                                    <div class="card-head red"></div>
+                                                    <div class="card-content">
+                                                        <div class="card-img">
+                                                            <img src="../../../images/personal-homepage/financial-management/zsyh-logo.png" alt="">
+                                                        </div>
+                                                        <div class="card-info">
+                                                            <p class="card-name">招商银行</p>
+                                                            <p>6609****1845　　储蓄卡</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="f-card">解除绑定</div>
+                                                </div>
+                                                <div class="bank-card">
+                                                    <div class="card-head blue"></div>
+                                                    <div class="card-content">
+                                                        <div class="card-img">
+                                                            <img src="../../../images/personal-homepage/financial-management/jsyh-logo.png" alt="">
+                                                        </div>
+                                                        <div class="card-info">
+                                                            <p class="card-name">建设银行</p>
+                                                            <p>6609****1845　　储蓄卡</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="f-card">解除绑定</div>
+                                                </div>
+                                                <div class="bank-card">
+                                                    <div class="card-head red"></div>
+                                                    <div class="card-content">
+                                                        <div class="card-img">
+                                                            <img src="../../../images/personal-homepage/financial-management/zsyh-logo.png" alt="">
+                                                        </div>
+                                                        <div class="card-info">
+                                                            <p class="card-name">招商银行</p>
+                                                            <p>6609****1845　　储蓄卡</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="f-card">解除绑定</div>
+                                                </div>
+                                                <div class="add-card">
+                                                    <span><img src="../../../images/personal-homepage/financial-management/add.png" alt="">添加银行卡</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </ul>
+                                </div>
+                            </div>
+                            <script type="text/javascript">jQuery(".tabs2").slide({trigger:"click"});</script>
+                        </ul>
+                    </div>
+                </div>
+                <!--<script type="text/javascript">jQuery(".tabs1").slide({trigger:"click"});</script>-->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="footer">
+    <div class="container">
+        <div class="content clearfix clearfloat">
+            <div class="fl nav clearfix clearfloat">
+                <ul>
+                    <li>
+                        <p>联系我们</p>
+                        <a href="../about-us/about-us.html">关于我们</a>
+                        <a href="../about-us/about-us.html">公司介绍</a>
+                        <a href="../about-us/about-us.html">服务条款</a>
+                        <a href="../about-us/about-us.html">交易协议</a>
+                    </li>
+                    <li>
+                        <p>加入我们</p>
+                        <a href="../becomeGoddess2.html">成为女神</a>
+                        <a href="../chance/broker.html">申请经纪人</a>
+                        <a href="../chance/company-partner.html">商业合作</a>
+                        <a href="../chance/checkInmerchant.html">商家入驻</a>
+                    </li>
+                    <li>
+                        <p>合作机构</p>
+                        <a href="javascript:void(0)">机构1</a>
+                        <a href="javascript:void(0)">机构2</a>
+                        <a href="javascript:void(0)">机构3</a>
+                        <a href="javascript:void(0)">机构4</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="fr code">
+                <img src="../../../images/img_code.jpg">
+                <p>动手扫一扫</p>
+                <p>关注微信公众号</p>
+            </div>
+        </div>
+        <div class="copyright">
+            京公网安备11010802018931号　　Copyright © 2012  互联网娱乐人才有限公司, All Rights Reserved 京ICP备14000454号-1
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function(){
+	//档期
+	$( "#from" ).datepicker({
+		defaultDate: "+1w",
+		changeMonth: true,
+		numberOfMonths: 2,
+		onClose: function( selectedDate ) {
+			$( "#to" ).datepicker( "option", "minDate", selectedDate );
+		}
+	});
+	
+	$( "#to" ).datepicker({
+		defaultDate: "+1w",
+		changeMonth: true,
+		numberOfMonths: 2,
+		onClose: function( selectedDate ) {
+			$( "#from" ).datepicker( "option", "maxDate", selectedDate );
+		}
+	});
+	
+	//工作经历
+	$( "#fromb" ).datepicker({
+		defaultDate: "+1w",
+		changeMonth: true,
+		numberOfMonths: 2,
+		onClose: function( selectedDate ) {
+			$( "#tob" ).datepicker( "option", "minDate", selectedDate );
+		}
+	});
+	
+	$( "#tob" ).datepicker({
+		defaultDate: "+1w",
+		changeMonth: true,
+		numberOfMonths: 2,
+		onClose: function( selectedDate ) {
+			$( "#fromb" ).datepicker( "option", "maxDate", selectedDate );
+		}
+	});
+	
+	//城市联动
+	var selector = $('#city-picker-selector').cityPicker({
+		dataJson: cityData,
+		renderMode: true,
+		search: false,
+		linkage: false
+	})
+	$('#city-picker-selector').on('choose-province.citypicker', function(event, tagert, storage) {
+		console.log(storage);
+	});
+
+	//设置城市
+	selector.setCityVal([{
+		'id': '110000',
+		'name': '北京市'
+	}, {
+		'id': '110100',
+		'name': '北京市'
+	}]);
+	
+	
+	//
+    $(".RegisterBtn").click(function () {
+        if ($("#name").val() == "") {
+            $("#nameMessg").text("姓名不能为空！");
+            $("#nameMessg").siblings(".name").addClass("act")
+            $("#name").focus();
+            return false;
+        }
+        if ($("#height").val() == "") {
+            $("#heightMessg").text("身高不能为空！");
+            $("#heightMessg").siblings(".height").addClass("act")
+            $("#height").focus();
+            return false;
+        }
+        if ($("#weight").val() == "") {
+            $("#weightMessg").text("体重不能为空");
+            $("#weightMessg").siblings(".weight").addClass("act")
+            $("#weight").focus();
+            return false;
+        }
+        if ($("#Age").val() == '') {
+            $("#AgeMessg").text("年龄不能为空！");
+            $("#AgeMessg").siblings(".Age").addClass("act")
+            $("#Age").focus();
+            return false;
+        }
+        if ($("#bust").val() == "") {
+            $("#bustMessg").text("胸围不能为空！");
+            $("#bustMessg").siblings(".bust").addClass("act")
+            $("bust").focus();
+            return false;
+        }
+        if ($("#waist").val() == "") {
+            $("#waistMessg").text("腰围不能为空！");
+            $("#waistMessg").siblings(".waist").addClass("act")
+            $("waist").focus();
+            return false;
+        }
+        if ($("#hips").val() == "") {
+            $("#hipsMessg").text("臀围不能为空！");
+            $("#hipsMessg").siblings(".hips").addClass("act")
+            $("hips").focus();
+            return false;
+        }
+        
+    })
+    
+    
+    $("#name").blur(function () {
+        $("#nameMessg").text("");
+        $("#name").removeClass("act");
+    })
+    $("#height").blur(function () {
+        $("#heightMessg").text("");
+        $("#height").removeClass("act");
+    })
+    $("#weight").blur(function () {
+        $("#weightMessg").text("");
+        $("#weight").removeClass("act");
+    })
+    $("#Age").blur(function () {
+        $("#AgeMessg").text("");
+        $("#Age").removeClass("act");
+    })
+    $("#bust").blur(function () {
+        $("#bustMessg").text("");
+        $("#bust").removeClass("act");
+    })
+    $("#waist").blur(function () {
+        $("#waistMessg").text("");
+        $("#waist").removeClass("act");
+    })
+    $("#hips").blur(function () {
+        $("#hipsMessg").text("");
+        $("#hips").removeClass("act");
+    })
+    
+    
+});
+</script>
+
+</body>
+<../>

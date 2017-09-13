@@ -1,0 +1,222 @@
+body {
+  /*font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;*/
+  font-family: "微软雅黑";
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333;
+  background-color: #fff;
+}
+html,
+body {
+  height: 100%;
+  background: #333333;
+}
+header {
+  background: #000;
+}
+header .header-main {
+  max-width: 1280px;
+  margin: 0 auto;
+  height: 80px;
+}
+header .header-left {
+  float: left;
+  height: 80px;
+  line-height: 80px;
+}
+header .header-left a {
+  color: #919191;
+  border: 1px solid #919191;
+  border-radius: 5px;
+  font-size: 13px;
+  display: block;
+  float: left;
+  padding: 3px;
+  line-height: 13px;
+  margin-top: 30px;
+}
+header .header-left img {
+  float: left;
+  display: block;
+  position: relative;
+  top: 23px;
+  margin-right: 12px;
+}
+header .header-right {
+  float: right;
+  height: 80px;
+}
+header .header-right p {
+  color: #919191;
+  line-height: 80px;
+  font-size: 13px;
+}
+header .header-right p span {
+  color: #D6A93C;
+  font-size: 18px;
+  margin-left: 15px;
+}
+.main {
+  padding-bottom: 50px;
+  background: #333333;
+}
+.main .login-box {
+  width: 870px;
+  min-width: 870px;
+  margin: 0 auto;
+  padding: 40px 0 60px 0;
+}
+.main .login-box .box-head {
+  height: 20px;
+  background: #E6BE35;
+}
+.main .login-box .box-main {
+  padding: 80px 0 50px 0 ;
+  background: white;
+}
+.main .login-box .box-main .box-main-p1 {
+  width: 680px;
+  margin: 0 auto;
+  margin-bottom: 70px;
+}
+.main .login-box .box-main .box-main-p1 div,
+.main .login-box .box-main .box-main-p1 span,
+.main .login-box .box-main .box-main-p1 i {
+  float: left;
+  display: block;
+}
+.main .login-box .box-main .box-main-p1 .hr1 {
+  width: 35px;
+  height: 1px;
+  background: #919191;
+}
+.main .login-box .box-main .box-main-p1 .hr2 {
+  width: 95px;
+  height: 1px;
+  background: #919191;
+}
+.main .login-box .box-main .box-main-p1 .hr1,
+.main .login-box .box-main .box-main-p1 .hr2 {
+  position: relative;
+  top: 15px;
+}
+.main .login-box .box-main .box-main-p1 span {
+  font-size: 16px;
+  line-height: 30px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  border: 2px solid #000;
+  border-radius: 50%;
+  margin-left: 5px;
+}
+.main .login-box .box-main .box-main-p1 i {
+  color: #000;
+  margin: 0 10px;
+  line-height: 30px;
+  font-size: 20px;
+}
+.main .login-box .box-main .box-main-p1 .gray {
+  color: #919191;
+  border-color: #919191;
+  
+}
+.main .login-box .box-main .main-check1 {
+  width: 715px;
+  margin: 0 auto;
+  display: flex;justify-content: space-between;flex-wrap: wrap;
+}
+.main .login-box .box-main .main-check1 div,
+.main .login-box .box-main .main-check1 span {
+  float: left;
+  display: block;
+}
+.main .login-box .box-main .main-check1 .mr15 {
+  margin-right: 15px;
+}
+.main .login-box .box-main .main-check1 .check1 {
+  cursor: pointer;
+  border: 1px solid #E6E6E6;
+  margin-bottom: 25px;
+  padding: 20px 30px;
+}
+.main .login-box .box-main .main-check1 .check1 .check1-left {
+  margin-right: 15px;
+  display: block;
+}
+.main .login-box .box-main .main-check1 .check1 .img1 {
+  width: 52px;
+  height: 71px;
+  background: url(../images/login-register/jjr.png);
+}
+.main .login-box .box-main .main-check1 .check1 .img2 {
+  width: 51px;
+  height: 60px;
+  background: url(../images/login-register/model.png);
+}
+.main .login-box .box-main .main-check1 .check1 .img3 {
+  width: 54px;
+  height: 64px;
+  background: url(../images/login-register/qy.png);
+}
+.main .login-box .box-main .main-check1 .check1 .img4 {
+  width: 50px;
+  height: 62px;
+  background: url(../images/login-register/people.png);
+}
+.main .login-box .box-main .main-check1 .check1 div {
+  width: 220px;
+  font-size: 14px;
+}
+.main .login-box .box-main .main-check1 .check1 div p {
+  font-size: 18px;
+  line-height: 25px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+.main .login-box .box-main .main-check1 .check1:hover {
+  border: 1px solid transparent;
+  -webkit-box-shadow: 2px 2px 4px #D2D2D2;
+  -moz-box-shadow: 2px 2px 4px #D2D2D2;
+  box-shadow: 2px 2px 4px #D2D2D2;
+}
+.main .login-box .box-main .zc-btn {
+  width: 188px;
+  line-height: 38px;
+  text-align: center;
+  border: 2px solid #E6BE35;
+  margin: 0 auto;
+  color: #E6BE35;
+  cursor: pointer;
+}
+.main .zm {
+  color: #919191;
+  text-align: center;
+  margin: 0 auto;
+}
+/*点击效果*/
+.active1 {
+  background: #E5BA35;
+  color: white;
+  border-color: #E5BA35;
+}
+.login .main .login-box .box-main .main-check1 .active1 .img1 {
+  width: 52px;
+  height: 71px;
+  background: url(../images/login-register/jjr2.png);
+}
+.login .main .login-box .box-main .main-check1 .active1 .img2 {
+  width: 51px;
+  height: 60px;
+  background: url(../images/login-register/model1.png);
+}
+.login .main .login-box .box-main .main-check1 .active1 .img3 {
+  width: 54px;
+  height: 64px;
+  background: url(../images/login-register/qy1.png);
+}
+.login .main .login-box .box-main .main-check1 .active1 .img4 {
+  width: 50px;
+  height: 62px;
+  background: url(../images/login-register/people1.png);
+}

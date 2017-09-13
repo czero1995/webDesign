@@ -1,0 +1,277 @@
+@import "./mixins.less";
+@import "./navbar.less";
+@import "./toolbar.less";
+html {
+    // font-size: 625%;
+}
+
+.pages {
+    .page-content {
+        padding-top: 44px;
+    }
+}
+
+.link-to-page {
+    display: block;
+    float: left;
+    padding: 6px;
+}
+
+.statusbar-overlay {
+    background: @mainColor;
+}
+
+.clear {
+    clear: both;
+}
+
+.text-gradient {
+    display: inline-block !important;
+    color: #E6CF8B;
+    background-image: -webkit-gradient(linear, 0 bottom, 100 bottom, from(#E6CF8B), to(#6C4503)) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+.text-gradient-home {
+    display: inline-block !important;
+    color: #E6CF8B;
+    background-image: -webkit-gradient(linear, 0 bottom, 100 bottom, from(#E6CF8B), to(#6C4503)) !important;
+    -webkit-background-clip: text !important;
+}
+
+.icon {
+    vertical-align: middle;
+    background-size: 100% auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-style: normal;
+    position: relative;
+}
+
+.icon-logo {
+    //  width: 74px;
+    //  height: 18px;
+    width: 2rem;
+    height: 0.8rem;
+    background-image: url('../../../static/icon/logo@3x.png');
+}
+
+.icon-back {
+    //  width: 8px;
+    //  height: 18px;
+    //  margin-left: 12px;
+    //  padding-right: 20px;
+    width: 0.1rem;
+    height: 0.4rem;
+    margin-left: 0.2rem;
+    padding-right: 0.5rem;
+    background-image: url('../../../static/icon/nav_btn_back@3x.png');
+}
+
+.icon-card {
+    width: 22px;
+    height: 16px;
+    background-image: url('../../../static/icon/nav_btn_business card_nor@3x.png');
+}
+
+.icon-up {
+    width: 12px;
+    height: 22.5px;
+    background-image: url('../../../static/icon/list_btn_back_nor@3x.png');
+}
+
+.icon-down {
+    width: 12px;
+    height: 22.5px;
+    background-image: url('../../../static/icon/list_btn_more_nor@3x.png');
+}
+
+.icon-setting {
+    //  width: 15.5px;
+    //  height: 15px;
+    width: 0.34rem;
+    height: 0.34rem;
+    background-image: url('../../../static/icon/nav_btn_set_nor@3x.png');
+}
+
+.icon-scancode {
+    width: 15.5px;
+    height: 15px;
+    background-image: url('../../../static/icon/nav_btn_Scan code_nor@3x.png');
+}
+
+.icon-gallary {
+    width: 20px;
+    height: 20px;
+    background-image: url('../../../static/icon/btn_img_nor@3x.png');
+}
+
+.icon-msg-selected {
+    width: 15.5px;
+    height: 15px;
+    background-image: url('../../../static/icon/list_msg_Selected@3x.png');
+}
+
+.icon-delete {
+    width: 20px;
+    height: 20px;
+    background-image: url('../../../static/icon/list_delete_nor@3x.png');
+}
+
+a.active {
+    .icon-tab-home {
+        width: 20px;
+        height: 18.5px;
+        background-image: url('../../../static/icon/home_btn_sel@3x.png');
+    }
+    .icon-tab-cart {
+        width: 19px;
+        height: 18.5px;
+        background-image: url('../../../static/icon/tab_btn_shopping cart_sel@3x.png');
+    }
+    .icon-tab-order {
+        width: 15.5px;
+        height: 19px;
+        background-image: url('../../../static/icon/tab_btn_order_sel@3x.png');
+    }
+    .icon-tab-member {
+        width: 16.5px;
+        height: 18.5px;
+        background-image: url('../../../static/icon/tab_btn_porfile_sel@3x.png');
+    }
+}
+
+.icon-tab-home {
+    width: 20px;
+    height: 18.5px;
+    background-image: url('../../../static/icon/tab_btn_home_nor@3x.png');
+}
+
+.icon-tab-cart {
+    width: 19px;
+    height: 18.5px;
+    background-image: url('../../../static/icon/tab_btn_shopping cart_nor@3x.png');
+}
+
+.icon-tab-order {
+    width: 15.5px;
+    height: 19px;
+    background-image: url('../../../static/icon/tab_btn_order_nor@3x.png');
+}
+
+.icon-tab-member {
+    width: 16.5px;
+    height: 18.5px;
+    background-image: url('../../../static/icon/tab_btn_porfile_nor@3x.png');
+}
+
+.icon-list-cart {
+    width: 16.5px;
+    height: 18.5px;
+    background-image: url('../../../static/icon/list_btn_shopping cart_nor@3x.png');
+}
+
+.icon-list-cart-sel {
+    width: 16.5px;
+    height: 18.5px;
+    background-image: url('../../../static/icon/list_btn_shopping cart_sel@3x.png');
+}
+
+.flex-column {
+    display: flex !important;
+    flex-direction: column;
+    .flex-rest-height {
+        flex: 1;
+        height: initial;
+    }
+}
+
+.flex-row {
+    display: flex !important;
+    flex-direction: row;
+    .flex-rest-width {
+        flex: 1;
+        width: initial;
+    }
+}
+
+.tabbar-fixed .page-content,
+.tabbar-through .page-content,
+.toolbar-fixed .page-content,
+.toolbar-through .page-content {
+    padding-bottom: 50px;
+}
+
+.searchbar-cancel {
+    color: @mainColor;
+}
+
+.messagebar {
+    .link {
+        color: @mainColor;
+    }
+}
+
+.empty-content {
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+    .iconfont {
+        font-size: 80px;
+        color: #929292;
+    }
+    .text {
+        font-size: 14px;
+        color: #929292;
+        margin-top: 6px;
+    }
+}
+
+
+/* 弹出层的自定义样式 */
+
+.modal-in,
+.modal-out {
+    border-radius: 4px;
+    .modal-no-buttons {
+        border-radius: 4px;
+        .modal-inner {
+            border-radius: 4px;
+        }
+    }
+    .modal-inner {
+        border-radius: 4px 4px 0 0;
+        color: #696969;
+        .modal-text {
+            font-size: 0.40rem;
+        }
+    }
+    .modal-buttons {
+        &.modal-buttons-1 {
+            .modal-button {
+                color: #fff;
+                font-weight: 200;
+                background: url(../../../static/icon/list_bg_content_sel@3x.png);
+                border-radius: 0 0 4px 4px;
+            }
+        }
+        &.modal-buttons-2 {
+            .modal-button {
+                color: #B0924F;
+                font-weight: 200;
+                &.modal-button-bold {
+                    background: url(../../../static/icon/list_bg_content_sel@3x.png);
+                    color: #fff;
+                    font-weight: 200;
+                }
+                &:first-child {
+                    border-radius: 0 0 0 4px;
+                }
+                &:last-child {
+                    border-radius: 0 0 4px 0;
+                }
+            }
+        }
+    }
+}

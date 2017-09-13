@@ -1,0 +1,391 @@
+body {
+  /*font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;*/
+  font-family: "微软雅黑", "Helvetica Neue", Helvetica, "PingFang SC", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 26px;
+  color: #333;
+  background-color: #fff;
+}
+body,
+html {
+  min-width: 1200px;
+  overflow-x: auto;
+}
+/*表单默认属性*/
+input::-webkit-input-placeholder {
+  color: #cccccc;
+  opacity: 1;
+}
+textarea::-webkit-input-placeholder {
+  color: #cccccc;
+  opacity: 1;
+}
+input,
+textarea {
+  border-color: #CCCCCC;
+  font-size: 14px;
+  line-height: 26px;
+  resize: none;
+  outline: none;
+  border: 1px solid #CCCCCC;
+  text-indent: 10px;
+}
+textarea:focus {
+  border-color: #D6A003;
+}
+input:focus {
+  border-color: #D6A003;
+}
+.mg0 {
+  margin: 0!important;
+}
+.mr27 {
+  margin-right: 27px;
+}
+.mr45 {
+  margin-right: 45px;
+}
+h3 {
+  font-weight: normal;
+}
+.bdno {
+  border: none!important;
+}
+.clearfloat:after {
+  display: block;
+  content: '';
+  height: 0;
+  width: 0;
+  clear: both;
+}
+.container {
+  width: 1200px;
+  padding-right: 10px;
+  padding-left: 10px;
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
+}
+
+
+.banner {
+  width: 100%;
+  height: 400px;
+  background: url("../../images/dream-factory/banner.png") no-repeat;
+  background-size: 100% 100%;
+}
+/*内容*/
+.main {
+  background: #1f1f1f;
+}
+.main .main-box {
+  background: url(../../images/model-point/bg4.png) center no-repeat;
+  background-size: 100% auto;
+  padding-top: 25px;
+  padding-bottom: 35px;
+}
+.main .main-box .mod-1 {
+  margin-bottom: 45px;
+}
+.main .main-box .mod-1 .mod-1-box {
+  width: 570px;
+  height: 165px;
+  background: url("../../images/dream-factory/bg.png") no-repeat;
+  background-size: 100% 100%;
+  padding: 30px 40px;
+  box-sizing: border-box;
+  position: relative;
+  cursor: pointer;
+}
+.main .main-box .mod-1 .mod-1-box .mod-1-logo {
+  width: 110px;
+  height: 110px;
+  display: block;
+  float: left;
+}
+.main .main-box .mod-1 .mod-1-box .mode-1-box-info {
+  float: left;
+  margin: 20px 25px 0 60px;
+}
+.main .main-box .mod-1 .mod-1-box .mode-1-box-info p.title {
+  font-size: 30px;
+  letter-spacing: 15px;
+  margin-bottom: 12px;
+}
+.main .main-box .mod-1 .mod-1-box .mode-1-box-info p {
+  font-size: 20px;
+  color: #fff;
+}
+.main .main-box .mod-1 .mod-1-box i.more {
+  display: block;
+  background: url("../../images/dream-factory/right.png") no-repeat;
+  background-size: 100% 100%;
+  width: 25px;
+  height: 45px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 43px;
+  margin: auto;
+}
+.main .main-box .mod-2 {
+  padding: 45px 20px 40px 20px;
+  background: rgba(0, 0, 0, 0.6);
+  margin-bottom: 40px;
+}
+.main .main-box .mod-2 .mod-2-title {
+  margin: 0 auto;
+  margin-bottom: 40px;
+  position: relative;
+  width: 420px;
+}
+.main .main-box .mod-2 .mod-2-title .title {
+  float: left;
+  font-size: 30px;
+  color: #BE9D63;
+  letter-spacing: 5px;
+  margin-left: 35px;
+  margin-right: 30px;
+}
+.main .main-box .mod-2 .mod-2-title .title img {
+  display: inline-block;
+  position: relative;
+  margin-right: 15px;
+  top: 10px;
+}
+.main .main-box .mod-2 .mod-2-title .hr {
+  float: left;
+  width: 75px;
+  height: 1px;
+  background: #D59B42;
+  position: relative;
+  top: 32px;
+}
+.main .main-box .mod-2 .mod-2-img .swiper-container {
+  width: 100%;
+  height: 357px;
+}
+.main .main-box .mod-2 .mod-2-img .swiper-container .swiper-button-prev,
+.main .main-box .mod-2 .mod-2-img .swiper-container .swiper-button-next {
+  width: 35px;
+  height: 65px;
+  background: rgba(0, 0, 0, 0.5);
+}
+.main .main-box .mod-2 .mod-2-img .swiper-container .swiper-button-prev img,
+.main .main-box .mod-2 .mod-2-img .swiper-container .swiper-button-next img {
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+.main .main-box .mod-2 .mod-2-img .swiper-container .swiper-button-prev {
+  left: 0;
+}
+.main .main-box .mod-2 .mod-2-img .swiper-container .swiper-button-next {
+  right: 0;
+}
+.main .main-box .mod-2 .mod-2-img .swiper-container img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.main .main-box .mod-2 .mod-2-img .swiper-container .swiper-pagination-bullets .swiper-pagination-bullet {
+  width: 40px;
+  height: 3px;
+  background: #AFAFAF;
+  border-radius: 5px;
+}
+.main .main-box .mod-2 .mod-2-img .swiper-container .swiper-pagination-bullets .swiper-pagination-bullet-active {
+  background: #fff;
+}
+.main .main-box .mod-2 .mod-2-img .swiper-container .tuijian {
+  position: absolute;
+  display: block;
+  width: 149px;
+  height: 36px;
+  top: 0;
+  left: 0;
+  background: url("../../images/dream-factory/tuijian.png") no-repeat;
+  background-size: 100% 100%;
+}
+.main .main-box .mod-3 {
+  padding: 30px 30px 35px 30px;
+  background: rgba(0, 0, 0, 0.6);
+  margin-bottom: 35px;
+}
+.main .main-box .mod-3 .mod-3-title {
+  color: #B0833A;
+  border-bottom: 1px solid #2D2D2D;
+  padding-bottom: 29px;
+  margin-bottom: 40px;
+}
+.main .main-box .mod-3 .mod-3-title p {
+  font-size: 28px;
+}
+.main .main-box .mod-3 .mod-3-title p span {
+  display: block;
+  float: right;
+  letter-spacing: 10px;
+  font-size: 14px;
+}
+.main .main-box .mod-3 .mod-3-info .mod-3-unit-1 {
+  float: left;
+  width: 486px;
+  height: 370px;
+  background: url("../../images/dream-factory/pic1.png") no-repeat;
+  background-size: 100% 100%;
+  box-shadow: 0px -75px 50px rgba(0, 0, 0, 0.6) inset;
+  padding-top: 275px;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+  color: #fff;
+}
+.main .main-box .mod-3 .mod-3-info .mod-3-unit-1 p.title {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.main .main-box .mod-3 .mod-3-info .mod-3-unit-1 p {
+  font-size: 12px;
+}
+.main .main-box .mod-3 .mod-3-info .mod-3-unit-2 {
+  float: left;
+  width: 300px;
+}
+.main .main-box .mod-3 .mod-3-info .mod-3-unit-2 .unit-2-img {
+  display: block;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.main .main-box .mod-3 .mod-3-info .mod-3-unit-2 p.title {
+  color: #B2935D;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.main .main-box .mod-3 .mod-3-info .mod-3-unit-2 p {
+  color: #909090;
+  font-size: 12px;
+  margin-bottom: 28px;
+}
+.main .main-box .mod-3 .mod-3-info .mod-3-unit-2 .more {
+  width: 138px;
+  height: 28px;
+  line-height: 28px;
+  border: 2px solid #D0A74B;
+  text-align: center;
+  color: #D0A74B;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.main .main-box .mod-3 .mod-3-info .mod-3-unit-2 .more:active {
+  border-color: #B38608;
+  color: #B38608;
+}
+.main .main-box .mod-4 {
+  padding: 30px 30px 35px 30px;
+  background: rgba(0, 0, 0, 0.6);
+}
+.main .main-box .mod-4 .mod-3-title {
+  color: #B0833A;
+  border-bottom: 1px solid #2D2D2D;
+  padding-bottom: 29px;
+  margin-bottom: 40px;
+}
+.main .main-box .mod-4 .mod-3-title p {
+  font-size: 28px;
+}
+.main .main-box .mod-4 .mod-3-title p span {
+  display: block;
+  float: right;
+  letter-spacing: 10px;
+  font-size: 14px;
+}
+.main .main-box .mod-4 .mod-3-info .mod-3-unit {
+  float: left;
+  width: 350px;
+}
+.main .main-box .mod-4 .mod-3-info .mod-3-unit .unit-2-img {
+  display: block;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.main .main-box .mod-4 .mod-3-info .mod-3-unit p.title {
+  color: #B2935D;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.main .main-box .mod-4 .mod-3-info .mod-3-unit p {
+  color: #909090;
+  font-size: 12px;
+  margin-bottom: 28px;
+}
+.main .main-box .mod-4 .mod-3-info .mod-3-unit .more {
+  width: 138px;
+  height: 28px;
+  line-height: 28px;
+  border: 2px solid #D0A74B;
+  text-align: center;
+  color: #D0A74B;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.main .main-box .mod-4 .mod-3-info .mod-3-unit .more a{color: #D0A74B;}
+.main .main-box .mod-4 .mod-3-info .mod-3-unit .more:active {
+  border-color: #B38608;
+  color: #B38608;
+}
+/*底部样式*/
+.footer {
+  background: #18292c;
+}
+.footer .content {
+  padding: 36px 40px 0;
+}
+.footer .content .nav li {
+  float: left;
+  margin-right: 160px;
+}
+.footer .content .nav li p {
+  font-size: 24px;
+  line-height: 24px;
+  color: #8c9496;
+  margin-bottom: 18px;
+}
+.footer .content .nav li a {
+  font-size: 16px;
+  line-height: 30px;
+  color: #48666a;
+  padding: 5px 0;
+  display: block;
+}
+.footer .content .code {
+  border: 1px solid #465456;
+  padding: 10px;
+}
+.footer .content .code img {
+  margin-bottom: 8px;
+}
+.footer .content .code p {
+  font-size: 14px;
+  line-height: 14px;
+  color: #48666a;
+  text-align: center;
+  margin-top: 4px;
+}
+.footer .copyright {
+  padding: 40px 0;
+  font-size: 12px;
+  line-height: 20px;
+  color: #10434f;
+  text-align: center;
+}
+.fr {
+  float: right!important;
+}
+.fl {
+  float: left!important;
+}

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>梦工厂</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/swiper/swiper.min.css">
+    <link rel="stylesheet" href="../../css/dream-factory/dream-factory.css">
+    <link rel="stylesheet/less" type="text/css" href="../../css/dream-factory/dream-factory.less" />
+    <script src="../../js/jquery.min.js"></script>
+    <script src="../../js/less.js"></script>
+    <script src="../../js/base.js"></script>
+    <script src="../../js/swiper/swiper.jquery.min.js"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="../../index.html">
+                    <img src="../../images/logo.png" alt="Model" >
+                </a>
+            </div>
+            <div class="nav clearfix">
+                <ul class="clearfloat">
+                    <li>
+                        <a href="../becomeGoddess.html">网站女神</a>
+                    </li>
+                    <li>
+                        <a href="../model-point/still.html">模特库</a>
+                    </li>
+                    <li>
+                        <a href="../dream-factory/dream-factory.html">梦工场</a>
+                    </li>
+                    <li>
+                        <a href="../shijiao/shijiao.html">视角</a>
+                    </li>
+                    <li>
+                        <a href="../activity/company-annunciate.html">活动</a>
+                    </li>
+                    <li>
+                        <a href="../chance/company-partner.html">机会</a>
+                        <ul class="nav-li-list">
+                            <li><a href="../chance/checkInmerchant.html">商家入驻</a></li>
+                            <li><a href="../chance/broker.html">申请经纪人</a></li>
+                            <li><a href="../chance/company-partner.html">商业合作</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="divLink">
+                <a href="javascript:void(0)">
+                    <i class="picBox"></i>
+                    <h3>阳光大美女<span></span></h3>
+                    <p>深圳绮梦视觉有限公司</p>
+                </a>
+				<ul class="nav-li-list">
+					<li><a href="../model-homepage(thirdparty)/goddessPage.html">个人中心</a></li>
+					<li><a href="../personal-homepage/message-center/order-message.html">消息中心</a></li>
+					<li><a href="../personal-homepage/order-management/order-management.html">订单管理</a></li>
+					<li><a href="javascript:void(0)">退出</a></li>
+				</ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="banner"></div>
+
+    <div class="main">
+        <div class="main-box">
+            <div class="container">
+                <div class="mod-1 clearfloat">
+                    <div class="mod-1-box fl">
+                        <img class="mod-1-logo" src="../../images/dream-factory/peixun.png" />
+                        <div class="mode-1-box-info">
+                            <p class="title">专业培训</p>
+                            <p>PROFESSIONAL TRAINING</p>
+                        </div>
+                        <i class="more"></i>
+                    </div>
+                    <div class="mod-1-box fr">
+                        <img class="mod-1-logo" src="../../images/dream-factory/baozhuang.png" />
+                        <div class="mode-1-box-info">
+                            <p class="title">包装打包</p>
+                            <p>PACKAGING TO BUILD</p>
+                        </div>
+                        <i class="more"></i>
+                    </div>
+                </div>
+                <div class="mod-2">
+                    <div class="mod-2-title clearfloat">
+                        <div class="hr"></div>
+                        <div class="title"><img src="../../images/dream-factory/case-icon.png" alt="">案例展示</div>
+                        <div class="hr"></div>
+                    </div>
+                    <div class="mod-2-img">
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide"><a href="../dream-factory/case-info.html"><img src="../../images/dream-factory/banner2.png" alt=""></a></div>
+                                <div class="swiper-slide"><a href="../dream-factory/case-info.html"><img src="../../images/dream-factory/lunbo1.png" alt=""><span class="tuijian"></span></a></div>
+                                <div class="swiper-slide"><a href="../dream-factory/case-info.html"><img src="../../images/dream-factory/lunbo1.png" alt=""></a></div>
+                            </div>
+                            <!-- 如果需要导航按钮 -->
+                            <div class="swiper-button-prev"><img src="../../images/ico_prev.png" alt=""></div>
+                            <div class="swiper-button-next"><img src="../../images/ico_next.png" alt=""></div>
+
+
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mod-3">
+                    <div class="mod-3-title">
+                        <p>专业培训套餐 <span>为了遇见更好的自己</span></p>
+                    </div>
+                    <div class="mod-3-info clearfloat">
+                        <div class="mod-3-unit-1 mr27">
+                            <p class="title">模特学生形体训练课</p>
+                            <p>Katia Cho被誉为韩国时尚教母，毕业于巴黎高级时装学ESMOD，曾为韩国诸多时尚造型类综艺节目最灼手可热的嘉宾。</p>
+                        </div>
+                        <div class="mod-3-unit-2 mr27">
+                            <img class="unit-2-img" src="../../images/dream-factory/pic2.png" alt="">
+                            <p class="title">模特学生体型课</p>
+                            <p>Katia Cho被誉为韩国时尚教母，毕业于巴黎高级时装学ESMOD.</p>
+                            <div class="more"><a href="../dream-factory/package-info.html">
+                                查看详情 >
+                            </a></div>
+                        </div>
+                        <div class="mod-3-unit-2">
+                            <img class="unit-2-img" src="../../images/dream-factory/pic3.png" alt="">
+                            <p class="title">模特学生体型课</p>
+                            <p>Katia Cho被誉为韩国时尚教母，毕业于巴黎高级时装学ESMOD.</p>
+                            <div class="more"><a href="../dream-factory/package-info.html">
+                                查看详情 >
+                            </a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mod-4">
+                    <div class="mod-3-title">
+                        <p>包装打包套餐 <span>只为成为更自信的自己</span></p>
+                    </div>
+                    <div class="mod-3-info clearfloat">
+                        <div class="mod-3-unit mr45">
+                            <img class="unit-2-img" src="../../images/dream-factory/pic6.png" alt="">
+                            <p class="title">模特学生体型课</p>
+                            <p>Katia Cho被誉为韩国时尚教母，毕业于巴黎高级时装学ESMOD.</p>
+                            <div class="more"><a href="../dream-factory/package-info.html">
+                                查看详情 >
+                            </a></div>
+                        </div>
+                        <div class="mod-3-unit mr45">
+                            <img class="unit-2-img" src="../../images/dream-factory/pic4.png" alt="">
+                            <p class="title">模特学生体型课</p>
+                            <p>Katia Cho被誉为韩国时尚教母，毕业于巴黎高级时装学ESMOD.</p>
+                            <div class="more"><a href="../dream-factory/package-info.html">
+                                查看详情 >
+                            </a></div>
+                        </div>
+                        <div class="mod-3-unit">
+                            <img class="unit-2-img" src="../../images/dream-factory/pic5.png" alt="">
+                            <p class="title">模特学生体型课</p>
+                            <p>Katia Cho被誉为韩国时尚教母，毕业于巴黎高级时装学ESMOD.</p>
+                            <div class="more"><a href="../dream-factory/package-info.html">
+                                查看详情 >
+                            </a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+    <div class="container">
+        <div class="content clearfix clearfloat">
+            <div class="fl nav clearfix clearfloat">
+                <ul>
+                    <li>
+                        <p>联系我们</p>
+                        <a href="../about-us/about-us.html">关于我们</a>
+                        <a href="../about-us/about-us.html">公司介绍</a>
+                        <a href="../about-us/about-us.html">服务条款</a>
+                        <a href="../about-us/about-us.html">交易协议</a>
+                    </li>
+                    <li>
+                        <p>加入我们</p>
+                        <a href="../becomeGoddess2.html">成为女神</a>
+                        <a href="../chance/broker.html">申请经纪人</a>
+                        <a href="../chance/company-partner.html">商业合作</a>
+                        <a href="../chance/checkInmerchant.html">商家入驻</a>
+                    </li>
+                    <li>
+                        <p>合作机构</p>
+                        <a href="javascript:void(0)">机构1</a>
+                        <a href="javascript:void(0)">机构2</a>
+                        <a href="javascript:void(0)">机构3</a>
+                        <a href="javascript:void(0)">机构4</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="fr code">
+                <img src="../../images/img_code.jpg">
+                <p>动手扫一扫</p>
+                <p>关注微信公众号</p>
+            </div>
+        </div>
+        <div class="copyright">
+            京公网安备11010802018931号　　Copyright © 2012  互联网娱乐人才有限公司, All Rights Reserved 京ICP备14000454号-1
+        </div>
+    </div>
+</div>
+
+    <script>
+        var mySwiper = new Swiper ('.swiper-container', {
+            direction: 'horizontal',
+            // 如果需要前进后退按钮
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+
+            pagination: '.swiper-pagination'
+        })
+    </script>
+</body>
+<../>

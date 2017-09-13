@@ -1,0 +1,32 @@
+{
+    "Data": {
+        "AccessToken": "63773527_6a2d63e51cee4f0086a4beb0a0b0bf6f",
+        "AgentInfo": {
+            "Id": 485,
+            "NickName": "YJ-NICKNAME",
+            "FullName": "YJ-FULLNAME",
+            "LoginId": "63773527",
+            "CountryId": 0,
+            "CertificateCountryCode": "HK",
+            "BranchCompanyId": 8,
+            "Language": "zh-CN",
+            "Status": 0,
+            "IdCardNumber": "HK1818B149C8",
+            "PackageId": 2,
+            "LevelId": 7,
+            "Email": "abc@yj1688.com",
+            "IsSetWalletPassword": true,
+            "IsActive": true,
+            "CurrencyCode": "HKD",
+            "ConfirmAgreement": true,
+            "IsNotPayYearFee": false,
+            "IsSetDetail": true,
+            "UserType": 1,
+            "IsYJWAgent": false,
+            "DisplayName": "YJ-NICKNAME",
+            "IsAgent": true
+        }
+    },
+    "ErrorInfos": [],
+    "IsSuccess": true
+}

@@ -1,0 +1,258 @@
+body {
+  /*font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;*/
+  font-family: "微软雅黑";
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333;
+  background-color: #fff;
+}
+input,
+button {
+  background: transparent;
+}
+html,
+body {
+  height: 100%;
+  background: #333333;
+}
+/*表单默认属性*/
+input::-webkit-input-placeholder {
+  color: #cccccc;
+  opacity: 1;
+}
+textarea::-webkit-input-placeholder {
+  color: #cccccc;
+  opacity: 1;
+}
+input,
+textarea,
+select {
+  border-color: #CCCCCC;
+  font-size: 14px;
+  line-height: 26px;
+  resize: none;
+  outline: none;
+  border: 1px solid #CCCCCC;
+  font-family: 微软雅黑;
+  text-indent: 10px;
+}
+textarea:focus {
+  border-color: #D6A003;
+}
+input:focus {
+  border-color: #D6A003;
+}
+header {
+  background: #000;
+}
+header .header-main {
+  max-width: 1280px;
+  margin: 0 auto;
+  height: 80px;
+}
+header .header-left {
+  float: left;
+  height: 80px;
+  line-height: 80px;
+}
+header .header-left a {
+  color: #919191;
+  border: 1px solid #919191;
+  border-radius: 5px;
+  font-size: 13px;
+  display: block;
+  float: left;
+  padding: 3px;
+  line-height: 13px;
+  margin-top: 30px;
+}
+header .header-left span {
+  color: #D6A93C;
+  float: left;
+  display: block;
+  margin-right: 12px;
+}
+header .header-right {
+  float: right;
+  height: 80px;
+}
+header .header-right p {
+  color: #919191;
+  line-height: 80px;
+  font-size: 13px;
+}
+header .header-right p span {
+  color: #D6A93C;
+  font-size: 18px;
+  margin-left: 15px;
+}
+.main {
+  padding-bottom: 50px;
+  background: #333333;
+}
+.main .login-box {
+  width: 870px;
+  margin: 0 auto;
+  padding: 40px 0 60px 0;
+}
+.main .login-box .box-head {
+  height: 20px;
+  background: #E6BE35;
+}
+.main .login-box .main-box {
+  background: white;
+}
+.main .login-box .box-main {
+  padding: 80px 0 50px 0 ;
+  background: url(../images/login-register/bg.png) no-repeat;
+  background-position: 0 -100px;
+}
+.main .login-box .box-main .box-main-p1 {
+  width: 680px;
+  margin: 0 auto;
+}
+.main .login-box .box-main .box-main-p1 div,
+.main .login-box .box-main .box-main-p1 span,
+.main .login-box .box-main .box-main-p1 i {
+  float: left;
+  display: block;
+}
+.main .login-box .box-main .box-main-p1 .hr1 {
+  width: 35px;
+  height: 1px;
+  background: #919191;
+}
+.main .login-box .box-main .box-main-p1 .hr2 {
+  width: 95px;
+  height: 1px;
+  background: #919191;
+}
+.main .login-box .box-main .box-main-p1 .hr1,
+.main .login-box .box-main .box-main-p1 .hr2 {
+  position: relative;
+  top: 15px;
+}
+.main .login-box .box-main .box-main-p1 span {
+  font-size: 16px;
+  line-height: 30px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  border: 2px solid #000;
+  border-radius: 50%;
+  margin-left: 5px;
+}
+.main .login-box .box-main .box-main-p1 i {
+  color: #000;
+  margin: 0 10px;
+  line-height: 30px;
+  font-size: 20px;
+}
+.main .login-box .box-main .box-main-p1 .gray {
+  color: #919191;
+  border-color: #919191;
+}
+.main .login-box .box-main .box-main-p2 {
+  width: 180px;
+  margin: 0 auto;
+  margin-top: 40px;
+  margin-bottom: 25px;
+}
+.main .login-box .box-main .box-main-p2 span {
+  display: block;
+  float: left;
+}
+.main .login-box .box-main .box-main-p2 .vercial {
+  margin: 0 25px;
+  height: 16px;
+  width: 1px;
+  background: #919191;
+  position: relative;
+  top: 3px;
+}
+.main .login-box .box-main .box-main-p2 .yellow {
+  color: #E6BE35;
+}
+.main .login-box .box-main .box-main-p3 {
+  width: 510px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  position: relative;
+}
+.main .login-box .box-main .box-main-p3 .input-left {
+  display: inline-block;
+  width: 80px;
+  text-align: right;
+  margin-right: 20px;
+}
+.main .login-box .box-main .box-main-p3 input, .main .login-box .box-main .box-main-p3 select {
+  height: 40px;
+  text-indent: 5px;
+  width: 400px;
+}
+.main .login-box .box-main .box-main-p3 input:focus {
+  outline: none;
+  border-color: #E6BE35;
+}
+.main .login-box .box-main .box-main-p3 .yzm {
+  width: 210px;
+}
+.main .login-box .box-main .box-main-p3 .yzm-btn {
+  display: inline-block;
+  line-height: 40px;
+  width: 160px;
+  text-align: center;
+  margin-left: 20px;
+  background: #E6BE35;
+}
+.main .login-box .box-main .box-main-p3 .triangle-down {
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 10px solid #999;
+  position: absolute;
+  right: 20px;
+  top: 15px;
+}
+.main .login-box .box-main .box-main-p3 p {
+  color: red;
+  padding-left: 105px;
+  font-size: 14px;
+}
+.main .login-box .box-main .zc-btn {
+  width: 200px;
+  line-height: 40px;
+  text-align: center;
+  border: 2px solid #E6BE35;
+  margin: 0 auto;
+}
+.main .login-box .box-main .box-main-p4 {
+  width: 200px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+.main .login-box .box-main .box-main-p4 span {
+  display: inline-block;
+  width: 20px;
+  line-height: 20px;
+  color: #E6BE35;
+  border: 1px solid #E6BE35;
+  border-radius: 50%;
+  font-size: 16px;
+  text-align: center;
+}
+.main .zm {
+  color: #919191;
+  text-align: center;
+  margin: 0 auto;
+}
+
+
+.main .login-box .box-main .box-main-p3.act{}
+.main .login-box .box-main .box-main-p3.act p{
+	display: block;
+}
+.main .login-box .box-main .box-main-p3.act input, .main .login-box .box-main .box-main-p3.act select{
+	border: 1px solid red;
+}

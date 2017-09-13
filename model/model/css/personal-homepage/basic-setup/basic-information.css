@@ -1,0 +1,1096 @@
+body {
+  /*font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;*/
+  font-family: "微软雅黑", "Helvetica Neue", Helvetica, "PingFang SC", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 26px;
+  color: #333;
+  background-color: #fff;
+}
+body,
+html {
+  min-width: 1200px;
+  overflow-x: auto;
+}
+/*表单默认属性*/
+input::-webkit-input-placeholder {
+  color: #cccccc;
+  opacity: 1;
+}
+textarea::-webkit-input-placeholder {
+  color: #cccccc;
+  opacity: 1;
+}
+input,
+textarea {
+  border-color: #CCCCCC;
+  font-size: 14px;
+  line-height: 26px;
+  resize: none;
+  outline: none;
+  border: 1px solid #CCCCCC;
+  text-indent: 10px;
+  box-sizing: border-box;
+}
+textarea:focus {
+  border-color: #D6A003;
+}
+input:focus {
+  border-color: #D6A003;
+}
+.mg0 {
+  margin: 0!important;
+}
+.mr20 {
+  margin-right: 20px;
+}
+.mb15 {
+  margin-bottom: 15px;
+}
+.pb30 {
+  padding-bottom: 30px;
+}
+.bdno {
+  border: none!important;
+}
+.clearfloat:after {
+  display: block;
+  content: '';
+  height: 0;
+  width: 0;
+  clear: both;
+}
+.container {
+  width: 1200px;
+  padding-right: 10px;
+  padding-left: 10px;
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
+}
+
+/*内容*/
+.main {
+  background: #fff;
+}
+.main .main-box {
+  background: url("../../../images/personal-homepage/bg.png") no-repeat;
+  background-size: 100% auto;
+  padding-top: 38px;
+}
+.main .main-box .grid-1 {
+  background: #303030;
+  padding: 45px 75px 25px 45px;
+  position: relative;
+}
+.main .main-box .grid-1 .head-img {
+  position: relative;
+  width: 115px;
+  height: 115px;
+  float: left;
+}
+.main .main-box .grid-1 .head-img img {
+  height: 100%;
+  width: 100%;
+  display: block;
+  border-radius: 50%;
+}
+.main .main-box .grid-1 .head-img i.v {
+  width: 23px;
+  height: 23px;
+  display: block;
+  position: absolute;
+  background: url("../../../images/personal-homepage/shiming.png") no-repeat;
+  background-size: 100% 100%;
+  right: 12px;
+  bottom: 0;
+}
+.main .main-box .grid-1 .personal-info {
+  padding: 25px 20px;
+  float: left;
+}
+.main .main-box .grid-1 .personal-info .user-name {
+  font-size: 20px;
+  color: #C29F4A;
+  margin-bottom: 20px;
+}
+.main .main-box .grid-1 .personal-info .user-name span {
+  width: 67px;
+  height: 25px;
+  background: url("../../../images/personal-homepage/pthuiyuan.png") no-repeat;
+  background-size: 100% 100%;
+  border-radius: 20px;
+  display: inline-block;
+  margin-right: 10px;
+  position: relative;
+  top: 5px;
+}
+.main .main-box .grid-1 .personal-info .user-name .sex {
+  width: 16px;
+  height: 19px;
+  display: inline-block;
+  background: url("../../../images/personal-homepage/women.png") no-repeat;
+  background-size: 100% 100%;
+  margin-left: 20px;
+  position: relative;
+  top: 3px;
+}
+.main .main-box .grid-1 .personal-info .user-info .user-info-unit {
+  display: block;
+  float: left;
+  color: #CCCCCC;
+  margin-right: 30px;
+}
+.main .main-box .grid-1 .personal-info .user-info .user-info-unit i {
+  position: relative;
+  top: 2px;
+  margin-right: 5px;
+}
+.main .main-box .grid-1 .personal-info .user-info .user-info-unit .address {
+  display: inline-block;
+  width: 13px;
+  height: 17px;
+  background: url("../../../images/personal-homepage/address.png") no-repeat;
+  background-size: 100% 100%;
+}
+.main .main-box .grid-1 .personal-info .user-info .user-info-unit .star {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background: url("../../../images/personal-homepage/star.png") no-repeat;
+  background-size: 100% 100%;
+}
+.main .main-box .grid-1 .personal-info .user-info .user-info-unit .hot {
+  display: inline-block;
+  width: 13px;
+  height: 17px;
+  background: url("../../../images/personal-homepage/hot.png") no-repeat;
+  background-size: 100% 100%;
+}
+.main .main-box .grid-1 .personal-info .user-info .user-info-unit .gift {
+  display: inline-block;
+  width: 17px;
+  height: 15px;
+  background: url("../../../images/personal-homepage/gift.png") no-repeat;
+  background-size: 100% 100%;
+}
+.main .main-box .grid-1 .sign-in-btn {
+  width: 154px;
+  height: 50px;
+  line-height: 50px;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 30px;
+  text-align: center;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 75px;
+  margin: auto;
+}
+.main .main-box .grid-1 .sign-in-btn .sign-in {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  position: relative;
+  top: 5px;
+  background: url("../../../images/personal-homepage/sign-in.png") no-repeat;
+  background-size: 100% 100%;
+  margin-right: 12px;
+}
+.main .main-box .grid-2 {
+  padding: 30px 0;
+}
+.main .main-box .grid-2 .tabs1 .hd1 {
+  width: 208px;
+  float: left;
+  background: #fff;
+  margin-right: 10px;
+}
+.main .main-box .grid-2 .tabs1 .hd1 ul {
+  border: 1px solid #E6E6E6;
+  border-bottom: 0;
+}
+.main .main-box .grid-2 .tabs1 .hd1 ul li {
+  line-height: 66px;
+  font-size: 16px;
+  border-bottom: 1px solid #E6E6E6;
+  position: relative;
+  cursor: pointer;
+}
+.main .main-box .grid-2 .tabs1 .hd1 ul li a {
+  padding-left: 49px;
+  display: block;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+.main .main-box .grid-2 .tabs1 .hd1 ul li .news-num {
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  background: #F8421D;
+  color: #fff;
+  border-radius: 50%;
+  display: inline-block;
+  font-size: 12px;
+  margin-left: 5px;
+}
+.main .main-box .grid-2 .tabs1 .hd1 ul .on {
+  background: #000;
+}
+.main .main-box .grid-2 .tabs1 .hd1 ul .on a {
+  color: #CBAD50;
+}
+.main .main-box .grid-2 .tabs1 .hd1 ul .on .right {
+  width: 10px;
+  height: 15px;
+  background: url("../../../images/about-us/right.png") no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 25px;
+  margin: auto;
+}
+.main .main-box .grid-2 .tabs1 .bd1 {
+  width: 975px;
+  float: right;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 {
+  border: 1px solid #E6E6E6;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .hd {
+  float: none;
+  width: 100%;
+  background: #FAFAFA;
+  border-bottom: 1px solid #E6E6E6;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .hd ul {
+  padding-left: 30px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .hd ul li {
+  float: left;
+  font-size: 18px;
+  padding: 0 14px;
+  line-height: 65px;
+  border-bottom: 2px solid #FAFAFA;
+  margin-right: 65px;
+  cursor: pointer;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .hd ul .on {
+  color: #DBA02C;
+  border-bottom: 2px solid #DBA02C;
+  background: #FAFAFA;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd {
+  background: #fff;
+  float: none;
+  box-sizing: border-box;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd1 {
+  padding: 30px 30px 50px 40px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd1 .list {
+  padding-bottom: 15px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd1 .list .input-title {
+  margin-bottom: 5px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd1 .list .input-title span {
+  color: #DBA02C;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd1 .list input {
+  display: block;
+  height: 42px;
+  width: 98%;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd1 .list .select-box {
+  position: relative;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd1 .list .select-box .select-arrow {
+  display: block;
+  position: absolute;
+  right: 12px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd1 .list .radio {
+  float: left;
+  margin-right: 80px;
+  cursor: pointer;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd1 .list .radio span {
+  line-height: 18px;
+  font-size: 12px;
+  float: left;
+  display: block;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd1 .list .radio .checked {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #E6E6E6;
+  border-radius: 50%;
+  margin-right: 5px;
+  position: relative;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd1 .list .radio .checked .circle {
+  display: block;
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd1 .list .label-box span,
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd1 .list .label-box .add-label {
+  display: block;
+  float: left;
+  width: 110px;
+  height: 48px;
+  line-height: 48px;
+  text-align: center;
+  border: 1px solid #E6E6E6;
+  border-radius: 3px;
+  margin-right: 17px;
+  margin-bottom: 17px;
+  cursor: pointer;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd1 .list .label-box .add-label {
+  float: left;
+  border: 1px dashed #CCC;
+  position: relative;
+  padding-left: 30px;
+  box-sizing: border-box;
+  width: 112px;
+  color: #ccc;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd1 .list .label-box .add-label i {
+  font-size: 35px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 17px;
+  margin: auto;
+  line-height: 40px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd1 .list .label-box .active {
+  border-color: #DBA02C;
+  background: #DBA02C;
+  color: #fff;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd1 .list .label-box span:hover {
+  border-color: #DBA02C;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd1 .list .active .checked {
+  border-color: #DBA02C;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd1 .list .active .circle {
+  background: url("../../../images/personal-homepage/basic-setup/circle.png") no-repeat;
+  background-size: 100% 100%;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd1 .name .list-input {
+  width: 520px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd1 .height .list-input {
+  width: 520px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd1 .height .select-box {
+  width: 520px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd1 .width .list-input {
+  width: 520px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd1 .width .select-box {
+  width: 520px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd1 .age .list-input {
+  width: 520px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd1 .age .select-box {
+  width: 520px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd1 .BWH .list-input {
+  width: 167px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd1 .BWH .select-box {
+  width: 167px;
+  float: left;
+  margin-right: 10px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd1 .BWH .select-box .select-arrow {
+  display: block;
+  position: absolute;
+  right: 12px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd1 .sex .input-title {
+  margin-bottom: 10px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd1 .address .list-input {
+  width: 255px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd1 .address .select-box {
+  float: left;
+  width: 255px;
+  margin-right: 10px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd1 .work-time .list-input {
+  width: 255px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd1 .work-time .select-box {
+  float: left;
+  width: 255px;
+  margin-right: 10px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd1 .work-time .radio {
+  float: left;
+  position: relative;
+  top: 12px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd1 .self-info {
+  margin-bottom: 10px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd1 .self-info textarea {
+  width: 520px;
+  height: 142px;
+  display: block;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd1 .label .input-title {
+  margin-bottom: 10px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd1 .work-experience {
+  margin-bottom: 10px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd1 .work-experience .select-box {
+  width: 255px;
+  float: left;
+  margin-right: 10px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd1 .work-experience .list-input {
+  width: 255px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd1 .work-experience textarea {
+  width: 520px;
+  height: 142px;
+  display: block;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd1 .add-box {
+  margin-bottom: 55px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd1 .add-box .add-img {
+  width: 35px;
+  height: 35px;
+  display: block;
+  cursor: pointer;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd1 .add-box .add-img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd1 .save-btn {
+  width: 216px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background: #D6A003;
+  color: #fff;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd1 .save-btn:active {
+  background: #B38608;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd2 {
+  padding: 30px 40px 47px 40px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd2 .personal .page-1 .list {
+  padding-bottom: 15px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd2 .personal .page-1 .list .input-title {
+  margin-bottom: 5px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd2 .personal .page-1 .list .input-title span {
+  color: #DBA02C;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd2 .personal .page-1 .list .list-input {
+  display: block;
+  height: 42px;
+  width: 520px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd2 .personal .page-1 .list .IDcard-box {
+  margin-bottom: 20px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd2 .personal .page-1 .list .IDcard-box .IDcard {
+  width: 274px;
+  height: 156px;
+  position: relative;
+  cursor: pointer;
+  margin-right: 23px;
+  float: left;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd2 .personal .page-1 .list .IDcard-box .IDcard img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd2 .personal .page-1 .list .IDcard-box .IDcard .f-IDcard {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 36px;
+  line-height: 36px;
+  text-align: center;
+  color: #fff;
+  font-size: 12px;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd2 .personal .page-1 .list .IDcard-box .IDcard .IDcard-title {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 36px;
+  line-height: 36px;
+  text-align: center;
+  font-size: 12px;
+  background: rgba(230, 200, 154, 0.6);
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd2 .personal .page-1 .list .IDcard-box .add-IDcard {
+  width: 272px;
+  height: 154px;
+  border: 1px dashed #E6E6E6;
+  float: left;
+  margin-right: 23px;
+  position: relative;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd2 .personal .page-1 .list .IDcard-box .add-IDcard span {
+  display: block;
+  line-height: 24px;
+  color: #DFA211;
+  height: 24px;
+  width: 35px;
+  padding-left: 35px;
+  background: url("../../../images/personal-homepage/basic-setup/add.png") no-repeat;
+  background-position: left;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  cursor: pointer;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd2 .personal .page-1 .list .IDcard-box .IDcard:hover .f-IDcard {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd2 .personal .page-1 .submit-btn {
+  width: 216px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  color: #fff;
+  background: #D6A003;
+  cursor: pointer;
+  border-radius: 3px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd2 .personal .page-1 .submit-btn:active {
+  background: #B38608;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd2 .personal .page-2 {
+  padding-bottom: 100px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd2 .personal .page-2 .u-1 {
+  margin-bottom: 30px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd2 .personal .page-2 .u-1 .u-title {
+  display: block;
+  float: left;
+  line-height: 28px;
+  width: 80px;
+  text-align: right;
+  margin-right: 35px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd2 .personal .page-2 .u-1 .u-info {
+  line-height: 28px;
+  float: left;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd2 .personal .page-2 .u-1 .u-info .real-nameImg {
+  margin-left: 14px;
+  display: inline-block;
+  width: 80px;
+  height: 28px;
+  vertical-align: middle;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd2 .personal .page-2 .u-1 .u-IDcard {
+  float: left;
+  width: 218px;
+  height: 124px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd2 .personal .page-2 .u-1 .u-IDcard img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd2 .company .page-1 {
+  padding-bottom: 200px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd2 .company .page-1 .title {
+  margin-bottom: 10px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd2 .company .page-1 .title span {
+  color: #DBA02C;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd2 .company .page-1 .company-img {
+  width: 272px;
+  height: 154px;
+  border: 1px dashed #E6E6E6;
+  margin-right: 23px;
+  position: relative;
+  margin-bottom: 20px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd2 .company .page-1 .company-img span {
+  display: block;
+  line-height: 24px;
+  color: #DFA211;
+  height: 24px;
+  width: 35px;
+  padding-left: 35px;
+  background: url("../../../images/personal-homepage/basic-setup/add.png") no-repeat;
+  background-position: left;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  cursor: pointer;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd2 .company .page-1 .reminder {
+  line-height: 21px;
+  color: #DBA02C;
+  margin-bottom: 40px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd2 .company .page-1 .reminder .reminder-img {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  vertical-align: top;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd2 .company .page-1 .submit-btn {
+  width: 216px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  color: #fff;
+  background: #D6A003;
+  cursor: pointer;
+  border-radius: 3px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd2 .company .page-1 .submit-btn:active {
+  background: #B38608;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd2 .company .page-2 {
+  padding-bottom: 300px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd2 .company .page-2 .title {
+  margin-bottom: 15px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd2 .company .page-2 .title img {
+  display: inline-block;
+  width: 98px;
+  height: 28px;
+  vertical-align: middle;
+  margin-left: 13px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd2 .company .page-2 .company-img {
+  width: 274px;
+  height: 156px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd2 .company .page-2 .company-img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd3 .reminder {
+  line-height: 40px;
+  background: #FFFBF1;
+  color: #DBA02C;
+  text-align: center;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd3 .reminder .reminder-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: url("../../../images/personal-homepage/basic-setup/reminder-icon.png") no-repeat;
+  background-size: 100% 100%;
+  position: relative;
+  top: 4px;
+  margin-right: 10px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd3 .mod-bd3-content {
+  padding-top: 30px;
+  padding-left: 40px;
+  padding-bottom: 50px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd3 .mod-bd3-content .m-plan {
+  margin-bottom: 25px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd3 .mod-bd3-content .m-plan .u-title {
+  line-height: 30px;
+  font-size: 20px;
+  margin-bottom: 25px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd3 .mod-bd3-content .m-plan .u-title span {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 50%;
+  background: #000;
+  color: #fff;
+  margin-right: 10px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd3 .mod-bd3-content .m-plan .list {
+  padding-bottom: 15px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd3 .mod-bd3-content .m-plan .list .input-title {
+  margin-bottom: 5px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd3 .mod-bd3-content .m-plan .list .input-title span {
+  color: #DBA02C;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd3 .mod-bd3-content .m-plan .list .list-input {
+  display: inline-block;
+  height: 42px;
+  width: 360px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd3 .mod-bd3-content .m-plan .list span.u {
+  display: inline-block;
+  line-height: 42px;
+  margin-left: 5px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd3 .mod-bd3-content .m-plan .list .select-box {
+  position: relative;
+  width: 360px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd3 .mod-bd3-content .m-plan .list .select-box .select-arrow {
+  display: block;
+  position: absolute;
+  right: 12px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd3 .mod-bd3-content .m-plan .list textarea {
+  display: block;
+  width: 360px;
+  height: 122px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd3 .mod-bd3-content .m-plan .delete-btn {
+  padding-top: 10px;
+  width: 360px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd3 .mod-bd3-content .m-plan .delete-btn span {
+  display: block;
+  float: right;
+  font-size: 12px;
+  padding-left: 25px;
+  height: 18px;
+  line-height: 18px;
+  color: #DBA02C;
+  background: url("../../../images/personal-homepage/basic-setup/delete-icon.png") no-repeat;
+  background-position: 0 -1px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd3 .mod-bd3-content .add-box {
+  margin-bottom: 40px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd3 .mod-bd3-content .add-box .add-img {
+  width: 35px;
+  height: 35px;
+  display: block;
+  cursor: pointer;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd3 .mod-bd3-content .add-box .add-img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd3 .mod-bd3-content .save-btn span {
+  width: 215px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  display: block;
+  background: #D6A003;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 3px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd3 .mod-bd3-content .save-btn span:active {
+  background: #B38608;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd4 .mod-1 {
+  padding-top: 35px;
+  padding-left: 40px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #E6E6E6;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd4 .mod-1 .u-title {
+  font-size: 18px;
+  color: #DBA02C;
+  margin-bottom: 25px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd4 .mod-1 .u-1 {
+  line-height: 30px;
+  width: 565px;
+  margin-bottom: 30px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd4 .mod-1 .u-1 span {
+  display: block;
+  float: right;
+  width: 65px;
+  height: 28px;
+  line-height: 28px;
+  text-align: center;
+  border: 1px solid #D2A929;
+  color: #DBA02C;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd4 .mod-1 .u-1 em {
+  color: #A2A2A2;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd4 .mod-1 .u-1 em.black {
+  color: #000;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd4 .mod-2 {
+  padding-top: 35px;
+  padding-left: 40px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #E6E6E6;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd4 .mod-2 .u-title {
+  font-size: 18px;
+  color: #DBA02C;
+  margin-bottom: 25px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd4 .mod-2 .u-2 {
+  line-height: 30px;
+  width: 565px;
+  margin-bottom: 30px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd4 .mod-2 .u-2 span {
+  display: block;
+  float: right;
+  width: 65px;
+  height: 28px;
+  line-height: 28px;
+  text-align: center;
+  border: 1px solid #D2A929;
+  color: #DBA02C;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd4 .mod-2 .u-2 span.silver {
+  border: 1px solid #ccc;
+  color: #ccc ;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd4 .mod-2 .u-2 em {
+  color: #A2A2A2;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd4 .mod-2 .u-2 em.black {
+  color: #000;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd4 .mod-2 .u-2 .wechat,
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd4 .mod-2 .u-2 .qq,
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd4 .mod-2 .u-2 .weibo {
+  display: inline-block;
+  position: relative;
+  top: 5px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd4 .mod-2 .u-2 .wechat {
+  width: 27px;
+  height: 22px;
+  background: url("../../../images/personal-homepage/basic-setup/wechat.png") no-repeat;
+  background-size: 100% 100%;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd4 .mod-2 .u-2 .qq {
+  width: 23px;
+  height: 27px;
+  background: url("../../../images/personal-homepage/basic-setup/QQ.png") no-repeat;
+  background-size: 100% 100%;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd4 .mod-2 .u-2 .weibo {
+  width: 29px;
+  height: 26px;
+  background: url("../../../images/personal-homepage/basic-setup/weibo.png") no-repeat;
+  background-size: 100% 100%;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd4 .mod-3 {
+  padding-top: 35px;
+  padding-left: 40px;
+  padding-bottom: 28px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd4 .mod-3 .u-title {
+  font-size: 18px;
+  color: #DBA02C;
+  margin-bottom: 25px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd4 .mod-3 .card-box {
+  margin-bottom: 45px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd4 .mod-3 .card-box .bank-card {
+  float: left;
+  width: 258px;
+  height: 110px;
+  box-sizing: border-box;
+  border: 1px solid #E6E6E6;
+  border-radius: 3px;
+  position: relative;
+  margin-right: 44px;
+  margin-bottom: 44px;
+  cursor: pointer;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd4 .mod-3 .card-box .bank-card .card-head {
+  height: 4px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd4 .mod-3 .card-box .bank-card .red {
+  background: #F40010;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd4 .mod-3 .card-box .bank-card .blue {
+  background: #1B6DB1;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd4 .mod-3 .card-box .bank-card .card-content {
+  padding-left: 19px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd4 .mod-3 .card-box .bank-card .card-content .card-img {
+  float: left;
+  margin-right: 14px;
+  width: 30px;
+  height: 30px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd4 .mod-3 .card-box .bank-card .card-content .card-img img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd4 .mod-3 .card-box .bank-card .card-content .card-info {
+  float: left;
+  font-size: 14px;
+  color: #9D9D9D;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd4 .mod-3 .card-box .bank-card .card-content .card-info .card-name {
+  color: #000;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd4 .mod-3 .card-box .bank-card .f-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  line-height: 108px;
+  text-align: center;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd4 .mod-3 .card-box .add-card {
+  float: left;
+  width: 256px;
+  height: 108px;
+  border: 1px dashed #E6E6E6;
+  position: relative;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd4 .mod-3 .card-box .add-card span {
+  width: 105px;
+  height: 15px;
+  color: #DFA211;
+  text-align: right;
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  cursor: pointer;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd4 .mod-3 .card-box .add-card span img {
+  position: absolute;
+  left: 0;
+}
+.main .main-box .grid-2 .tabs1 .bd1 .ul-1 .tabs2 .bd .mod-bd4 .mod-3 .card-box .bank-card:hover .f-card {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+/*底部样式*/
+.footer {
+  background: #18292c;
+}
+.footer .content {
+  padding: 36px 40px 0;
+}
+.footer .content .nav li {
+  float: left;
+  margin-right: 160px;
+}
+.footer .content .nav li p {
+  font-size: 24px;
+  line-height: 24px;
+  color: #8c9496;
+  margin-bottom: 18px;
+}
+.footer .content .nav li a {
+  font-size: 16px;
+  line-height: 30px;
+  color: #48666a;
+  padding: 5px 0;
+  display: block;
+}
+.footer .content .code {
+  border: 1px solid #465456;
+  padding: 10px;
+}
+.footer .content .code img {
+  margin-bottom: 8px;
+}
+.footer .content .code p {
+  font-size: 14px;
+  line-height: 14px;
+  color: #48666a;
+  text-align: center;
+  margin-top: 4px;
+}
+.footer .copyright {
+  padding: 40px 0;
+  font-size: 12px;
+  line-height: 20px;
+  color: #10434f;
+  text-align: center;
+}
+.fr {
+  float: right!important;
+}
+.fl {
+  float: left!important;
+}

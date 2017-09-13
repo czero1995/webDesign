@@ -1,0 +1,702 @@
+{extend name="layout/base"}
+
+{block name="title"}
+<title xmlns:v-model="http://www.w3.org/1999/xhtml">个人信息</title>
+{/block}
+
+{block name="style"}
+
+<link rel="stylesheet" href="__STATIC__/wx/css/person-info.css">
+<link rel="stylesheet" href="__STATIC__/wx/css/common.css">
+<style type="text/css">
+.active-state{
+    /*margin-top:0.1rem;*/
+    /*height: 0.44rem;*/
+}
+.picker-calendar-month-picker{
+    max-width: 2.2rem;
+}
+
+.popover-angle.on-top:after{
+    display: none;
+}
+.popover,.popover-picker-calendar,.remove-on-close,.modal-in{
+    /*top: 0px !important;*/
+}
+.popover.popover-picker-calendar{
+    left: 0!important;
+    height: 5.3rem;
+    background: #ffffff;
+    margin-top:20%;
+}
+.actions-modal.modal-in, .actions-modal.modal-out{
+    -webkit-transition-duration:.0s;
+    transition-duration:.0s;
+}
+.popover{
+    border-radius: 0;
+}
+
+</style>
+{/block}
+@click="phoneEditorModel"
+{block name="content"}
+<div class="page person-page">
+    <div class="page-content">
+        <div class="list-block">
+            <ul>
+                <li>
+                    <div class="item-content">
+
+                        <div class="item-inner">
+                            <div class="item-title label">昵称</div>
+                            <div class="item-title label username">{{infos.nickname}}</div>
+                        </div>
+                    </div>
+                </li>
+                <li class="item-phone">
+                    <div class="item-content">
+
+                        <div v-show="!unphone" class="item-inner" @click="phoneModel">
+                            <div class="item-title label">手机号</div>
+                            <div class="item-input">
+                                <input type="text" placeholder="输入手机号成为会员" v-model="userphone" class="phone-input"
+                                       readOnly="true">
+                            </div>
+                        </div>
+                        <div v-show="unphone" class="item-inner" @click="phoneEditorModel">
+                            <div class="item-title label">手机号</div>
+                            <div class="item-input">
+                                <input type="text" placeholder="修改手机号" v-model="userphone" class="phone-input"
+                                       readOnly="true">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="item-info">
+                    <div class="item-content">
+
+                        <div v-show="!unbind" class="item-inner item-username nameDefault" @click="editorName">
+                            <div class="item-input">
+                                <input type="text" placeholder="姓名" class="input-info input-username"
+                                       v-model="username" v-bind:disabled="nameDisabled">
+                            </div>
+                        </div>
+                        <div v-show="unbind" class="item-inner item-username">
+                            <div class="item-input">
+                                <input type="text" placeholder="姓名" class="input-info input-username"
+                                       v-model="username" v-bind:disabled="nameDisabled">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="item-sex">
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="item-input">
+                                <input type="text" placeholder="性别" v-model="chooseSex" class="input-info input-sex"
+                                       readOnly="true">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="item-birth">
+                    <div class="item-content">
+
+                        <div class="item-inner">
+                            <div class="item-input">
+                                <input type="text" placeholder="生日" v-model="userbirth" readonly="true" id="calendar-default"
+                                       class="input-birth">
+                            </div>
+                        </div>
+                    </div>
+
+                </li>
+                <li class="item-clothes">
+                    <div class="item-content">
+
+                        <div class="item-inner">
+                            <div class="item-input">
+                                <input type="text" placeholder="T恤尺寸" v-model="choosetShirt"
+                                       class="input-info input-clother" readOnly="true">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+        <div class="infoBottom" @click="onChangeInfo" v-show="showProfileBottom">
+            <div class="editorInfo" v-show="showEditor" @click="onEditor">
+                编辑
+            </div>
+            <div class="saveInfo" v-show="showSave" @click="onSave">
+                保存
+            </div>
+        </div>
+
+    </div>
+    <!--验证手机号码-->
+    <div class="phone-model" v-if="showPhone" >
+        <div class="phone-content">
+            <p class="phone-title">验证手机号</p>
+            <div class="phone-box">
+                <input type="text" class="phone-input" placeholder="请输入手机号" v-model="phoneInput"/>
+
+                <div class="yzm-box">
+                    <input type="text" class="yzm-input" placeholder="请输入验证码" v-model="yzmInput"/>
+                    <button class="get-yzm" @click="getYZM">获取验证码</button>
+                </div>
+            </div>
+            <div>
+                <span class="no-now" @click="hidePhoneModel">暂不</span>
+                <button class="insure" @click="confirmBtn" v-bind:class="{ active: checked }" v-bind:disabled="btnPhone">确定
+            </div>
+
+        </div>
+    </div>
+    <!--修改手机号码-->
+    <div class="phone-model" v-if="showEditorPhone" >
+        <div class="phone-content">
+            <p class="phone-title">修改手机号</p>
+            <div class="phone-box">
+                <input type="text" class="phone-input" placeholder="输入当前手机号" v-model="phoneInput"/>
+                <div class="yzm-box">
+                    <input type="text" class="yzm-input" placeholder="请输入验证码" v-model="yzmInput"/>
+                    <button class="get-yzm" @click="getYZM">获取验证码</button>
+                </div>
+            </div>
+            <span class="no-now" @click="hidePhoneModel">暂不</span>
+            <button class="insure"@click="confirmEditorBtn" v-bind:class="{ active: checked }" v-bind:disabled="btnPhone">确定
+            </button>
+        </div>
+    </div>
+    <!--编辑姓名-->
+    <div class="phone-model" v-if="showEditorName" >
+        <div class="phone-content">
+            <p class="phone-title">验证手机号</p>
+            <div class="phone-box">
+                <input type="text" class="phone-input" placeholder="请输入手机号" v-model="phoneInput"/>
+                <div class="yzm-box">
+                    <input type="text" class="yzm-input" placeholder="请输入验证码" v-model="yzmInput"/>
+                    <button class="get-yzm" @click="getYZM">获取验证码</button>
+                </div>
+            </div>
+            <span class="no-now" @click="hidePhoneModel">暂不</span>
+            <button class="insure" @click="confirmEditorName" v-bind:class="{ active: checked }"
+                    v-bind:disabled="false">确定
+            </button>
+        </div>
+    </div>
+    <!--成为会员-->
+    <div class="bevip-model" v-if="showBeVip" >
+        <div class="bevip-content">
+            <img src="__STATIC__/wx/img/pop_img_Congratulations@2x.png" alt=""/>
+            <p class="vip-code">会员号 {{vipNumber}}</p>
+            <p class="vip-tip">恭喜您成为会员啦啦啦</p>
+            <p class="vip-btn" @click="vipBtn">确定</p>
+        </div>
+    </div>
+    <!--选择性别-->
+    <div class="sex-model" v-if="showSex" >
+        <div class="sex-content">
+            <p class="title-name">性别</p>
+            <img src="__STATIC__/wx/img/pop_Gender selection_woman_nor@2x.png" class="gril-img" @click="chooseGirl"/>
+            <p class="gril-text">女</p>
+            <img src="__STATIC__/wx/img/pop_Gender selection_man@2x.png" class="boy-img" @click="chooseMan"/>
+            <p class="boy-text">男</p>
+        </div>
+        <!--完善会员信息-->
+        <div class="info-model" v-if="showInfo" >
+            <div class="info-content">
+                <p class="title-name">完善会员信息</p>
+                <p class="info-tip">完善更多信息，可能会获得会员信息礼品哦</p>
+                <div>
+                    <span class="no-now" @click="infoCancel">取消</span>
+                    <button class="insure" @click="infoInsure">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    {/block}
+
+    {block name="script"}
+    <!--<script src="__STATIC__/wx/js/jquery.js"></script>-->
+    <script type="text/javascript">
+//        sessionStorage.setItem("need-refresh", true);
+
+            var url;
+            getHistory();
+            var flag=false;
+            setTimeout(function(){
+                flag=true
+            },1000)
+            window.addEventListener('popstate',function(e){
+                //监听到返回事件
+                if(flag){
+                    location.href='http://wechat.fullstack.cn/index/member/index'
+//                    alert('123');
+                }
+                getHistory();
+            },false);
+            function getHistory(){
+                var state={
+                    title:'',
+                    url:'#'
+                } ;
+                window.history.pushState(state,'title',url);
+            }
+
+        var wait = 60;
+        var myApp = new Framework7();
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    chooseSex: '',
+                    choosetShirt: '',
+                    unbind: false,
+                    unphone: false,
+                    showPhone: false,
+                    showEditorPhone: false,
+                    showEditorName: false,
+                    showBeVip: false,
+                    showSex: false,
+                    showInfo: false,
+                    showEditor: true,
+                    showProfileBottom: true,
+                    showSave: false,
+                    btnEditorPhone: false,
+                    btnPhone:true,
+                    infos: {},
+                    username: '',
+                    userphone: '',
+                    phoneInput: '',
+                    userbirth: '',
+                    yzmInput: '',
+                    vipNumber: '',
+                    sex: '',
+                    tclother: '',
+                    nameDisabled:true
+                }
+            },
+
+            mounted: function () {
+                var myApp = new Framework7();
+                var $$ = Dom7;
+                var that = this;
+                var cal=$('#calendar-default');
+                var calendarDefault = myApp.calendar({
+                    input: '#calendar-default',
+                    monthNames: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月' , '九月' , '十月', '十一月', '十二月'],
+                    events:{
+//                        close()
+                    }
+                });
+                $('body').on("click",".picker-calendar-day",function () {
+                    calendarDefault.close();
+                });
+                $$('.item-sex').on('click', function () {
+                    var birth = $('.input-birth').val();
+                    that.userbirth = birth;
+                    var buttons = [{
+                        text: '男',
+                        bold: true,
+                        onClick: function () {
+                            that.chooseSex = '男'
+                        }
+                    },
+                        {
+                            text: '女',
+                            bold: true,
+                            onClick: function () {
+                                that.chooseSex = '女';
+                            }
+                        },
+
+                    ];
+                    myApp.actions(buttons);
+                });
+                $$('.item-clothes').on('click', function () {
+                    var birth = $('.input-birth').val();
+                    that.userbirth = birth;
+                    var buttons = [{
+                        text: 'S',
+                        bold: true,
+                        onClick: function () {
+                            that.choosetShirt = 'S';
+                            console.log(that.choosetShirt)
+
+                        }
+                    },
+                        {
+                            text: 'M',
+                            bold: true,
+                            onClick: function () {
+
+                                that.choosetShirt = 'M';
+                                console.log(that.choosetShirt)
+
+                            }
+                        },
+                        {
+                            text: 'L',
+                            bold: true,
+                            onClick: function () {
+                                that.choosetShirt = 'L';
+                                console.log(that.choosetShirt)
+
+                            }
+                        },
+                        {
+                            text: 'XL',
+                            bold: true,
+                            onClick: function () {
+                                that.choosetShirt = 'XL';
+                                console.log(that.choosetShirt)
+
+                            }
+                        },
+                        {
+                            text: 'XXL',
+                            bold: true,
+                            onClick: function () {
+                                that.choosetShirt = 'XXL';
+                                console.log(that.choosetShirt)
+
+                            }
+                        },
+                        {
+                            text: 'XXXL',
+                            bold: true,
+                            onClick: function () {
+                                that.choosetShirt = 'XXXL';
+                                console.log(that.choosetShirt)
+
+                            }
+                        },
+                    ];
+                    myApp.actions(buttons);
+                });
+
+                this.getInfo();
+
+            },
+            computed: {
+                checked() {
+                    return !(this.phoneInput.trim().length === 0 || this.yzmInput.trim().length === 0)
+                }
+
+            },
+            methods: {
+                getInfo: function () {
+                    const that = this;
+                    axios.get(path + 'member/get_user_info/openid/' + "{$openid}")
+                        .then(function (response) {
+                            that.infos = response.data;
+                            that.choosetShirt = that.infos.tshirt;
+                            that.username = that.infos.realname;
+                            if (that.infos.mobile !== '0') {
+                                that.userphone = that.infos.mobile;
+                            } else {
+                                that.userphone = '';
+                            }
+
+                            if (that.infos.member_num == '') {
+                                that.showProfileBottom = false;
+                            }
+//
+//                            if ($('.input-username').val() == '') {
+//
+//                                $('.input-username').attr('disabled', false);
+//                            } else {
+//                                this.unbind = false;
+//                            }
+
+
+                            console.log('11', that.userphone.length)
+                            if (that.userphone.length >= 1) {
+
+                                $('body .item-phone').css("pointer-events", "none");
+                            }
+                            if(that.username.length<1){
+
+                                that.unbind = true;
+                                that.nameDisabled=false;
+                            }
+//                            console.log('phoneValue.length',phoneValue.length)
+                            that.userbirth = that.infos.birthday;
+                            console.log('that.userbirth', that.userbirth);
+                            var infosSex = that.infos.sex;
+                            var infosTshirt = that.infos.Tshirt;
+                            if (infosSex == 0) {
+                                that.chooseSex = '';
+                            } else if (infosSex == 1) {
+                                that.chooseSex = '男';
+                            } else if (infosSex == 2) {
+                                that.chooseSex = '女';
+                            }
+                            console.log('infos', that.infos);
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+                },
+                phoneModel: function () {
+                    this.showPhone = true;
+                },
+                phoneEditorModel: function () {
+                    this.showEditorPhone = true;
+                },
+                editorName: function () {
+                    this.showEditorName = true;
+                },
+                getYZM: function () {
+                    var phoneReg = /(1[3-9]\d{9}$)/;
+                    const that = this;
+                    if (!phoneReg.test(that.phoneInput)) {
+                        myApp.modal({
+                            text: '手机号码格式错误,请重试！',
+                            buttons: [
+                                {
+                                    text: '确定'
+                                }
+                            ]
+                        });
+                    } else {
+                        axios.post(path + 'member/sendSMSCode?mobile=' + that.phoneInput)
+                            .then(function (response) {
+                                if (response.status == 200) {
+                                    var wait = 30;
+                                    that.btnPhone=false;
+                                    that.btnEditorPhone = false;
+                                    var yzm = $('.get-yzm');
+                                    time();
+
+                                    function time() {
+                                        if (wait < 0) {
+                                            yzm.text("获取验证码");
+                                            yzm.removeAttr("disabled");
+                                            wait = 60;
+                                        } else {
+                                            yzm.attr("disabled", "true");
+                                            yzm.text(wait + "秒后重获取");
+                                            wait--;
+                                            setTimeout(function () {
+                                                time();
+                                            }, 1000)
+                                        }
+                                    }
+
+                                } else {
+                                    myApp.modal({
+
+                                        text: response.data.errmsg,
+                                        buttons: [
+                                            {
+                                                text: '确定'
+                                            }
+                                        ]
+                                    });
+                                }
+                                console.log(response.data);
+                            })
+                            .catch(function (error) {
+                                console.log(error);
+                            });
+                    }
+
+                },
+                /*验证新号码*/
+                confirmBtn: function () {
+                    const that = this;
+                    axios.post(path + 'member/register', {
+                        'openid': "{$openid}",
+                        'mobile': that.phoneInput,
+                        'sms_code': that.yzmInput
+                    }).then(function (response) {
+                        console.log(response.status);
+                        if (response.data.status == true) {
+                            that.vipNumber = response.data.member_num;
+                            that.showPhone = false;
+                            that.showBeVip = true;
+                            that.getInfo();
+                            console.log("vipNumber", that.vipNumber)
+
+                        } else {
+                            myApp.modal({
+
+                                text: response.data.msg,
+                                buttons: [
+                                    {
+                                        text: '确定'
+                                    }
+                                ]
+                            });
+                        }
+                        console.log(response.data);
+                    })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+                },
+                /*验证修改手机号码*/
+                confirmEditorBtn: function () {
+                    const that = this;
+                    axios.post(path + 'member/perfectInfo', {
+                        'openid': "{$openid}",
+                        'mobile': that.phoneInput,
+                        'sms_code': that.yzmInput
+                    }).then(function (response) {
+                        console.log(response.status);
+                        if (response.data.status == true) {
+                            that.showPhone = false;
+                            thsat.unphone = true;
+
+
+                        } else {
+                            myApp.modal({
+
+                                text: response.data.errmsg,
+                                buttons: [
+                                    {
+                                        text: '确定'
+                                    }
+                                ]
+                            });
+                        }
+                        console.log(response.data);
+                    })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+                },
+                /*修改姓名验证号码*/
+                confirmEditorName: function () {
+                    const that = this;
+                    axios.post(path + 'member/perfectInfo', {
+                        'mobile': that.phoneInput,
+                        'sms_code': that.yzmInput
+                    }).then(function (response) {
+                        console.log('status', response.data.data);
+                        if (response.data.data == true) {
+                            that.showEditorName = false;
+                            $('.input-username').attr('disabled', false);
+                            that.unbind = true;
+                        } else {
+                            myApp.modal({
+
+                                text: '验证码错误',
+                                buttons: [
+                                    {
+                                        text: '确定'
+                                    }
+                                ]
+                            });
+                        }
+                        console.log(response.data);
+                    })
+                        .catch(function (error) {
+                            console.log('error', error);
+                        });
+                },
+                hidePhoneModel: function () {
+                    this.showPhone = false;
+                    this.showEditorName = false;
+                    this.showEditorPhone = false;
+                },
+                vipBtn: function () {
+                    this.showBeVip = false;
+                    this.showSex = true;
+                },
+                chooseGirl: function () {
+                    this.chooseSex = "女"
+                    this.showSex = false;
+                    this.showInfo = true;
+
+                },
+                chooseMan: function () {
+                    this.chooseSex = "男"
+                    this.showSex = false;
+                    this.showInfo = true;
+
+                },
+                infoCancel: function () {
+                    this.showInfo = false;
+                    onSave();
+                },
+                infoInsure: function () {
+                    this.showInfo = false;
+                    onSave();
+
+                },
+                onChangeInfo: function () {
+                    this.showEditor = !this.showEditor;
+                    this.showSave = !this.showSave;
+                },
+                onEditor: function () {
+                    $('body .item-sex,.item-info,.item-clothes,.item-birth,.item-phone').css("pointer-events", "auto");
+                    this.unphone = true;
+                    this.yzmInput = '';
+                },
+                onSave: function () {
+                    const that = this;
+                    var userSex;
+                    that.unphone = false;
+                    if (that.chooseSex == '男') {
+                        userSex = 1;
+                    }
+                    if (that.chooseSex == '女') {
+                        userSex = 2;
+                    }
+
+                    var birth = $('.input-birth').val();
+                    that.userbirth = birth;
+                    that.unbind=false;
+                    axios.post(path + 'member/perfectInfo', {
+                        'birthday': that.userbirth,
+                        'mobile': that.userphone,
+                        'realname': that.username,
+                        'sex': userSex,
+                        'tshirt': that.choosetShirt,
+                    }).then(function (response) {
+                        if (response.data.errcode == 200) {
+                            that.getInfo();
+                            that.nameDisabled=true;
+                            myApp.modal({
+                                text: '个人信息修改成功',
+                                buttons: [
+                                    {
+                                        text: '确定'
+                                    }
+                                ]
+                            });
+                        } else {
+                            myApp.modal({
+                                text: '信息提交失败，请重试',
+                                buttons: [
+                                    {
+                                        text: '确定'
+                                    }
+                                ]
+                            });
+                        }
+                        console.log('editor', response);
+                        console.log('usersex', userSex);
+
+                    }).catch(function (error) {
+                        console.log(error);
+                    });
+                    this.getInfo();
+                    $('body .item-sex,.item-info,.item-clothes,.item-birth').css("pointer-events", "none");
+
+                }
+
+            }
+        });
+        $('body .item-sex,.item-info,.item-clothes,.item-birth').css("pointer-events", "none");
+
+
+    </script>
+    {/block}

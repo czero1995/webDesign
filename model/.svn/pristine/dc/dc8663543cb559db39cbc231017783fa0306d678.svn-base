@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人中心</title>
+    <link rel="stylesheet" href="../../../css/reset.css">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../../../css/personal-homepage/financial-management/pay.css"/>
+    <script src="../../../js/jquery.min.js"></script>
+    <script src="../../../js/less.js"></script>
+    <script src="../../../js/base.js"></script>
+    <script src="../../../js/jquery.SuperSlide.2.1.1.js"></script>
+    <script src="../../../js/personal-homepage/financial-management/pay.js"></script>
+</head>
+<body>
+<div class="header">
+    <div class="container">
+        <div class="logo">
+            <a href="../../../index.html">
+                <img src="../../../images/logo.png" alt="Model" >
+            </a>
+        </div>
+        <div class="nav clearfix">
+            <ul class="clearfloat">
+                <li>
+                    <a href="../../becomeGoddess.html">网站女神</a>
+                </li>
+                <li>
+                    <a href="../../model-point/still.html">模特库</a>
+                </li>
+                <li>
+                    <a href="../../dream-factory/dream-factory.html">梦工场</a>
+                </li>
+                <li>
+                    <a href="../../shijiao/shijiao.html">视角</a>
+                </li>
+                <li>
+                    <a href="../../activity/company-annunciate.html">活动</a>
+                </li>
+                <li>
+                    <a href="../../chance/company-partner.html">机会</a>
+                </li>
+            </ul>
+        </div>
+        <div class="divLink">
+            <a href="javascript:void(0)">
+                <i class="picBox"></i>
+                <h3>阳光大美女<span></span></h3>
+                <p>深圳绮梦视觉有限公司</p>
+            </a>
+			<ul class="nav-li-list">
+				<li><a href="../../model-homepage(thirdparty)/goddessPage.html">个人中心</a></li>
+				<li><a href="../../personal-homepage/message-center/order-message.html">消息中心</a></li>
+				<li><a href="../../personal-homepage/order-management/order-management.html">订单管理</a></li>
+				<li><a href="javascript:void(0)">退出</a></li>
+			</ul>
+        </div>
+    </div>
+</div>
+<div class="main">
+    <div class="main-box">
+        <div class="container">
+            <div class="grid-1 clearfloat">
+                <div class="head-img">
+                    <img src="../../../images/personal-homepage/header2.png" alt="">
+                    <i class="v"></i>
+                </div>
+                <div class="personal-info clearfloat">
+                    <div class="user-name">
+                        <span class="identity"></span>阳光大美女 <i class="sex"></i>
+                    </div>
+                    <div class="user-info clearfloat">
+                        <span class="user-info-unit"><i class="address"></i>广东深圳</span>
+                        <span class="user-info-unit"><i class="star"></i>已关注 924</span>
+                        <span class="user-info-unit"><i class="hot"></i>人气7324</span>
+                        <span class="user-info-unit"><i class="gift"></i>礼物28</span>
+                    </div>
+                </div>
+                <div class="sign-in-btn">
+                    <i class="sign-in"></i>
+                    签到获币
+                </div>
+            </div>
+            <div class="grid-2">
+                <div class="tabs1 clearfloat">
+                    <div class="hd1">
+                        <ul>
+                            <li>
+                                <a href="../../personal-homepage/order-management/order-management.html">
+                                    订单管理
+                                    <i class="right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../../personal-homepage/photo-management/photo-management.html">
+                                    照片管理
+                                    <i class="right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../../personal-homepage/video-management/video-management.html">
+                                    视频管理
+                                    <i class="right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../../personal-homepage/subscribe-information/subscribe-information.html">
+                                    订阅信息
+                                    <i class="right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../../personal-homepage/manage-model/company.html">
+                                    模特管理
+                                    <i class="right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../../personal-homepage/manage-annunciate/annunciate-info.html">
+                                    通告管理
+                                    <i class="right"></i>
+                                </a>
+                            </li>
+                            <li class="on">
+                                <a href="../../personal-homepage/financial-management/financial-management.html">
+                                    财务管理
+                                    <i class="right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../../personal-homepage/pay-center/pay-center.html">
+                                    充值中心
+                                    <i class="right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../../personal-homepage/message-center/order-message.html">
+                                    消息中心 <span class="news-num">12</span>
+                                    <i class="right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../../personal-homepage/basic-setup/basic-information.html">
+                                    基本设置
+                                    <i class="right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bd1">
+                        <ul class="ul-1">
+                            <div class="ul-1-title">
+                                充值
+                            </div>
+                            <div class="ul-1-content">
+                                <div class="mod-1">
+                                    <p class="u-1">账户余额: <span>￥1800.00</span></p>
+                                    <div class="u-2">
+                                        <span>充值金额: </span> <input type="text" placeholder="输入整数金额"> 元
+                                    </div>
+                                </div>
+                                <div class="mod-2">
+                                    <span class="u-title">支付方式:</span>
+                                    <div class="modeOfpayment">
+                                        <div class="modeOfpayment-1 clearfloat">
+                                            <div class="radio u-1-radio active">
+                                                <span class="checked"><i class="circle"></i></span><img class="zfb" src="../../../images/personal-homepage/financial-management/zfb.png" alt="支付宝">
+                                            </div>
+                                            <div class="radio u-1-radio">
+                                                <span class="checked"><i class="circle"></i></span><img class="wxzf" src="../../../images/personal-homepage/financial-management/wxzf.png" alt="微信">
+                                            </div>
+                                        </div>
+                                        <div class="modeOfpayment-2 clearfloat">
+                                            <div class="u-2-radio-title">
+                                                <span class="checked"><i class="circle"></i></span>网银支付 <em>（需开通网上银行）</em>
+                                            </div>
+                                            <div class="radio u-2-radio">
+                                                <span class="checked"><i class="circle"></i></span><img class="zfyh" src="../../../images/personal-homepage/financial-management/gsyh.png" alt="工商银行">
+                                            </div>
+                                            <div class="radio u-2-radio">
+                                                <span class="checked"><i class="circle"></i></span><img class="zfyh" src="../../../images/personal-homepage/financial-management/jsyh.png" alt="建设银行">
+                                            </div>
+                                            <div class="radio u-2-radio">
+                                                <span class="checked"><i class="circle"></i></span><img class="zfyh" src="../../../images/personal-homepage/financial-management/xyyh.png" alt="兴业银行">
+                                            </div>
+                                            <div class="radio u-2-radio">
+                                                <span class="checked"><i class="circle"></i></span><img class="zfyh" src="../../../images/personal-homepage/financial-management/msyh.png" alt="民生银行">
+                                            </div>
+                                            <div class="radio u-2-radio">
+                                                <span class="checked"><i class="circle"></i></span><img class="zfyh" src="../../../images/personal-homepage/financial-management/nbyh.png" alt="宁波银行">
+                                            </div>
+                                            <div class="radio u-2-radio">
+                                                <span class="checked"><i class="circle"></i></span><img class="zfyh" src="../../../images/personal-homepage/financial-management/nyyh.png" alt="农业银行">
+                                            </div>
+                                            <div class="radio u-2-radio">
+                                                <span class="checked"><i class="circle"></i></span><img class="zfyh" src="../../../images/personal-homepage/financial-management/gdyh.png" alt="光大银行">
+                                            </div>
+                                            <div class="radio u-2-radio">
+                                                <span class="checked"><i class="circle"></i></span><img class="zfyh" src="../../../images/personal-homepage/financial-management/zsyh.png" alt="招商银行">
+                                            </div>
+                                            <div class="radio u-2-radio">
+                                                <span class="checked"><i class="circle"></i></span><img class="zfyh" src="../../../images/personal-homepage/financial-management/zgyh.png" alt="中国银行">
+                                            </div>
+                                            <div class="radio u-2-radio">
+                                                <span class="checked"><i class="circle"></i></span><img class="zfyh" src="../../../images/personal-homepage/financial-management/pfyh.png" alt="浦发银行">
+                                            </div>
+                                            <div class="radio u-2-radio">
+                                                <span class="checked"><i class="circle"></i></span><img class="zfyh" src="../../../images/personal-homepage/financial-management/shyh.png" alt="上海银行">
+                                            </div>
+                                            <div class="radio u-2-radio">
+                                                <span class="checked"><i class="circle"></i></span><img class="zfyh" src="../../../images/personal-homepage/financial-management/jtyh.png" alt="交通银行">
+                                            </div>
+                                            <div class="radio u-2-radio">
+                                                <span class="checked"><i class="circle"></i></span><img class="zfyh" src="../../../images/personal-homepage/financial-management/hzyh.png" alt="杭州银行">
+                                            </div>
+                                            <div class="radio u-2-radio">
+                                                <span class="checked"><i class="circle"></i></span><img class="zfyh" src="../../../images/personal-homepage/financial-management/msyh.png" alt="民生银行">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mod-3 clearfloat">
+                                    <div class="submit">
+                                        立即提现
+                                    </div>
+                                    <span>取消</span>
+                                </div>
+                                <div class="u-agreement">
+                                    <div class="agreement-btn">
+                                        <span class="active"><i class="circle"></i></span>我已阅读并同意《平台协议》
+                                    </div>
+                                </div>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+                <!--<script type="text/javascript">jQuery(".tabs1").slide({trigger:"click"});</script>-->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="footer">
+    <div class="container">
+        <div class="content clearfix clearfloat">
+            <div class="fl nav clearfix clearfloat">
+                <ul>
+                    <li>
+                        <p>联系我们</p>
+                        <a href="../about-us/about-us.html">关于我们</a>
+                        <a href="../about-us/about-us.html">公司介绍</a>
+                        <a href="../about-us/about-us.html">服务条款</a>
+                        <a href="../about-us/about-us.html">交易协议</a>
+                    </li>
+                    <li>
+                        <p>加入我们</p>
+                        <a href="../becomeGoddess2.html">成为女神</a>
+                        <a href="../chance/broker.html">申请经纪人</a>
+                        <a href="../chance/company-partner.html">商业合作</a>
+                        <a href="../chance/checkInmerchant.html">商家入驻</a>
+                    </li>
+                    <li>
+                        <p>合作机构</p>
+                        <a href="javascript:void(0)">机构1</a>
+                        <a href="javascript:void(0)">机构2</a>
+                        <a href="javascript:void(0)">机构3</a>
+                        <a href="javascript:void(0)">机构4</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="fr code">
+                <img src="../../../images/img_code.jpg">
+                <p>动手扫一扫</p>
+                <p>关注微信公众号</p>
+            </div>
+        </div>
+        <div class="copyright">
+            京公网安备11010802018931号　　Copyright © 2012  互联网娱乐人才有限公司, All Rights Reserved 京ICP备14000454号-1
+        </div>
+    </div>
+</div>
+
+
+</body>
+<../>

@@ -1,0 +1,122 @@
+{extend name="common/base"}
+{block name="content-header"}
+<link rel="stylesheet" href="__STATIC__/admin/plugins/select2/select2.min.css">
+    <h1>
+        {$module_names[0]}
+        <small>
+        {$module_names[1]}</small>
+    </h1>
+    <ol class="breadcrumb">
+        {volist name="module_names" id="vo"}
+            <li {if condition="$module_nums==$key"}class="active"{/if}>{if condition="0==$key"}<i class="fa fa-dashboard"></i>{/if} {$vo}</li>
+        {/volist}
+    </ol>
+{/block}
+
+{block name="content"}
+        <div class="container-fluid">
+            <div class="pull-right">
+                <a href="javascript:history.go(-1)" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="返回管理员列表"><i class="fa fa-reply"></i></a>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="fa fa-list"></i> 角色分配权限</h3>
+                </div>
+                <div class="panel-body ">
+                    <!--表单数据-->
+                    <form method="post" id="js_upForm" action="{:url('admin/role/setAuth')}">
+                        <!--通用信息-->
+                    <div class="tab-content col-md-12">
+                        <div class="tab-pane active" id="tab_tongyong">
+                            <input type="hidden" name="role_id" value="{$role_id}">
+                            <table class="table table-bordered">
+                                 <thead>
+                                   <tr role="row">
+                                       <th>菜单名称</th>
+                                       <th>模块</th>
+                                       <th>控制器</th>
+                                       <th>方法</th>
+                                       <th>描述</th>
+                                   </tr>
+                                 </thead>
+                                <tbody>
+                                {volist name="list" id="vo"}
+                                <tr role="row">
+                                    <td>{$vo.level-1|str_repeat="&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp", ###}<input type="checkbox" name="module_id[]" value="{$vo.id}" class="auth_cur_{$vo.id} auth_parent_{$vo.parent_id}" data-path="{$vo.path}" data-parent="{$vo.parent_id}" {if condition="in_array($vo.id, $module_ids)"}checked="checked"{/if}>{$vo.module_name}</td>
+                                    <td>{$vo.module}</td>
+                                    <td>{$vo.controller}</td>
+                                    <td>{$vo.action}</td>
+                                    <td>{$vo.description}</td>
+                                </tr>
+                                {/volist}
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td></td>
+                                        <td class="text-left"><input class="btn btn-primary js_submit" type="button" value="保存"></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tfoot>
+                                </table>
+                        </div>
+                    </div>
+                    </form><!--表单数据-->
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{/block} {block name="script"}
+<script>
+$('input[type="checkbox"]').on("click",function(){
+    var $this = $(this),
+        is_check = $this.prop("checked"),
+        val = $this.val()
+        path = $this.attr("data-path");
+        console.log("val:", val);
+    if(val){
+        var path_arr= new Array();
+        path_arr = path.split(",");
+        path_arr.pop();
+        if(is_check){
+            $(".auth_parent_"+val).prop("checked", true);
+            $.each( path_arr, function(i, n){
+                $(".auth_cur_"+n).prop("checked", true);
+            });
+        }else{
+            $(".auth_parent_"+val).prop("checked", false);
+
+        }
+    }else{
+        return false;
+    }
+});
+
+$('.js_submit').on('click',function(){
+  $("#js_upForm").submit();
+});
+
+$("#js_upForm").validate({
+    submitHandler : function(){
+        var url = $("#js_upForm").attr("action");
+        $.ajax({
+            url : url,
+            type : "post",
+            dataType : "json",
+            data : $("#js_upForm").serialize(),
+            success : function(res){
+                console.log(res);
+                if( res.status == true ){
+                    location.href = res.url;
+                }else {
+                    layer.alert(res.msg, {icon: 2});
+                }
+            }
+        });
+    }
+});
+</script>
+
+{/block}
