@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>教练详情</title>
+		<link rel="stylesheet" href="../css/framework7.ios.min.css">
+		<link rel="stylesheet" href="../css/common.css">
+		<link rel="stylesheet" href="../css/stadium-detail.css">
+	</head>
+
+	<body>
+		<div id="app">
+			<!--轮播-->
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide"><img src="../img/lession-detail.png" /></div>
+					<div class="swiper-slide"><img src="../img/lession-detail.png" /></div>
+					<div class="swiper-slide"><img src="../img/lession-detail.png" /></div>
+				</div>
+				<div class="swiper-pagination"></div>
+			</div>
+			<!--轮播end-->
+			<div class="stadium-item">
+				<p class="title-name">深圳湾体育中心</p>
+				<div class="stadium-address clearfloat">
+					<img src="../img/ic_position_nor@2x.png" />
+					<span>广东深深圳市南山区德赛科技大厦2201</span>
+					<img src="../img/btn_phone_nor@2x.png" class="phone-img" />
+				</div>
+			</div>
+
+			<div class="stadium-introduce">
+				<img src="../img/lession-detail.png" alt="" />
+				<p>华润深圳湾体育中心位于南山后海中心区东北角、深圳湾15公里滨海休闲带中段，毗邻香港，北临滨海大道，西临科苑南路，东临沙河西路，南临深圳湾内湖。</p>
+			</div>
+			<div class="stadiumDetail-tabBox">
+				<div class="tabBox-bar">
+					<p @click="onSelect('coachGold')" v-bind:class="{ active: selected === 'coachGold'}">金牌教练</p>
+					<p @click="onSelect('lessonService')" v-bind:class="{ active: selected === 'lessonService'}">课程&服务</p>
+				</div>
+				<!--课程和服务-->
+				<div class="tabBox-lessonService" v-show="selected === 'lessonService'">
+					<div class="lessonService-item " @click="onLessonDetail">
+						<a href="page/lesson_detail.html">
+							<div class="lesson-box clearfloat">
+								<div class="lesson-text">
+									<div class="lesson-name">羽毛球课程</div>
+									<div class="lesson-title">第一阶段 初级技术入门</div>
+									<div class="lesson-content">握拍、挥拍、前后场初级技术、后场到前场、后场到前场的初级步法。</div>
+									<div class="lesson-price">¥5666</div>
+								</div>
+								<img src="../img/lesson.png" class="lesson-img" />
+							</div>
+							<div class="lesson-label">
+								<div class="label-item">羽毛球</div>
+								<div class="label-item">羽毛球</div>
+								<div class="label-item">羽毛球羽毛球羽毛球</div>
+							</div>
+						</a>
+					</div>
+					<div class="lessonService-item " @click="onLessonDetail">
+						<a href="page/lesson_detail.html">
+							<div class="lesson-box clearfloat">
+								<div class="lesson-text">
+									<div class="lesson-name">羽毛球课程</div>
+									<div class="lesson-title">第一阶段 初级技术入门</div>
+									<div class="lesson-content">握拍、挥拍、前后场初级技术、后场到前场、后场到前场的初级步法。</div>
+									<div class="lesson-price">¥5666</div>
+								</div>
+								<img src="../img/lesson.png" class="lesson-img" />
+							</div>
+							<div class="lesson-label">
+								<div class="label-item">羽毛球</div>
+								<div class="label-item">羽毛球</div>
+								<div class="label-item">羽毛球羽毛球羽毛球</div>
+							</div>
+						</a>
+					</div>
+				</div>
+				<!--场馆-->
+				<!--
+            	作者：374139613@qq.com
+            	时间：2017-08-16
+            	描述：
+            -->
+				<div class="tabBox-stadium" v-show="selected === 'coachGold'">
+					<div class="coach-recommend">
+						<div class="coach-item clearfloat" @click="onCoachDeatil">
+							<img src="../img/lesson.png" class="coach-img" />
+							<div class="coach-info clearfloat">
+								<span class="title-name">东教练</span>
+								<img src="../img/ic_gender_man@2x.png" class="coach-sex-img" />
+								<span class="coach-address"><img src="../img/ic_Positioning@2x.png"/>南山海润体育馆</span>
+								<p class="coach-introduce">教练简介教练简介教练简介教练简介教练简介教练简介教练简介教练简介
+								</p>
+								<div class="coach-label">
+									<div class="label-item">从业12年</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="coachHideBox" v-show="showBox">
+								<div class="coach-item clearfloat" @click="onCoachDeatil">
+							<img src="../img/lesson.png" class="coach-img" />
+							<div class="coach-info clearfloat">
+								<span class="title-name">东教练</span>
+								<img src="../img/ic_gender_man@2x.png" class="coach-sex-img" />
+								<span class="coach-address"><img src="../img/ic_Positioning@2x.png"/>南山海润体育馆</span>
+								<p class="coach-introduce">教练简介教练简介教练简介教练简介教练简介教练简介教练简介教练简介
+								</p>
+								<div class="coach-label">
+									<div class="label-item">从业12年</div>
+								</div>
+							</div>
+						</div>
+						</div>
+						<div class="coachMore" @click="onShowCoach">
+							<img src="../img/btn_To recover_nor@2x.png" v-show="showBox"/>
+							<img src="../img/btn_more_nor@2x.png" v-show="!showBox"/>
+							
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+		<div class="preBtn">
+			预定
+		</div>
+		</div>
+
+		<script src="../js/rem.js"></script>
+		<!-- Path to Framework7 Library JS-->
+		<script type="text/javascript" src="../js/framework7.js"></script>
+		<!-- Path to your app js-->
+		<script type="text/javascript" src="../js/my-app.js"></script>
+		<script type="text/javascript" src="../js/vue.js"></script>
+		<script type="text/javascript">
+			new Vue({
+				el: '#app',
+				data() {
+					return {
+						selected: 'coachGold',
+						showBox:false
+					}
+				},
+				mounted: function() {
+					var mySwiper = myApp.swiper('.swiper-container', {
+						pagination: '.swiper-pagination',
+						speed: 400,
+						spaceBetween: 100
+					});
+				},
+				methods: {
+					onSelect(selected) {
+						this.selected = selected
+					},
+					onShowCoach(){
+						this.showBox = !this.showBox
+					}
+				}
+
+			})
+		</script>
+	</body>
+
+</html>

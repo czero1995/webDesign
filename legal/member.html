@@ -1,0 +1,1620 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Title</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!--<link rel="stylesheet" href="css/bootstrap.min.css">-->
+		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/common.css">
+		<link rel="stylesheet" href="css/member.css">
+		<link rel="stylesheet" href="css/jquery.mCustomScrollbar.css" />
+		<style>
+			
+			
+			
+			
+			
+			
+		</style>
+	</head>
+
+	<body>
+		<div id="app">
+			<div class="index row">
+				<!--首页左边区域-->
+				<div class="index-left">
+					<!--logo-->
+					<div class="header-left">
+						<img src="img/icon/logo.png" alt="">
+					</div>
+					<div>
+						<div class="left-content">
+							<div class="leftTabBox">
+								<div class="left-tab" :class="{active:selected === 'yhsz'}" @click="onSelectedTab('yhsz')"><img src="img/member/yhszImg.png" alt="">用户设置
+								</div>
+								<div class="left-tab" :class="{active:selected === 'qzgl'}" @click="onSelectedTab('qzgl')"><img src="img/member/qzglImg.png" alt="">签章管理
+								</div>
+								<div class="left-tab" :class="{active:selected === 'wddd'}" @click="onSelectedTab('wddd')"><img src="img/member/wdddImg.png" alt="">我的订单
+								</div>
+								<div class="left-tab" :class="{active:selected === 'tcxx'}" @click="onSelectedTab('tcxx')"><img src="img/member/zhxxImg.png" alt="">套餐信息
+								</div>
+							</div>
+							<div class="leftCustomBox">
+								<div class="custom-item">
+									<p class="custom-title">定制文本套餐:</p>
+									<div class="custom-item-content">
+										<p class="custom-count">无限次</p>
+										<p class="custom-opera">定制</p>
+									</div>
+
+								</div>
+								<div class="custom-item">
+									<p class="custom-title">专属提醒次数:</p>
+									<div class="custom-item-content">
+										<p class="custom-count">5次</p>
+										<p class="custom-opera">增加</p>
+									</div>
+
+								</div>
+								<div class="custom-item">
+									<p class="custom-title">合同审阅套餐:</p>
+									<div class="custom-item-content">
+										<p class="custom-count">0次</p>
+										<p class="custom-opera">审阅</p>
+									</div>
+
+								</div>
+								<div class="custom-item">
+									<p class="custom-title">咨询顾问次数:</p>
+									<div class="custom-item-content">
+										<p class="custom-count">无限</p>
+										<p class="custom-opera">咨询</p>
+									</div>
+
+								</div>
+							</div>
+							<!--底部版权-->
+							<div>
+								<h6 class="reserve">©️2017 Fanjidesign Terms & Privacy</h6>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--首页中间区域-->
+				<div class="index-center clearfloat">
+					<div class="center-top clearfloat">
+						<div class="center-top-title">个人账户</div>
+						<div class="center-top-product clearfloat">
+							<div class="product-item">
+								<p class="product-title">标准产品</p>
+								<p class="product-category">(中阶套餐)</p>
+							</div>
+							<div class="product-item">
+								<p class="product-title">标准产品</p>
+								<p class="product-category">(优享套餐)</p>
+							</div>
+							<div class="product-item">
+								<p class="product-title">标准产品</p>
+								<p class="product-category">(中阶套餐)</p>
+							</div>
+
+						</div>
+					</div>
+					<div class="index-center-content">
+						<!--用户设置界面-->
+						<div class="yhsz-content" v-show="yhszPage">
+							<div class="yhsz-box box-one">
+								<div class="acount-info inlink-flex-between">
+									<div class="acount-info-left inlink-flex-between">
+										<div class="yhsz-usePhoto"></div>
+										<div class="acount-left-detail">
+											<p class="acount-name defaultText">凡几</p>
+											<div class="acount-state" @click="smrzModel=true">未认证</div>
+											<div class="acount-repasswd" @click="xgmmModel=true">修改密码</div>
+										</div>
+									</div>
+									<div class="acount-info-right ">
+										<p class="assistant-name">助理小凡</p>
+										<p class="assistant-rate">未评分</p>
+										<p class="assistant-replace">更换助理</p>
+										<img src="" alt="" />
+									</div>
+								</div>
+							</div>
+							<div class="yhsz-box box-two">
+								<div class="box-item box-two-item">
+									<div class="box-item-child  inlink-flex-between" :class="{active: hoverEvent === 'bd-phone'}" @mouseenter="enter(hoverEvent ='bd-phone')" @mouseleave="leave">
+										<p class="">电话: 未绑定</p>
+										<div class="box-item-bd" v-show="hoverEvent === 'bd-phone'" @click="onBind('bindPhone')">
+											<img src="img/icon/url_icon.png" alt="" />绑定
+										</div>
+									</div>
+									<div class="box-item-child inlink-flex-between" :class="{active: hoverEvent === 'bd-email'}" @mouseenter="enter(hoverEvent = 'bd-email')" @mouseleave="leave">
+										<p class="">邮箱: 未绑定</p>
+										<div class="box-item-bd" v-show="hoverEvent === 'bd-email'"  @click="onBind('bindEmail')">
+											<img src="img/icon/url_icon.png" alt="" />绑定
+										</div>
+									</div>
+									<div class="box-item-child inlink-flex-between" :class="{active: hoverEvent === 'bd-wechat'}" @mouseenter="enter(hoverEvent = 'bd-wechat')" @mouseleave="leave(hoverEvent = 'bd-wechat')">
+										<div class="inlink-flex-between wechat-item">
+											<p class="">微信: 未绑定</p>
+											<p class="wechat-item-tip" v-show="!wechatTip" @click="onBind('bindWechat')">* 绑定微信后，可以使用微信登录云助理，及时接收留言与通知</p>
+										</div>
+
+										<div class="box-item-bd" v-show="hoverEvent === 'bd-wechat'">
+											<img src="img/icon/url_icon.png" alt="" />绑定
+										</div>
+									</div>
+
+								</div>
+							</div>
+							<div class="yhsz-box box-three">
+								<div class="box-item box-three-item">
+									<div class="box-item-child  inlink-flex-between" v-show="!edCompany" :class="{active: hoverEvent === 'ed-company'}" @mouseenter="enter(hoverEvent ='ed-company')" @mouseleave="leave">
+										<div class="box-item-child-box inlink-flex-between">
+											<div class="inlink-flex">
+												<span>公司: {{edcompanyValue}} </span>
+											</div>
+										</div>
+										<div class="box-item-bd" v-show="hoverEvent === 'ed-company'" @click="onItemEditor('onEdCompany')">
+											<img src="img/icon/url_icon.png" alt="" />编辑
+										</div>
+									</div>
+									<div class="box-item-child  inlink-flex-between ed-border" :class="{active:edCompany}" v-show="edCompany">
+										<div class="box-item-child-box inlink-flex-between">
+											<div class="inlink-flex">
+												<span class="ed-text" :class="{active:edCompany}">公司</span>
+												<input type="text" placeholder="未填写" class="box-item-input edcompany-input" v-on:keyup.enter="onEdItem('onEdCompany')" v-on:keyup.esc="onCancelEd('onEdCompany')" />
+											</div>
+											<div style="position: relative;">
+												<img src="img/icon/check-un.png" alt="" />
+												<div class="item-editor-tip">Enter保存，Esc关闭</div>
+											</div>
+
+										</div>
+
+									</div>
+
+									<div class="box-item-child inlink-flex-between" v-show="!edDuty" :class="{active: hoverEvent === 'ed-duty'}" @mouseenter="enter(hoverEvent ='ed-duty')" @mouseleave="leave">
+
+										<div class="box-item-child-box inlink-flex-between">
+											<div class="inlink-flex">
+												<span>职务: {{eddutyValue}} </span>
+											</div>
+										</div>
+										<div class="box-item-bd" v-show="hoverEvent === 'ed-duty'" @click="onItemEditor('onEdDuty')">
+											<img src="img/icon/url_icon.png" alt="" />编辑
+										</div>
+									</div>
+									<div class="box-item-child  inlink-flex-between ed-border" :class="{active:edDuty}" v-show="edDuty">
+										<div class="box-item-child-box inlink-flex-between">
+											<div class="inlink-flex">
+												<span class="ed-text" :class="{active:edDuty}">职务</span>
+												<input type="text" placeholder="未填写" class="box-item-input edduty-input" v-on:keyup.enter="onEdItem('onEdDuty')" v-on:keyup.esc="onCancelEd('onEdDuty')" />
+											</div>
+											<div style="position: relative;">
+												<img src="img/icon/check-un.png" alt="" />
+												<div class="item-editor-tip">Enter保存，Esc关闭</div>
+											</div>
+
+										</div>
+									</div>
+
+									<div class="box-item-child inlink-flex-between" v-show="!edIntro" :class="{active: hoverEvent === 'ed-intro'}" @mouseenter="enter(hoverEvent ='ed-intro')" @mouseleave="leave">
+
+										<div class="box-item-child-box inlink-flex-between">
+											<div class="inlink-flex">
+												<span>个人说明: {{edintroValue}} </span>
+											</div>
+										</div>
+										<div class="box-item-bd" v-show="hoverEvent === 'ed-intro'" @click="onItemEditor('onEdIntro')">
+											<img src="img/icon/url_icon.png" alt="" />编辑
+										</div>
+									</div>
+									<div class="box-item-child  inlink-flex-between ed-border" :class="{active:edIntro}" v-show="edIntro">
+										<div class="box-item-child-box inlink-flex-between">
+											<div class="inlink-flex">
+												<span class="ed-text" :class="{active:edIntro}">个人说明</span>
+												<input type="text" placeholder="未填写" class="box-item-input edintro-input" v-on:keyup.enter="onEdItem('onEdIntro')" v-on:keyup.esc="onCancelEd('onEdIntro')" />
+											</div>
+											<div style="position: relative;">
+												<img src="img/icon/check-un.png" alt="" />
+												<div class="item-editor-tip">Enter保存，Esc关闭</div>
+											</div>
+
+										</div>
+									</div>
+
+								</div>
+							</div>
+							<div class="yhsz-box box-four">
+
+								<div class="box-four-item">
+									<div class="four-item-top">
+										<img src="img/member/message_nor.png" v-show="!alarmMessage" />
+										<img src="img/member/message_select.png" v-show="alarmMessage" />
+										<span class="four-title" :class="{active: alarmMessage}">短信</span>
+										<img src="img/member/on.png" @click="onAlarm(alarmWay = 'alarm-message')" v-show="!alarmMessage" />
+										<img src="img/member/off.png" @click="onAlarm(alarmWay = 'alarm-message')" v-show="alarmMessage" />
+									</div>
+									<div class="alarm-item">
+										<button class="alarmRadio" :disabled="!alarmMessage" v-show="!radioMessageFile" @click="onAlarmRadio(alarmRadio = 'message-newFile')" /></button>
+										<button class="alarmRadioSelect" :class="{active:!alarmMessage}" :disabled="!alarmMessage" v-show="radioMessageFile" @click="onAlarmRadio(alarmRadio = 'message-newFile')" /></button>
+										<span class="alarm-text" :class="{active:alarmMessage}">新文件通知</span>
+									</div>
+									<div class="alarm-item">
+										<button class="alarmRadio" :disabled="!alarmMessage" v-show="!radioMessageDraft" @click="onAlarmRadio(alarmRadio = 'message-draftInform')" /></button>
+										<button class="alarmRadioSelect" :class="{active:!alarmMessage}" :disabled="!alarmMessage" v-show="radioMessageDraft" @click="onAlarmRadio(alarmRadio = 'message-draftInform')" /></button>
+										<span class="alarm-text" :class="{active: alarmMessage}">定稿通知</span>
+									</div>
+									<div class="alarm-item">
+										<button class="alarmRadio" :disabled="!alarmMessage" v-show="!radioMessageName" @click="onAlarmRadio(alarmRadio = 'message-nameInform')" /></button>
+										<button class="alarmRadioSelect" :class="{active:!alarmMessage}" :disabled="!alarmMessage" v-show="radioMessageName" @click="onAlarmRadio(alarmRadio = 'message-nameInform')" /></button>
+										<span class="alarm-text" :class="{active: alarmMessage}">签名通知</span>
+									</div>
+								</div>
+								<div class="box-four-item">
+									<div class="four-item-top">
+										<img src="img/member/email_nor.png" v-show="!alarmEmail" />
+										<img src="img/member/email_select.png" v-show="alarmEmail" />
+										<span class="four-title" :class="{active:alarmEmail}">邮箱</span>
+										<img src="img/member/on.png" alt="" @click="onAlarm(alarmWay = 'alarm-email')" v-show="!alarmEmail" />
+										<img src="img/member/off.png" alt="" @click="onAlarm(alarmWay = 'alarm-email')" v-show="alarmEmail" />
+									</div>
+									<div class="alarm-item">
+										<button class="alarmRadio" :disabled="!alarmEmail" v-show="!radioEmailFile" @click="onAlarmRadio(alarmRadio = 'email-newFile')" /></button>
+										<button class="alarmRadioSelect" :class="{active:!alarmEmail}" :disabled="!alarmEmail" v-show="radioEmailFile" @click="onAlarmRadio(alarmRadio = 'email-newFile')" /></button>
+										<span class="alarm-text" :class="{active:alarmEmail}">新文件通知</span>
+									</div>
+									<div class="alarm-item">
+										<button class="alarmRadio" :disabled="!alarmEmail" v-show="!radioEmailDraft" @click="onAlarmRadio(alarmRadio = 'email-draftInform')" /></button>
+										<button class="alarmRadioSelect" :class="{active:!alarmEmail}" :disabled="!alarmEmail" v-show="radioEmailDraft" @click="onAlarmRadio(alarmRadio = 'email-draftInform')" /></button>
+										<span class="alarm-text" :class="{active: alarmEmail}">定稿通知</span>
+									</div>
+									<div class="alarm-item">
+										<button class="alarmRadio" :disabled="!alarmEmail" v-show="!radioEmailName" @click="onAlarmRadio(alarmRadio = 'email-nameInform')" /></button>
+										<button class="alarmRadioSelect" :class="{active:!alarmEmail}" :disabled="!alarmEmail" v-show="radioEmailName" @click="onAlarmRadio(alarmRadio = 'email-nameInform')" />/></button>
+										<span class="alarm-text" :class="{active: alarmEmail}">签名通知</span>
+									</div>
+								</div>
+								<div class="box-four-item">
+									<div class="four-item-top">
+										<img src="img/member/wechat_nor.png" v-show="!alarmWechat" />
+										<img src="img/member/wechat_select.png" v-show="alarmWechat" />
+										<span class="four-title" :class="{active:alarmWechat}">微信</span>
+										<img src="img/member/on.png" alt="" @click="onAlarm(alarmWay = 'alarm-wechat')" v-show="!alarmWechat" />
+										<img src="img/member/off.png" alt="" @click="onAlarm(alarmWay = 'alarm-wechat')" v-show="alarmWechat" />
+									</div>
+									<div class="alarm-item">
+										<button class="alarmRadio" :disabled="!alarmWechat" v-show="!radioWechatFile" @click="onAlarmRadio(alarmRadio = 'wechat-newFile')" /></button>
+										<button class="alarmRadioSelect" :class="{active:!alarmWechat}" :disabled="!alarmWechat" v-show="radioWechatFile" @click="onAlarmRadio(alarmRadio = 'wechat-newFile')" /></button>
+										<span class="alarm-text" :class="{active:alarmWechat}">新文件通知</span>
+									</div>
+									<div class="alarm-item">
+										<button class="alarmRadio" :disabled="!alarmWechat" v-show="!radioWechatDraft" @click="onAlarmRadio(alarmRadio = 'wechat-draftInform')" /></button>
+										<button class="alarmRadioSelect" :class="{active:!alarmWechat}" :disabled="!alarmWechat" v-show="radioWechatDraft" @click="onAlarmRadio(alarmRadio = 'wechat-draftInform')" /></button>
+										<span class="alarm-text" :class="{active: alarmWechat}">定稿通知</span>
+									</div>
+									<div class="alarm-item">
+										<button class="alarmRadio" :disabled="!alarmWechat" v-show="!radioWechatName" @click="onAlarmRadio(alarmRadio = 'wechat-nameInform')" /></button>
+										<button class="alarmRadioSelect" :class="{active:!alarmWechat}" :disabled="!alarmWechat" v-show="radioWechatName" @click="onAlarmRadio(alarmRadio = 'wechat-nameInform')" /></button>
+										<span class="alarm-text" :class="{active: alarmWechat}">签名通知</span>
+									</div>
+								</div>
+
+							</div>
+						</div>
+						<!--签章管理界面-->
+						<div class="qzgl-content" v-show="qzglPage">
+							<!--无签章，显示去创建界面-->
+							<div class="addCreate" v-if="addCreatePage" @click="addCreatePage=false , tjqzPage = true">
+								<p class="defaultText">还没有签章？前往创建</p>
+								<img src="img/icon/usePhoto.png" @click="addCreatePage = true" />
+							</div>
+							<!--签章主页面-->
+							<div class="tjqz" v-show="tjqzPage">
+								<div class="qz-item" @click="tjqzPage = false,cjqzPage = true">
+									<img src="img/icon/usePhoto.png" alt="" />
+									<p class="defaultText">添加签章</p>
+								</div>
+								<div class="qz-item">
+									<img src="img/userPhoto.png" alt="" />
+								</div>
+								<div class="qz-item">
+									<img src="img/userPhoto.png" alt="" />
+								</div>
+							</div>
+							<!--创建签章页面-->
+							<div class="cjqz" v-show="cjqzPage">
+								<div class="cjqz-left">
+									<div class="cjqz-left-one clearfloat">
+										<p class="qz-text qz-category">签章类型:</p>
+										<div class="clearfloat">
+											<p class="qz-text qz-way" :class="{active: qzWay === 'qyqz'}" @click="onQzSelect('qyqz')">企业签章</p>
+											<p class="qz-text qz-way" :class="{active: 	qzWay === 'frqz'}" @click="onQzSelect('frqz')">法人签章</p>
+										</div>
+
+									</div>
+									<div class="qyqz-box" v-show="qyqzPage">
+										<div class="cjqz-left-two">
+
+											<span class="qz-text">签章样式</span>
+											<div class="qz-style-box">
+												<div><img class="qz-style active" src="img/icon/usePhoto.png" /></div>
+												<div><img class="qz-style" src="img/icon/usePhoto.png" alt="" /></div>
+											</div>
+										</div>
+
+										<div class="cjqz-left-three">
+											<div><span class="qz-text">横向文： <input type="email" class="form-control" id="inputEmail3" placeholder="Email"></span></div>
+											<div><span class="qz-text">下弦文： <input type="email" class="form-control" id="inputEmail3" placeholder="Email"></span></div>
+										</div>
+									</div>
+									<div class="frqz-box" v-show="frqzPage">
+										<div class="cjqz-left-two">
+											<span class="qz-text">签章样式</span>
+											<div class="qz-style-box">
+												<div><img class="qz-style active" src="img/icon/usePhoto.png" /></div>
+												<div><img class="qz-style" src="img/icon/usePhoto.png" alt="" /></div>
+											</div>
+										</div>
+										<div class="cjqz-left-three clearfloat">
+											<div class="frqz-category">
+												<img src="img/icon/radio.png" alt="" />姓名
+											</div>
+											<div class="frqz-category">
+												<img src="img/icon/radio.png" alt="" />形式
+											</div>
+										</div>
+									</div>
+									<div class="cjqz-left-four">
+										<span class="qz-text">签章颜色:</span>
+										<span class="jq-color-item color-red active">
+											
+										</span>
+										<span class="jq-color-item color-blue">
+											
+										</span>
+										<span class="jq-color-item color-grey">
+											
+										</span>
+									</div>
+								</div>
+								<div class="cjqz-right">
+									<p class="qz-text">预览签章</p>
+									<img src="img/icon/usePhoto.png" alt="" />
+									<p class="cjqz-right-remind qz-text"><span>提醒: </span>采用签章，即表示我同意该签名是我的签名，用于我（或我的代理）的各种文档处理用途，包括具有法律约束力的合同，与用笔在纸上的签名具有相同效力。</p>
+									<div class="cjqz-insure">
+										确认创建
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--我的订单界面-->
+						<div class="wddd-content" v-show="wdddPage">
+							<div class="wddd-top">
+
+							</div>
+							<div class="wddd-content-detail">
+								<div class="wddd-content-title clearfloat">
+									<div>订单编号/创建时间</div>
+									<div>订单类型</div>
+									<div>金额</div>
+									<div>状态</div>
+									<div>操作</div>
+								</div>
+								<div class="wddd-content-box">
+									<div class="wddd-content-item clearfloat">
+										<div class="dd-title dd-codenum">
+											<p class="dd-code">
+												123456789
+											</p>
+											<p class="dd-date">
+												2017-07-02 13:53
+											</p>
+										</div>
+										<div class="dd-title dd-categoty">
+											合同服务
+										</div>
+										<div class="dd-title dd-money">
+											1999元
+										</div>
+										<div class="dd-title dd-state">
+											<p class="dd-state-text">待确认需求</p>
+										</div>
+										<div class="dd-title dd-opera">
+											<p class="opera-item">确认付款</p>
+											<p class="opera-item">联系助理</p>
+											<p class="opera-item">助理</p>
+										</div>
+									</div>
+									<div class="wddd-content-item clearfloat">
+										<div class="dd-title dd-codenum">
+											<p class="dd-code">
+												123456789
+											</p>
+											<p class="dd-date">
+												2017-07-02 13:53
+											</p>
+										</div>
+										<div class="dd-title dd-categoty">
+											合同服务
+										</div>
+										<div class="dd-title dd-money">
+											1999元
+										</div>
+										<div class="dd-title dd-state">
+											<p class="dd-state-text">待确认需求</p>
+										</div>
+										<div class="dd-title dd-opera">
+											<p class="opera-item">确认需求</p>
+											<p class="opera-item">联系助理</p>
+											<p class="opera-item">助理</p>
+										</div>
+									</div>
+									<div class="wddd-content-item clearfloat">
+										<div class="dd-title dd-codenum">
+											<p class="dd-code">
+												123456789
+											</p>
+											<p class="dd-date">
+												2017-07-02 13:53
+											</p>
+										</div>
+										<div class="dd-title dd-categoty">
+											合同服务
+										</div>
+										<div class="dd-title dd-money">
+											1999元
+										</div>
+										<div class="dd-title dd-state">
+											<p class="dd-state-text">待确认需求</p>
+										</div>
+										<div class="dd-title dd-opera">
+											<p class="opera-item">确认需求</p>
+											<p class="opera-item">联系助理</p>
+											<p class="opera-item">助理</p>
+										</div>
+									</div>
+									<div class="wddd-content-item clearfloat">
+										<div class="dd-title dd-codenum">
+											<p class="dd-code">
+												123456789
+											</p>
+											<p class="dd-date">
+												2017-07-02 13:53
+											</p>
+										</div>
+										<div class="dd-title dd-categoty">
+											合同服务
+										</div>
+										<div class="dd-title dd-money">
+											1999元
+										</div>
+										<div class="dd-title dd-state">
+											<p class="dd-state-text">待确认需求</p>
+										</div>
+										<div class="dd-title dd-opera">
+											<p class="opera-item">确认需求</p>
+											<p class="opera-item">联系助理</p>
+											<p class="opera-item">助理</p>
+										</div>
+									</div>
+									<div class="wddd-content-item clearfloat">
+										<div class="dd-title dd-codenum">
+											<p class="dd-code">
+												123456789
+											</p>
+											<p class="dd-date">
+												2017-07-02 13:53
+											</p>
+										</div>
+										<div class="dd-title dd-categoty">
+											合同服务
+										</div>
+										<div class="dd-title dd-money">
+											1999元
+										</div>
+										<div class="dd-title dd-state">
+											<p class="dd-state-text">待确认需求</p>
+										</div>
+										<div class="dd-title dd-opera">
+											<p class="opera-item">确认需求</p>
+											<p class="opera-item">联系助理</p>
+											<p class="opera-item">助理</p>
+										</div>
+									</div>
+									<div class="wddd-content-item clearfloat">
+										<div class="dd-title dd-codenum">
+											<p class="dd-code">
+												123456789
+											</p>
+											<p class="dd-date">
+												2017-07-02 13:53
+											</p>
+										</div>
+										<div class="dd-title dd-categoty">
+											合同服务
+										</div>
+										<div class="dd-title dd-money">
+											1999元
+										</div>
+										<div class="dd-title dd-state">
+											<p class="dd-state-text">待确认需求</p>
+										</div>
+										<div class="dd-title dd-opera">
+											<p class="opera-item">确认需求</p>
+											<p class="opera-item">联系助理</p>
+											<p class="opera-item">助理</p>
+										</div>
+									</div>
+									<div class="wddd-content-item clearfloat">
+										<div class="dd-title dd-codenum">
+											<p class="dd-code">
+												123456789
+											</p>
+											<p class="dd-date">
+												2017-07-02 13:53
+											</p>
+										</div>
+										<div class="dd-title dd-categoty">
+											合同服务
+										</div>
+										<div class="dd-title dd-money">
+											1999元
+										</div>
+										<div class="dd-title dd-state">
+											<p class="dd-state-text">待确认需求</p>
+										</div>
+										<div class="dd-title dd-opera">
+											<p class="opera-item">确认需求</p>
+											<p class="opera-item">联系助理</p>
+											<p class="opera-item">助理</p>
+										</div>
+									</div>
+									<div class="wddd-content-item clearfloat">
+										<div class="dd-title dd-codenum">
+											<p class="dd-code">
+												123456789
+											</p>
+											<p class="dd-date">
+												2017-07-02 13:53
+											</p>
+										</div>
+										<div class="dd-title dd-categoty">
+											合同服务
+										</div>
+										<div class="dd-title dd-money">
+											1999元
+										</div>
+										<div class="dd-title dd-state">
+											<p class="dd-state-text">待确认需求</p>
+										</div>
+										<div class="dd-title dd-opera">
+											<p class="opera-item">确认需求</p>
+											<p class="opera-item">联系助理</p>
+											<p class="opera-item">助理</p>
+										</div>
+									</div>
+									<div class="wddd-content-item clearfloat">
+										<div class="dd-title dd-codenum">
+											<p class="dd-code">
+												123456789
+											</p>
+											<p class="dd-date">
+												2017-07-02 13:53
+											</p>
+										</div>
+										<div class="dd-title dd-categoty">
+											合同服务
+										</div>
+										<div class="dd-title dd-money">
+											1999元
+										</div>
+										<div class="dd-title dd-state">
+											<p class="dd-state-text">待确认需求</p>
+										</div>
+										<div class="dd-title dd-opera">
+											<p class="opera-item">确认需求</p>
+											<p class="opera-item">联系助理</p>
+											<p class="opera-item">助理</p>
+										</div>
+									</div>
+									<div class="wddd-content-item clearfloat">
+										<div class="dd-title dd-codenum">
+											<p class="dd-code">
+												123456789
+											</p>
+											<p class="dd-date">
+												2017-07-02 13:53
+											</p>
+										</div>
+										<div class="dd-title dd-categoty">
+											合同服务
+										</div>
+										<div class="dd-title dd-money">
+											1999元
+										</div>
+										<div class="dd-title dd-state">
+											<p class="dd-state-text">待确认需求</p>
+										</div>
+										<div class="dd-title dd-opera">
+											<p class="opera-item">确认需求</p>
+											<p class="opera-item">联系助理</p>
+											<p class="opera-item">助理</p>
+										</div>
+									</div>
+									<div class="wddd-content-item clearfloat">
+										<div class="dd-title dd-codenum">
+											<p class="dd-code">
+												123456789
+											</p>
+											<p class="dd-date">
+												2017-07-02 13:53
+											</p>
+										</div>
+										<div class="dd-title dd-categoty">
+											合同服务
+										</div>
+										<div class="dd-title dd-money">
+											合同审核XX套餐（15）
+										</div>
+										<div class="dd-title dd-state">
+											<p class="dd-state-text">已处理<img class="dd-state-img" src="img/icon/arrow_down.png" /></p>
+
+										</div>
+										<div class="dd-title dd-opera">
+											<p class="opera-item">确认需求</p>
+										</div>
+									</div>
+
+								</div>
+
+							</div>
+							<div class="wddd-bottom">
+								<div class="wddd-bottom-onpage">
+									<< </div>
+										<div class="wddd-bottom-onpage">
+											< </div>
+												<div class="wddd-bottom-pageitem active">1</div>
+												<div class="wddd-bottom-pageitem">2</div>
+												<div class="wddd-bottom-pageitem">3</div>
+												<div class="wddd-bottom-pageitem">4</div>
+												<div class="wddd-bottom-pageitem">5</div>
+												<div class="wddd-bottom-pageitem">6</div>
+												<div class="wddd-bottom-pageitem">7</div>
+												<div class="wddd-bottom-pageitem">8</div>
+												<div class="wddd-bottom-pageitem">9</div>
+												<div class="wddd-bottom-onpage"> > </div>
+												<div class="wddd-bottom-onpage"> >> </div>
+										</div>
+								</div>
+							</div>
+						</div>
+						<!--首页右边区域-->
+						<div class="index-right clearfloat">
+							<div class="header-right">
+								<span class="fileText">法律云助理</span>
+								<span class="session"></span>
+								<h4>400-0000-0000</h4>
+							</div>
+							<div class="right-content">
+								<!--时间选择器-->
+								<div class="form-group">
+									<div class="input-group date form_datetime col-md-12" data-date="1979-09-16T05:25:07Z" data-date-format="dd MM yyyy - HH:ii p" data-link-field="dtp_input1">
+									</div>
+									<input type="hidden" id="dtp_input1" value="" /><br/>
+								</div>
+								<!--下拉框-->
+								<div class="rightFilte clearfloat">
+
+									<div class="dropdown clearfloat filte-dropdown">
+										<div class="rightDrop">
+											<button class="btn-default btn dropdown-toggle rightFilte btn-rightFilte1 rightFilte" id="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                筛选：所有
+                            </button>
+											<ul class="rightDropMenu1 rightDropMenu" aria-labelledby="">
+												<li>Action</li>
+												<li>Another action</li>
+												<li>Something else here</li>
+											</ul>
+											<span class="arrowDrop"><img src="./img/icon/arrow_down.png" alt=""></span>
+										</div>
+									</div>
+								</div>
+								<div class="rightFilte clearfloat">
+
+									<div class="dropdown clearfloat filte-dropdown">
+										<div class="rightDrop">
+											<button class="btn-default btn dropdown-toggle rightFilte btn-rightFilte2" type="button" id="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                筛选：所有
+
+                            </button>
+											<ul class="rightDropMenu2 rightDropMenu" aria-labelledby="">
+												<li>Action</li>
+												<li>Another action</li>
+												<li>Something else here</li>
+
+											</ul>
+											<span class="arrowDrop"><img src="./img/icon/arrow_down.png" alt=""></span>
+										</div>
+									</div>
+								</div>
+								<div class="rightFilte clearfloat">
+
+									<div class="dropdown clearfloat filte-dropdown">
+										<div class="rightDrop">
+											<button class="btn-default btn dropdown-toggle rightFilte btn-rightFilte3" type="button" id="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                筛选：所有
+
+                            </button>
+											<ul class="rightDropMenu3 rightDropMenu" aria-labelledby="">
+												<li>Action</li>
+												<li>Another action</li>
+												<li>Something else here</li>
+
+											</ul>
+											<span class="arrowDrop"><img src="./img/icon/arrow_down.png" alt=""></span>
+										</div>
+									</div>
+								</div>
+								<!--联系人列表标题栏-->
+								<div class="contackTitle">
+									<span class="contackTitle-l"></span>
+									<span class="contackListText"> 联系人列表</span>
+									<span class="contackTitle-r"></span>
+									<hr>
+								</div>
+								<!--联系人列表-->
+								<div class="contackList">
+									<div class="contackList-item ">
+										<img class="photo img-circle" src="img/icon/photo.png">
+										<div class="contactName">
+											<p class="contactUser">凡几111</p>
+											<h5 class="contactDec">顾问</h5>
+										</div>
+
+										<span class="badge">4</span>
+									</div>
+									<div class="contackList-item ">
+										<img class="photo img-circle" src="img/icon/photo.png">
+										<div class="contactName">
+											<p class="contactUser">凡几111</p>
+											<h5 class="contactDec">顾问</h5>
+										</div>
+
+										<span class="badge">4</span>
+									</div>
+									<div class="contackList-item ">
+										<img class="photo img-circle" src="img/icon/photo.png">
+										<div class="contactName">
+											<p class="contactUser">凡几111</p>
+											<h5 class="contactDec">顾问</h5>
+										</div>
+
+										<span class="badge">4</span>
+									</div>
+									<div class="contackList-item ">
+										<img class="photo img-circle" src="img/icon/photo.png">
+										<div class="contactName">
+											<p class="contactUser">凡几111</p>
+											<h5 class="contactDec">顾问</h5>
+										</div>
+
+										<span class="badge">4</span>
+									</div>
+									<div class="contackList-item ">
+										<img class="photo img-circle" src="img/icon/photo.png">
+										<div class="contactName">
+											<p class="contactUser">凡几111</p>
+											<h5 class="contactDec">顾问</h5>
+										</div>
+
+										<span class="badge">4</span>
+									</div>
+									<div class="contackList-item ">
+										<img class="photo img-circle" src="img/icon/photo.png">
+										<div class="contactName">
+											<p class="contactUser">凡几111</p>
+											<h5 class="contactDec">顾问</h5>
+										</div>
+
+										<span class="badge">4</span>
+									</div>
+									<div class="contackList-item ">
+										<img class="photo img-circle" src="img/icon/photo.png">
+										<div class="contactName">
+											<p class="contactUser">凡几111</p>
+											<h5 class="contactDec">顾问</h5>
+										</div>
+
+										<span class="badge">4</span>
+									</div>
+
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+					<!--申述成功-->
+					<div class="member-model" v-show="sscgModel">
+						<div class="member-model-content sscg-content">
+							<div class="member-model-top clearfloat">
+								申诉成功
+								<div class="member-model-close">
+								</div>
+							</div>
+							<div class="member-model-box">
+								<div class="model-box-content sscg-box-content clearfloat">
+									<p class="sscg-item">您的申诉请求已受理，我们会在七个工作日告知处理结果</p>
+									<p class="sscg-item">如有疑问，请联系助理</p>
+									<p class="sscg-item">联系助理</p>
+
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--提交申述-->
+					<div class="member-model" v-show="tjssModel">
+						<div class="member-model-content qrfw-content">
+							<div class="member-model-top clearfloat">
+								提交申诉
+								<div class="member-model-close">
+								</div>
+							</div>
+							<div class="member-model-box">
+								<div class="model-box-content qrfw-box-content clearfloat">
+									<div class="inlink-flex-between qrfw-item">
+										<div>订单编号:123465798</div>
+										<div class="qrfw-bold">服务类型: 定制合同</div>
+									</div>
+									<div class="inlink-flex-between qrfw-item qrfw-bold">
+										<div>客户名称：李小凡</div>
+										<div>助理名称：云小理</div>
+									</div>
+									<p>交付时间: 2017-08-03 22:09</p>
+
+									<div class="smrz-item qrfw-passwd-box">
+										<p class="input-tab ">申诉方式</p> <input type="text" class="input-box" placeholder="与新密码相同" />
+									</div>
+
+									<div class="model-insure-btn xgmm-insure-btn">
+										确认服务
+									</div>
+
+									<p class="qrfw-tip">完成服务后，需要确认服务</p>
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+					<!--确认服务-->
+					<div class="member-model" v-show="qrfwModel">
+						<div class="member-model-content qrfw-content">
+							<div class="member-model-top clearfloat">
+								确认服务
+								<div class="member-model-close">
+								</div>
+							</div>
+							<div class="member-model-box">
+								<div class="model-box-content qrfw-box-content clearfloat">
+									<div class="inlink-flex-between qrfw-item">
+										<div>订单编号:123465798</div>
+										<div class="qrfw-bold">服务类型: 定制合同</div>
+									</div>
+									<div class="inlink-flex-between qrfw-item qrfw-bold">
+										<div>客户名称：李小凡</div>
+										<div>助理名称：云小理</div>
+									</div>
+									<p>交付时间: 2017-08-03 22:09</p>
+
+									<div class="smrz-item qrfw-passwd-box">
+										<p class="input-tab ">密码</p> <input type="text" class="input-box" placeholder="与新密码相同" />
+									</div>
+
+									<div class="model-insure-btn xgmm-insure-btn">
+										确认服务
+									</div>
+
+									<p class="qrfw-tip">完成服务后，需要确认服务</p>
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+					<!--确认付款-->
+					<div class="member-model" v-show="qrfkModel">
+						<div class="member-model-content qrfk-content">
+							<div class="member-model-top clearfloat">
+								确认付款
+								<div class="member-model-close">
+								</div>
+							</div>
+							<div class="member-model-box">
+								<div class="model-box-content qrfk-box-content clearfloat">
+									<div class="inlink-flex qrfk-fwlx-box">
+										<p class="qrfk-fwlx">服务类型：</p>
+										<p class="qrfk-fwlx-category"> 定制合同</p>
+									</div>
+
+									<div class="inlink-flex-between">
+										<h6>订单编号:123456789</h6>
+										<h6>下单时间: 2017-20-03 22:03</h6>
+									</div>
+									<div class="qrfk-suggest">
+										<div class="qrfk-suggest-top inlink-flex-between">
+											<h5>我们还建议</h5>
+											<h6>这是一些增强您体验的额外项目</h6>
+										</div>
+										<div class="qrfk-suggest-content">
+											<div class="qrfk-suggest-item inlink-flex-between">
+												<div class="inlink-flex">
+													<img src="img/icon/radio.png" class="qrfk-suggest-radio" />
+													<h5>标准产品-中阶套餐</h5>
+												</div>
+												<div class="inlink-flex">
+													<h5 class="qrfk-oldmoney">原价：¥1999</h3>
+												<h4 class="qrfk-newmoney">¥999</h3>
+											</div>
+											
+										</div>
+										<div class="qrfk-suggest-item inlink-flex-between">
+											<div class="inlink-flex">
+												<img src="img/icon/radio.png" class="qrfk-suggest-radio" />
+												<h5>合同审核-基础套餐</h5>
+												</div>
+												<div class="inlink-flex">
+													<h5 class="qrfk-oldmoney">原价：¥199</h3>
+												<h4 class="qrfk-newmoney">¥1999</h3>
+											</div>
+											
+										</div>
+										
+									</div>
+									
+								</div>
+								<div class="qrfk-yfje">
+										<h5>应付金额<h4>1999元</h4></h5>
+												</div>
+												<div class="smrz-item">
+													<p class="input-tab ">付款方式</p> <input type="text" class="input-box" placeholder="与新密码相同" />
+												</div>
+
+												<div class="model-insure-btn xgmm-insure-btn">
+													确认付款
+												</div>
+												<div class="szrm-agreement">
+													<img src="img/icon/radio.png" alt="" /> 同意并阅读以下
+													<span>《条款》</span>
+												</div>
+												<div class="qrfk-fb">
+													<p>索要发票<span>提示</span></p>
+												</div>
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+								<!--企业认证-->
+								<div class="member-model" v-show="qyrzModel">
+									<div class="member-model-content qyrz-content">
+										<div class="member-model-top clearfloat">
+											企业认证
+											<div class="member-model-close">
+											</div>
+										</div>
+										<div class="member-model-box">
+											<div class="model-box-content qyrz-box-content">
+												<div class="qy-toptab">
+													<p class="qy-tabtext active" @click="onQySelect('qyxx')">1.企业信息</p>
+													<p class="qy-tabtext" @click="onQySelect('dkje')">2.验证打款金额</p>
+													<p class="qy-tabtext" @click="onQySelect('fddb')">3.法定代表人信息</p>
+													<p class="qy-tabtext" @click="onQySelect('rzjg')">4.认证结果</p>
+												</div>
+												<div class="qyxx-box" v-show="qy === 'qyxx'">
+													<div class="smrz-item">
+														<p class="input-tab qyrz-qymc">企业名称</p> <input type="text" class="input-box" placeholder="请输入原密码" />
+													</div>
+													<div class="smrz-item">
+														<p class="input-tab">营业执照注册号</p> <input type="text" class="input-box" placeholder="密码不可少于8位，并且不可包含*#$%()?~|”等特殊字符" />
+													</div>
+													<div class="smrz-tip">
+														<div>———</div>
+														<div class="smrz-tip-text qyrz-tip-text">
+															<p>云助理将会以yunzhuli text开户名的对公账号向您会如一笔确认资金，</p>
+															<p>若公司名称和账户开户名称不一致，确认资金将汇款失败，从而导致认证不成功。</p>
+														</div>
+														<div>———</div>
+													</div>
+													<div class="smrz-item">
+														<p class="input-tab qyrz-khyh">开户银行</p> <input type="text" class="input-box" placeholder="与新密码相同" />
+													</div>
+													<div class="smrz-item">
+														<p class="input-tab qyrz-khyhszd">开户银行所在地</p> <input type="text" class="input-box" placeholder="与新密码相同" />
+													</div>
+													<div class="smrz-item">
+														<p class="input-tab">开户银行支行名称</p> <input type="text" class="input-box" placeholder="与新密码相同" />
+													</div>
+													<div class="smrz-item yzm-item">
+														<p class="input-tab qyrz-dgzh">对公账户</p> <input type="text" class="input-box" placeholder="与新密码相同" />
+														<p class="smrz-getyzm">获取验证码</p>
+													</div>
+													<div class="model-insure-btn xgmm-insure-btn">
+														确认提交
+													</div>
+													<div class="szrm-agreement">
+														<img src="img/icon/radio.png" alt="" /> 同意并阅读以下
+														<span>《条款》</span>
+													</div>
+												</div>
+												<div class="dkje-box" v-show="qy === 'dkje'">
+													<div class="smrz-item dkje-item">
+														<p class="input-tab qyrz-qymc">打款金额</p> <input type="text" class="input-box" placeholder="请输入" />
+													</div>
+													<div class="model-insure-btn xgmm-insure-btn">
+														下一步
+													</div>
+												</div>
+												<div class="fddb-box" v-show="qy === 'fddb'">
+													<div class="smrz-item">
+														<p class="input-tab fddb-xm">法定代表人姓名</p> <input type="text" class="input-box" placeholder="与新密码相同" />
+													</div>
+													<div class="smrz-item">
+														<p class="input-tab qyrz-khyhszd">法定代表人身份证号</p> <input type="text" class="input-box" placeholder="与新密码相同" />
+													</div>
+													<div class="smrz-tip">
+														<div>———</div>
+														<div class="smrz-tip-text">
+															<p>云助理将会通过您开通银行账户时，预留的联系手机和姓名来验证您的实名情况。</p>
+														</div>
+														<div>———</div>
+													</div>
+
+													<div class="smrz-item">
+														<p class="input-tab fddb-zh">银行账号</p> <input type="text" class="input-box" placeholder="与新密码相同" />
+													</div>
+													<div class="smrz-item">
+														<p class="input-tab fddb-sj">银行预留手机号</p> <input type="text" class="input-box" placeholder="与新密码相同" />
+													</div>
+													<div class="smrz-item yzm-item">
+														<p class="input-tab fddb-yzm">验证码</p> <input type="text" class="input-box" placeholder="与新密码相同" />
+														<p class="smrz-getyzm">获取验证码</p>
+													</div>
+													<div class="model-insure-btn xgmm-insure-btn">
+														下一步
+													</div>
+													<div class="szrm-agreement">
+														<img src="img/icon/radio.png" alt="" /> 同意并阅读以下
+														<span>《条款》</span>
+													</div>
+												</div>
+												<div class="rzjg-box" v-show="qy === 'rzjg'">
+													实名认证成功
+													<div class="model-insure-btn xgmm-insure-btn">
+														我知道了
+													</div>
+												</div>
+
+											</div>
+
+										</div>
+									</div>
+								</div>
+								<!--绑定邮箱-->
+								<div class="member-model" v-show="bdyxModel">
+									<div class="member-model-content bdyx-content">
+										<div class="member-model-top clearfloat">
+											绑定邮箱
+											<div class="member-model-close" @click="bdyxModel=false">
+											</div>
+										</div>
+										<div class="member-model-box">
+											<div class="model-box-content bdyx-box-content">
+												<div class="smrz-item">
+													<p class="input-tab bdyx-yx">邮箱</p> <input type="text" class="input-box" placeholder="请输入邮箱号码" />
+												</div>
+												<div class="zhmm-line"></div>
+
+												<div class="smrz-item">
+													<p class="input-tab">确认密码</p> <input type="text" class="input-box" placeholder="输入密码完成绑定" />
+												</div>
+											</div>
+											<div class="model-insure-btn xgmm-insure-btn" @click="bdyxModel=false,bdyxyzmModel=true">
+												确认提交
+											</div>
+
+										</div>
+									</div>
+								</div>
+								<!--实名认证协议-->
+								<div class="member-model" v-show="rzxyModel">
+									<div class="member-model-content rzxy-content">
+										<div class="member-model-top">
+											实名认证
+										</div>
+										<div class="member-model-box">
+											<div class="model-box-content xzxy-box-content">
+												<div class="agreement-text">
+													云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云 云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议云助理协议
+												</div>
+												<div class="aggreement-bottom">
+													<img src="img/icon/radio.png" v-show="!smrzRadio" @click="smrzRadio=! smrzRadio"/>
+													<img src="img/icon/radioSelect.png" v-show="smrzRadio" @click="smrzRadio =!smrzRadio"/>
+													<p>同意云助理平台条款</p>
+													<button class="upAgreementBtn" :disabled="!smrzRadio" @click="rzxyModel=false,smrzModel=true">收起</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!--绑定手机-->
+								<div class="member-model" v-show="bdsjModel">
+									<div class="member-model-content bdsj-content">
+										<div class="member-model-top clearfloat">
+											绑定手机
+											<div class="member-model-close" @click="bdsjModel=false">
+											</div>
+										</div>
+										<div class="member-model-box">
+											<div class="model-box-content bbsj-box-content">
+												<div class="smrz-item yzm-item">
+													<p class="input-tab bdsj-sj">手机</p>
+													<p class="phone-way">+86 <img src="img/icon/arrow_down.png" alt="" /></p>
+													<input type="text" class="input-box bdsj-sjinput" placeholder="请输入手机号码" />
+												</div>
+
+												<div class="smrz-item yzm-item">
+													<p class="input-tab bdsj-yzm">验证码</p> <input type="text" class="input-box " placeholder="请输入" />
+													<p class="smrz-getyzm">获取验证码</p>
+												</div>
+												<div class="zhmm-line"></div>
+
+												<div class="smrz-item">
+													<p class="input-tab">确认密码</p> <input type="text" class="input-box" placeholder="输入密码完成绑定" />
+												</div>
+											</div>
+											<div class="model-insure-btn xgmm-insure-btn" @click="bdsjModel=false">
+												确认提交
+											</div>
+
+										</div>
+									</div>
+								</div>
+								<!--找回密码-->
+								<div class="member-model" v-show="zhmmModel">
+									<div class="member-model-content zhmm-content">
+										<div class="member-model-top clearfloat">
+											修改密码
+											<div class="member-model-close" @click="zhmmModel=false">
+											</div>
+										</div>
+										<div class="member-model-box">
+											<div class="model-box-content zhmm-box-content">
+												<div class="smrz-item">
+													<p class="input-tab ">手机或邮箱</p> <input type="text" class="input-box" placeholder="请输入" />
+												</div>
+
+												<div class="smrz-item yzm-item">
+													<p class="input-tab zhmm-yzm">验证码</p> <input type="text" class="input-box" placeholder="请输入" />
+													<p class="smrz-getyzm">获取验证码</p>
+												</div>
+												<div class="zhmm-line"></div>
+												<div class="smrz-item">
+													<p class="input-tab zhmm-xmm">新密码</p> <input type="text" class="input-box" placeholder="密码不可少于8位，并且不可包含*#$%()?~|”等特殊字符" />
+												</div>
+												<div class="smrz-item">
+													<p class="input-tab">确认密码</p> <input type="text" class="input-box" placeholder="与新密码相同" />
+												</div>
+											</div>
+											<div class="model-insure-btn xgmm-insure-btn" @click="zhmmModel=false">
+												确认提交
+											</div>
+											<div class="xgmm-zhmm zhmm-zhmm"@click="zhmmModel=false,xgmmModel=true" >
+												通过密码找回
+											</div>
+										</div>
+									</div>
+								</div>
+								<!--修改密码-->
+								<div class="member-model" v-show="xgmmModel">
+									<div class="member-model-content xgmm-content">
+										<div class="member-model-top clearfloat">
+											修改密码
+											<div class="member-model-close" @click="xgmmModel=false">
+											</div>
+										</div>
+										<div class="member-model-box">
+											<div class="model-box-content xgmm-box-content">
+												<div class="smrz-item">
+													<p class="input-tab xgmm-ymm">原密码</p> <input type="text" class="input-box" placeholder="请输入原密码" />
+												</div>
+												<div class="smrz-item">
+													<p class="input-tab xgmm-xmm">现密码</p> <input type="text" class="input-box" placeholder="密码不可少于8位，并且不可包含*#$%()?~|”等特殊字符" />
+												</div>
+												<div class="smrz-item">
+													<p class="input-tab">确认密码</p> <input type="text" class="input-box" placeholder="与新密码相同" />
+												</div>
+
+											</div>
+											<div class="model-insure-btn xgmm-insure-btn" @click="xgmmModel=false">
+												确认提交
+											</div>
+											<div class="xgmm-zhmm" @click="xgmmModel=false,zhmmModel=true">
+												通过已绑定的邮箱或手机找回
+											</div>
+										</div>
+									</div>
+								</div>
+								<!--实名认证-->
+								<div class="member-model" v-show="smrzModel">
+									<div class="member-model-content smrz-content">
+										<div class="member-model-top clearfloat">
+											实名认证
+											<div class="member-model-close" @click="smrzModel=false">
+											</div>
+										</div>
+										<div class="member-model-box">
+											<div class="model-box-content smrz-box-content">
+												<div class="smrz-item">
+													<p class="input-tab smrz-xm">姓名</p> <input type="text" class="input-box" placeholder="输入的姓名与身份证上一致" />
+												</div>
+												<div class="smrz-item">
+													<p class="input-tab">身份证号</p> <input type="text" class="input-box" placeholder="输入的身份证号码需与身份证上一致" />
+												</div>
+												<div class="smrz-tip">
+													<div>———</div>
+													<p class="smrz-tip-text">云助理将会通过您开通银行账户时，预留的联系手机和姓名来验证您的实名情况</p>
+													<div>———</div>
+												</div>
+												<div class="smrz-item">
+													<p class="input-tab smrz-yhzh">银行账号</p> <input type="text" class="input-box" placeholder="请输入" />
+												</div>
+												<div class="smrz-item">
+													<p class="input-tab">银行预留手机号</p> <input type="text" class="input-box" placeholder="请输入" />
+												</div>
+												<div class="smrz-item smrz-yzm-item">
+													<p class="input-tab smrz-yzm">验证码</p>
+													<input type="text" class="input-box" placeholder="请输入" />
+													<p class="smrz-getyzm">获取验证码</p>
+												</div>
+											</div>
+											<div class="model-btn">
+												<button class="model-insure-btn" :disabled="!smrzRadio" @click="smrzModel=false,smrzSuccessModel=true">确认</button>
+											</div>
+											<div class="szrm-agreement">
+												<img src="img/icon/radio.png" v-show="!smrzRadio" @click="smrzRadio =!smrzRadio" />
+												<img src="img/icon/radioChooseDouble-select.png" v-show="smrzRadio" @click="smrzRadio =!smrzRadio" /> 同意并阅读以下
+												<span @click="smrzModel=false,rzxyModel=true">《条款》</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!--确认评分-->
+								<div class="member-model" v-show="qrpfModel">
+									<div class="member-model-content insureModel-content">
+										<div class="member-model-top">
+											确认评分
+										</div>
+										<div class="member-model-box">
+											<p class="model-insure-content">
+												感谢您的评分，我们会做到更好
+											</p>
+											<div class="model-box-btn">
+												确认
+											</div>
+										</div>
+									</div>
+								</div>
+								<!--更换助理-->
+								<div class="member-model" v-show="ghzlModel">
+									<div class="member-model-content insureModel-content">
+										<div class="member-model-top">
+											更换助理
+										</div>
+										<div class="member-model-box">
+											<p class="model-insure-content">
+												已收到您的更换请求，我们会尽快处理
+											</p>
+											<div class="model-box-btn">
+												我知道了
+											</div>
+										</div>
+									</div>
+								</div>
+								<!--实名认证成功-->
+								<div class="member-model" v-show="smrzSuccessModel">
+									<div class="member-model-content insureModel-content">
+										<div class="member-model-top">
+											实名认证
+										</div>
+										<div class="member-model-box">
+											<p class="model-insure-content model-center-content">
+												您的实名认证已成功通过
+											</p>
+											<div class="model-box-btn" @click="smrzSuccessModel=false">
+												确认
+											</div>
+										</div>
+									</div>
+								</div>
+								<!--实名认证失败-->
+								<div class="member-model" v-show="smrzFailModel">
+									<div class="member-model-content insureModel-content">
+										<div class="member-model-top">
+											确认评分
+										</div>
+										<div class="member-model-box">
+											<p class="model-insure-content model-center-content">
+												您的实名认证不成功，请返回重试
+											</p>
+											<div class="model-box-btn" @click="smrzSuccessModel=false,smrzModel=true">
+												确认
+											</div>
+										</div>
+									</div>
+								</div>
+								<!--绑定邮箱验证码-->
+								<div class="member-model" v-show="bdyxyzmModel">
+									<div class="member-model-content insureModel-content">
+										<div class="member-model-top">
+											绑定邮箱
+										</div>
+										<div class="member-model-box">
+											<p class="model-insure-content model-center-content">
+												验证码已发送至：12456@qq.com，请确认查收
+											</p>
+											<div class="model-box-btn" @click="bdyxyzmModel=false,bdyxSuccessModel=true">
+												重新发送验证码
+											</div>
+										</div>
+									</div>
+								</div>
+								<!--绑定邮箱成功-->
+								<div class="member-model" v-show="bdyxSuccessModel">
+									<div class="member-model-content insureModel-content">
+										<div class="member-model-top">
+											绑定邮箱
+										</div>
+										<div class="member-model-box">
+											<p class="model-insure-content model-center-content">
+												已成功绑定邮箱:123456@qq.com
+											</p>
+											<div class="model-box-btn" @click="bdyxSuccessModel=false">
+												我知道了
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<script src="js/jquery.js"></script>
+							<script src="js/bootstrap-treeview.js" charset="UTF-8"></script>
+							<script src="js/bootstrap.js"></script>
+							<script src="js/bootstrap-datetimepicker.js"></script>
+							<!--<script src="js/main.js"></script>-->
+							<script src="js/jquery.mousewheel.min.js"></script>
+							<script src="js/jquery.mCustomScrollbar.min.js"></script>
+							<script src="js/vue.js"></script>
+							<script>
+								new Vue({
+									el: "#app",
+									data() {
+										return {
+											smrzRadio: false,
+											selected: 'yhsz',
+											hoverEvent: '',
+											/*鼠标hover事件*/
+											alarmInfo: false, //信息通知事件
+											alarmWay: '', //信息选择
+											alarmMessage: false, //短信
+											alarmEmail: false, //邮箱
+											alarmWechat: false, //微信
+											alarmRadio: false, //选择信息项目
+											edCompany: false,
+											edDuty: false,
+											edIntro: false,
+											wechatTip: false,
+											edcompanyValue: '',
+											eddutyValue: '',
+											edintroValue: '',
+											radioMessageFile: false,
+											radioMessageDraft: false,
+											radioMessageName: false,
+											radioEmailFile: false,
+											radioEmailDraft: false,
+											radioEmailName: false,
+											radioWechatFile: false,
+											radioWechatDraft: false,
+											radioWechatName: false,
+											yhszPage: true, //用户设置页面
+											qzglPage: false, //企业管理页面
+											wdddPage: false, //我的订单页面
+											addCreatePage: true, //添加签章提醒页面
+											tjqzPage: false, //添加签章主页面
+											cjqzPage: false, //创建签章页面
+											qzWay: 'qyqz', //企业签章方式
+											qy: 'qyxx', //企业认证model
+											qyxx: false, //企业信息
+											dkje: false, //打款金额
+											fddb: false, //法定代表
+											rzjg: false, //认证结果
+											qyqzPage: true, //企业签章页
+											frqzPage: false, //法人签章页
+											qyrzModel: false, //企业认证
+											rzxyModel: false, //认证协议
+											bdyxModel: false, //绑定邮箱
+											bdsjModel: false, //绑定手机
+											zhmmModel: false, //找回密码
+											xgmmModel: false, //修改密码
+											smrzModel: false, //实名认证
+											qrpfModel: false, //确认评分
+											ghzlModel: false, //更换助理
+											smrzSuccessModel: false, //实名认证成功
+											smrzFailModel: false, //实名认证失败
+											bdyxModel: false, //绑定邮箱
+											bdyxSuccessModel: false, //成功绑定邮箱
+											bdyxyzmModel:false, //绑定邮箱发送验证码
+											qrfkModel: false, //确认付款
+											qrfwModel: false, //确认服务
+											tjssModel: false, //提交申诉
+											sscgModel: false, //申述成功
+										}
+									},
+									methods: {
+										onItemEditor: function(itemeditor) {
+											console.log(itemeditor)
+											if(itemeditor === 'onEdCompany') {
+												this.edCompany = !this.edCompany;
+											} else if(itemeditor === 'onEdDuty') {
+												this.edDuty = !this.edDuty;
+											} else if(itemeditor === 'onEdIntro') {
+												this.edIntro = !this.edIntro;
+											}
+										},
+										onEdItem: function(ed) {
+											if(ed === 'onEdCompany') {
+												this.edCompany = !this.edCompany;
+												var companyInput = $('.edcompany-input').val();
+												this.edcompanyValue = companyInput;
+											} else if(ed === 'onEdDuty') {
+												this.edDuty = !this.edDuty;
+												var dutyInput = $('.edduty-input').val();
+												this.eddutyValue = dutyInput;
+											} else if(ed === 'onEdIntro') {
+												this.edIntro = !this.edIntro;
+												var introInput = $('.edintro-input').val();
+												this.edintroValue = introInput;
+											}
+
+											console.log(companyInput);
+										},
+										onCancelEd: function(ed) {
+											if(ed === 'onEdCompany') {
+												this.edCompany = !this.edCompany;
+											} else if(ed === 'onEdDuty') {
+												this.edDuty = !this.edDuty;
+											} else if(ed === 'onEdIntro') {
+												this.edIntro = !this.edIntro;
+											}
+
+										},
+										onBind: function(bind){
+											if(bind === 'bindPhone'){
+												this.bdsjModel = true
+											}else if(bind === 'bindEmail'){
+												this.bdyxModel = true
+											}else if(bind === 'bindWechat'){
+												
+											}
+										},
+										onSelectedTab: function(select) {
+
+											this.selected = select;
+											if(select === 'yhsz') {
+												this.yhszPage = true;
+												this.qzglPage = false;
+												this.wdddPage = false;
+											} else if(select === 'qzgl') {
+												this.qzglPage = true;
+												this.yhszPage = false;
+												this.wdddPage = false;
+											} else if(select === 'wddd') {
+												this.wdddPage = true;
+												this.yhszPage = false;
+												this.qzglPage = false;
+											}
+										},
+										/*企业签章*/
+										onQzSelect: function(qzway) {
+											this.qzWay = qzway;
+											if(qzway === 'qyqz') {
+												this.qyqzPage = true;
+												this.frqzPage = false;
+											} else if(qzway === 'frqz') {
+												this.qyqzPage = false;
+												this.frqzPage = true;
+											}
+										},
+										/*企业认证*/
+										onQySelect: function(qyrztab) {
+											this.qy = qyrztab;
+											console.log(qyrztab);
+											if(qyrztab === 'qyxx') {
+												this.qyxx = true;
+											} else if(qyrztab === 'dkje') {
+												this.dkje = true;
+											} else if(qyrztab === 'fddb') {
+												this.fddb = true;
+											} else if(qyrztab === 'rzjg') {
+												this.rzjg = true;
+											}
+										},
+										enter: function(hoverevent) {
+											if(hoverevent === 'bd-wechat') {
+												this.wechatTip = true;
+											}
+
+											console.log(hoverevent);
+											this.hoverEvent = hoverevent;
+
+										},
+										leave: function(hoverevent) {
+											if(hoverevent === 'bd-wechat') {
+												this.wechatTip = false;
+											}
+											this.hoverEvent = '';
+											this.editorTip = false;
+
+										},
+										onAlarm: function(alarmway) {
+											this.alarmWay = alarmway;
+											if(alarmway === 'alarm-message') {
+												this.alarmMessage = !this.alarmMessage;
+											} else if(alarmway === 'alarm-email') {
+												this.alarmEmail = !this.alarmEmail;
+											} else if(alarmway === 'alarm-wechat') {
+												this.alarmWechat = !this.alarmWechat;
+											}
+											this.alarmInfo = !this.alarmInfo;
+										},
+										onAlarmRadio: function(alarmradio) {
+											this.alarmRadio = alarmradio;
+											if(alarmradio === 'message-newFile') {
+												this.radioMessageFile = !this.radioMessageFile;
+											} else if(alarmradio === 'message-draftInform') {
+												this.radioMessageDraft = !this.radioMessageDraft;
+											} else if(alarmradio === 'message-nameInform') {
+												this.radioMessageName = !this.radioMessageName;
+											}
+
+											if(alarmradio === 'email-newFile') {
+												this.radioEmailFile = !this.radioEmailFile;
+											} else if(alarmradio === 'email-draftInform') {
+												this.radioEmailDraft = !this.radioEmailDraft;
+											} else if(alarmradio === 'email-nameInform') {
+												this.radioEmailName = !this.radioEmailName;
+											}
+
+											if(alarmradio === 'wechat-newFile') {
+												this.radioWechatFile = !this.radioWechatFile;
+											} else if(alarmradio === 'wechat-draftInform') {
+												this.radioWechatDraft = !this.radioWechatDraft;
+											} else if(alarmradio === 'wechat-nameInform') {
+												this.radioWechatName = !this.radioWechatName;
+											}
+										}
+									}
+								})
+							</script>
+	</body>
+
+</html>

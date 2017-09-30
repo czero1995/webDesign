@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>教练详情</title>
+		<link rel="stylesheet" href="../css/framework7.ios.min.css">
+		<link rel="stylesheet" href="../css/common.css">
+		<link rel="stylesheet" href="../css/coach-detail.css">
+	</head>
+
+	<body>
+		<div id="app">
+			<div class="coachDetail-info">
+				<img src="../img/lesson.png" class="coach-img" />
+				<p class="title-name">东教练 <img src="../img/ic_gender_man@2x.png" class="gender-img" /></p>
+
+				<p class="coach-rand">高级私人教练</p>
+				<div class="coach-label">
+					<div class="label-item">从业12年</div>
+				</div>
+				<p class="coach-introduce">教练简介简练简介建兰简介教练简介教练简介教练简介简练简介建兰简介教练简介教练简介教练简介简练简介建兰简介教练简介教练简介</p>
+			</div>
+
+			<div class="coachDetail-tabBox">
+				<div class="tabBox-bar">
+					<p  @click="onSelect('lessonService')" v-bind:class="{ active: selected === 'lessonService'}">课程&服务</p>
+					<p  @click="onSelect('coachStadium')" v-bind:class="{ active: selected === 'coachStadium'}">场馆</p>
+				</div>
+				<!--课程和服务-->
+				<div class="tabBox-lessonService" v-show="selected === 'lessonService'">
+					<div class="lessonService-item ">
+						<div class="lesson-box clearfloat">
+							<div class="lesson-text">
+								<div class="title-name">羽毛球课程</div>
+								<div class="lesson-title">第一阶段 初级技术入门</div>
+								<div class="lesson-content">握拍、挥拍、前后场初级技术、后场到前场、后场到前场的初级步法。</div>
+								<div class="lesson-price">¥5666</div>
+							</div>
+							<img src="../img/lesson.png" class="lesson-img" />
+						</div>
+						<div class="lesson-label">
+							<div class="label-item">羽毛球</div>
+							<div class="label-item">羽毛球</div>
+							<div class="label-item">羽毛球羽毛球羽毛球</div>
+						</div>
+					</div>
+					<div class="lessonService-item " >
+						<div class="lesson-box clearfloat">
+							<div class="lesson-text">
+								<div class="lesson-name">羽毛球课程</div>
+								<div class="lesson-title">第一阶段 初级技术入门</div>
+								<div class="lesson-content">握拍、挥拍、前后场初级技术、后场到前场、后场到前场的初级步法。</div>
+								<div class="lesson-price">¥5666</div>
+							</div>
+							<img src="../img/lesson.png" class="lesson-img" />
+						</div>
+						<div class="lesson-label">
+							<div class="label-item">羽毛球</div>
+							<div class="label-item">羽毛球</div>
+							<div class="label-item">羽毛球羽毛球羽毛球</div>
+						</div>
+					</div>
+				</div>
+				<!--场馆-->
+				<div class="tabBox-stadium" v-show="selected === 'coachStadium'">
+					<div class="stadium-item">
+						<p class="title-name">滚石健身俱乐部</p>
+						<div class="stadium-address clearfloat">
+							<img src="../img/ic_position_nor@2x.png" />
+							<span>广东深深圳市南山区德赛科技大厦2201</span>
+							<img src="../img/btn_phone_nor@2x.png" class="phone-img" />
+						</div>
+					</div>
+					<div class="stadium-item">
+						<p class="title-name">滚石健身俱乐部</p>
+						<div class="stadium-address clearfloat">
+							<img src="../img/ic_position_nor@2x.png" />
+							<span>广东深深圳市南山区德赛科技大厦2201</span>
+							<img src="../img/btn_phone_nor@2x.png" class="phone-img" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../js/rem.js"></script>
+		<!-- Path to Framework7 Library JS-->
+		<script type="text/javascript" src="../js/framework7.js"></script>
+		<!-- Path to your app js-->
+		<script type="text/javascript" src="../js/my-app.js"></script>
+		<script type="text/javascript" src="../js/vue.js"></script>
+		<script type="text/javascript">
+			new Vue({
+				el: '#app',
+				data() {
+					return {
+						selected: 'lessonService',
+					}
+				},
+				mounted: function() {
+
+				},
+				methods: {
+					onSelect(selected){
+						this.selected = selected
+					}
+				}
+
+			})
+		</script>
+	</body>
+
+</html>

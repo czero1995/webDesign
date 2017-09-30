@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/agreement.css">
+    <link rel="stylesheet" href="css/common.css">
+    <style>
+        .active.check {
+            background: url(img/protocol_Check_sel@2x.png);
+        }
+        .active.btnInsure{
+          background: url(img/protocol_btn_pre.png) no-repeat;
+        background-size: 100% 100%;
+        color: #ffffff;
+         pointer-events:auto;
+        }
+
+        .check {
+            width: 15px;
+            height: 15px;
+            display: inline-block;
+            vertical-align: middle;
+            background: url(img/protocol_Check_nor@2x.png);
+        }
+        .btnInsure{
+             pointer-events:none;
+             background: #cccccc;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+<div class="navBar clearfloat">
+    <div class="navBar-box">
+        <span class="navbarText login "><a href="login.html">登陆</a></span>
+        <span class="navbarText index active"><a href="index.html">首页</a></span>
+    </div>
+
+</div>
+<div class="contentBox">
+    <div class="agreement">
+        <p class="agreementTitle">确认书</p>
+        <p class="agreementContent">
+            1.协协议议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议</p>
+        <p class="agreementContent">
+            2.协议议议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议</p>
+        <p class="agreementContent">
+            3.议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议协议</p>
+        <div class="agree-box">
+            <span class="check"></span>
+            <span class="defaultText ">同意协议</span>
+        </div>
+        <div class="btn-box">
+            <a href="" class="btn btnCancel defaultText">取消</a>
+            <div class="btn  btnInsure" @click="miaosha">确定</div>
+        </div>
+    </div>
+</div>
+</div>
+<script src="js/jquery.js"></script>
+<script type="text/javascript" src="js/axios.min.js"></script>
+<script type="text/javascript" src="js/vue.js"></script>
+<script src="js/main.js"></script>
+<script type="text/javascript" src="js/protocol.js"></script>
+</body>
+</html>

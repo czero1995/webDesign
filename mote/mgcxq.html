@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link rel="stylesheet" href="css/reset.css" />
+		<title>Document</title>
+		<style>
+			body {
+				background: #FFFFFF;
+			}
+			
+			.mgc-top {
+				width: 100%;
+				height: 2.5rem;
+				text-align: center;
+				margin-bottom: 0.4rem;
+			}
+			
+			.mgc-top img {
+				width: 100%;
+				height: 100%;
+				margin-bottom: 0.4rem;
+			}
+			
+			.success-demo {
+				text-align: center;
+			}
+			
+			.success-demo img {
+				display: block;
+				width: 0.24rem;
+				height: 0.27rem;
+				margin: 0 auto;
+			}
+			
+			.success-title {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				margin-top: 0.2rem;
+			}
+			
+			.success-line {
+				width: 0.88rem;
+				height: 1px;
+				background: #FF691F;
+				line-height: 0.3rem;
+			}
+			/*.success-line,.success-text{
+				display: inline-block;
+			}*/
+			
+			.success-text {
+				font-size: 0.3rem;
+
+color:rgba(240,178,13,1);
+				margin-left: 0.4rem;
+				margin-right: 0.4rem;
+			}
+			
+			.success-box {
+				padding: 0.2rem;
+				height: 2rem;
+				overflow: auto;
+				margin-top: 0.5rem;
+			}
+			.success-content{
+				width: 1000%;
+			}
+			.success-item {
+				width: 4rem;
+				height: 2rem;
+				float: left;
+				position: relative;
+				margin-right: 0.2rem;
+			}
+			
+			.success-item img {
+				width: 100%;
+				height: 100%;
+			}
+			
+			.success-item p {
+				color: #ffffff;
+				font-size: 0.24rem;
+				position: absolute;
+				top: 40%;
+				left: 0;
+				right: 0;
+				margin: auto;
+			}
+			.box-top{
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+				text-align: center;
+				color: #B3B3B3;
+				font-size: 0.26rem;
+				border-bottom: 1px solid #CCCCCC;
+				margin-bottom: 0.58rem;
+				margin-top: 0.13rem;
+				height: 0.8rem;
+				line-height: 0.8rem;
+				position: relative;
+			}
+			.active.top-text{
+				color:#F0B20D;
+				border-bottom: 3px solid #F0B20D;
+			}
+			.top-line{
+				background: #cccccc;
+				width: 2px;
+				height: 0.26rem;
+				position: absolute;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				margin: auto;
+			}
+			.profession-box{
+				padding: 0 0.3rem;
+			}
+			.mgc-item{
+				height: 3.2rem;
+				width: 100%;
+				position: relative;
+				margin-bottom: 0.2rem;
+			}
+			.mgc-item img{
+				width: 100%;
+				height: 3.2rem;
+				
+			}
+			.mgc-text{
+				height: 0.68rem;
+				text-align: center;
+				width: 100%;
+				line-height: 0.68rem;
+				background: rgba(0, 0, 0, 0.5);
+				position: absolute;
+				bottom: 0;
+				font-size: 0.26rem;
+				color:#FFFFFF;
+				z-index: 999;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="app">
+			<div class="mgc-top">
+				<img src="img/pic1.png" />
+			</div>
+			<div class="success-demo">
+				<img src="img/demo.png" alt="" />
+				<div class="success-title">
+					<div class="success-line"></div>
+					<div class="success-text">成功案例</div>
+					<div class="success-line"></div>
+				</div>
+				<div class="success-box clearfloat">
+					<div class="success-content">
+						<div class="success-item">
+							<img src="img/mgc.png" alt="" />
+							<p>- 梦芭莎时尚走秀展 -</p>
+						</div>
+						<div class="success-item">
+							<img src="img/mgc.png" alt="" />
+							<p>- 梦芭莎时尚走秀展 -</p>
+						</div>
+						<div class="success-item">
+						<img src="img/mgc.png" alt="" />
+							<p>- 梦芭莎时尚走秀展 -</p>
+						</div>
+						<div class="success-item">
+						<img src="img/mgc.png" alt="" />
+							<p>- 梦芭莎时尚走秀展 -</p>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+			<div class="mgc-box">
+				<div class="box-top">
+					<div class="top-text top-profession" :class="{active:selected === 'profession'}" @click="onSelected('profession')">专业培训</div>
+					<div class="top-line"></div>
+					<div class="top-text top-pack" :class="{active:selected === 'pack'}" @click="onSelected('pack')">包装打造</div>
+					
+				</div>
+				<div class="profession-box" v-show="selected === 'profession'">
+					<div class="mgc-item">
+						<img src="img/mgcpic3.png" alt="" />
+						<div class="mgc-text">有一种自耦就是随心所欲做自己喜欢的事</div>
+					</div>
+					<div class="mgc-item">
+						<img src="img/mgcpic3.png" alt="" />
+						<div class="mgc-text">有一种自耦就是随心所欲做自己喜欢的事</div>
+					</div>
+					<div class="mgc-item">
+						<img src="img/mgcpic3.png" alt="" />
+						<div class="mgc-text">有一种自耦就是随心所欲做自己喜欢的事</div>
+					</div>
+					<div class="mgc-item">
+						<img src="img/mgcpic3.png" alt="" />
+						<div class="mgc-text">有一种自耦就是随心所欲做自己喜欢的事</div>
+					</div>
+					
+				</div>
+				<div class="pack-box" v-show="selected === 'pack'">
+					<div>包装打造页面</div>
+				</div>
+			</div>
+		</div>
+		<script src="js/rem.js"></script>
+		<script src="js/vue.js"></script>
+		<script>
+			new Vue({
+				el:"#app",
+				data(){
+					return{
+						selected:'profession'
+					}
+				},
+				methods:{
+					onSelected(select){
+						this.selected=select;
+					}
+				}
+			})
+		</script>
+	</body>
+
+</html>

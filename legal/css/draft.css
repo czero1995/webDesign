@@ -1,0 +1,1836 @@
+.vipAuth {
+    background: url(../img/icon/vipAuth.png);
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    bottom: 17px;
+    right: 48px;
+}
+
+.btn-shouye {
+    height: 32px;
+    width: 100px;
+    line-height: 32px;
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+.draftExample {
+    display: block;
+    height: 100%;
+}
+
+.draft {
+    border-left: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+    border-top: 1px solid #cccccc;
+    height: 90%;
+    overflow: auto;
+}
+
+.draftLogo {
+    background: url(../img/icon/logo.png) no-repeat;
+    width: 130px;
+    height: 34px;
+}
+
+.draftSearhch {
+    width: 350px;
+    height: 30px;
+}
+
+.btn-draftSearch {
+    width: 39px;
+    height: 34px;
+    border: none;
+    background: #747a8c;
+    position: absolute;
+    top: 0;
+}
+
+.draftHelp {
+    position: absolute;
+    top: 7px;
+    left: 424px;
+    margin: auto;
+    font-size: 15px;
+    color: #666666;
+    cursor: default;
+}
+
+.zhuli {
+    background: url(../img/icon/zhuli.png) no-repeat;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.dingzhi {
+    background: url(../img/icon/dingzhi.png) no-repeat;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.with {
+    background: url(../img/icon/modelWith.png) no-repeat;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+}
+
+.function {
+    background: url(../img/icon/modelFunction.png) no-repeat;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+}
+
+.zhuliText, .dingzhiText {
+    font-size: 17px;
+    color: #095963;
+    text-decoration: solid;
+    cursor: help;
+}
+
+.draftTitle {
+    height: 50px;
+    background-color: #ebebeb;
+    padding-left: 40px;
+    width: 100%;
+
+}
+
+.titleTab {
+    display: inline-block;
+    font-size: 18px;
+    padding-top: 11px;
+    padding-right: 80px;
+    color: #747a8c;
+    position: relative;
+    cursor: pointer;
+}
+
+.draftTitleActive {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    bottom: -27px;
+    left: 23px;
+    background: url(../img/icon/up_white.png) no-repeat;
+}
+
+.draftContent {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding-left: 60px;
+    padding-top: 60px;
+}
+
+.one {
+    width: 25%;
+}
+
+.two {
+    width: 25%;
+}
+
+.three {
+    width: 25%;
+}
+
+.four {
+    width: 25%;
+}
+
+.fileDir {
+    color: #095963;
+    font-size: 15px;
+    font-weight: bold;
+    position: relative;
+}
+
+.fileTitle {
+    font-size: 13px;
+    color: #333333;
+    padding-top: 20px;
+    position: relative;
+    cursor: pointer;
+}
+
+.fileDirSecond {
+    padding-top: 60px;
+}
+
+.draft-display-icon{
+    background: url(../img/icon/arrow_right.png) no-repeat;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    margin-left: 6px;
+    vertical-align: middle;
+}
+
+.draft-display-icon-display{
+    background: url(../img/icon/arrow_down.png) no-repeat;
+}
+
+.draftFileChildBox{
+    display: none;
+}
+
+.draftFileChildBox-display{
+    display: block;
+    margin-right: 10px;
+    margin-top: 12px;
+}
+
+.draftFileChildBox-ul{
+    float: left
+}
+
+.draftFileChild{
+    background: #f5f5f5;
+
+}
+
+.draftFileChild-item{
+    display: block;
+    float: left;
+    padding: 5px 9px;
+}
+
+
+/**
+    qtype合同
+ */
+.qtypeExample {
+    display: none;
+    height: 100%;
+}
+
+.hrChoose {
+    width: 100%;
+    height: 1px;
+    background: #cccccc;
+    margin-top: 32px;
+    margin-bottom: 39px;
+}
+
+.chooseHeader {
+    height: 44px;
+    margin-top: 20px;
+    border-bottom: 1px solid #cccccc;
+}
+
+.processUp {
+    position: absolute;
+    width: 34px;
+    height: 8px;
+    background: url(../img/icon/up.png) no-repeat;
+    display: inline-block;
+    left: 0;
+}
+
+.processDown {
+    position: relative;
+    width: 408px;
+    height: 8px;
+    background: url(../img/icon/down.png) no-repeat;
+    display: inline-block;
+}
+
+.processAll {
+    width: 408px;
+    height: 8px;
+    background: url(../img/icon/upSelectAll.png) no-repeat;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+}
+
+.processWarn {
+    position: absolute;
+    left: 68px;
+    width: 8px;
+    height: 8px;
+    background: url(../img/icon/upWarn.png) no-repeat;
+    display: inline-block;
+}
+
+.processModel {
+    position: absolute;
+    text-align: center;
+    width: 285px;
+    height: 40px;
+    background: #ebebeb;
+    padding: 10px 10px;
+    left: 42px;
+    top: 23px;
+    z-index: 999;
+    border: 1px solid #747a8c;
+}
+
+.processModel:before {
+    content: url(../img/icon/up_ink.png);
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: -14px;
+    left: 19px;
+}
+
+.continue {
+    text-align: left;
+    background: #095963;
+    color: #ffffff;
+    width: 100px;
+    float: right;
+}
+.chooseBox-parent{
+    height: 100%;
+    border-left: 1px solid #cccccc;
+    overflow: auto;
+    border-right: 1px solid #cccccc;
+}
+.chooseBox {
+    height: 100%;
+    padding-left: 80px;
+    padding-right: 80px;
+
+}
+
+.chooseBoxTitle {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    color: #095963;
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.chooseTitle {
+    color: #095963;
+    font-size: 16px;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.chooseSingle {
+    float: left;
+    width: 25%;
+
+}
+
+.btn-qtype {
+    width: 240px;
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 0;
+}
+.qtype-menu{
+    position: absolute;
+    width: 240px;
+    height: 130px;
+    left: 0;
+    top: 42px;
+}
+.qtype-menu li{
+    text-align: center;
+    padding: 10px;
+}
+
+.qtype-val {
+    position: absolute;
+    left: -95px;
+}
+
+.qtypeDrop span {
+    right: 6px;
+    top: 0;
+}
+
+.activeChooseSingle {
+    background: url(../img/icon/radioSelect.png) no-repeat !important;
+
+}
+
+.activeChooseDouble {
+    background: url(../img/icon/radioChooseDouble-select.png) no-repeat !important;
+
+}
+
+.radioChoose {
+    background: url(../img/icon/radio.png) no-repeat;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+}
+
+.chooseText {
+    vertical-align: middle;
+    display: inline-block;
+    margin-top: -16px;
+    margin-left: 6px;
+    font-weight: bold;
+}
+
+.radioChooseDouble {
+    background: url(../img/icon/radioChooseDouble-nor.png) no-repeat;
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+}
+
+.chooseDouble {
+    float: left;
+    padding-right: 55px;
+}
+
+/**
+预览合同弹框
+ */
+.draftModel {
+    display: none;
+
+}
+
+.draftModel-content{
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 484px;
+    height: 578px;
+    background-color: #fff;
+    border: 1px solid #747a8c;
+    cursor: default;
+}
+
+.hrModel {
+    width: 94%;
+    height: 1px;
+    margin: 0 auto;
+    background: #cccccc;
+
+}
+
+.draftModelTitle {
+    height: 42px;
+    font-size: 14px;
+    margin: 0 auto;
+    line-height: 42px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.draftModelExample {
+    height: 110px;
+    background: #eaf5f7;
+    margin: 0 auto;
+    text-align: center;
+    border-top: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+}
+
+.draftModelExampleLeft {
+    display: inline-block;
+    margin-left: 70px;
+    margin-right: 70px;
+    margin-top: 20px;
+}
+
+.draftModelExampleRight {
+    display: inline-block;
+    margin-right: 70px;
+    margin-top: 20px;
+}
+
+.draftModelExampleText {
+    color: #56b4b4;
+    font-size: 14px;
+    padding: 10px;
+}
+
+.draftModelIntroduce {
+    height: 129px;
+    padding: 18px;
+}
+
+.draftModelText {
+    padding-left: 10px;
+    position: absolute;
+}
+
+.draftModelWith {
+    height: 96px;
+    padding: 18px;
+}
+
+.draftModelFunction {
+    height: 130px;
+    padding: 18px;
+}
+
+.draftModelFooter {
+    padding-top: 18px;
+    text-align: center;
+    height: 74px;
+    margin: 0 auto;
+}
+
+.preHT {
+    background: #ffffff;
+    color: #878c9b;
+    border: 1px solid #cccccc;
+    margin-right: 84px;
+}
+
+.creHT {
+    background: #095963;
+    color: #ffffff;
+}
+
+/**
+创建合同
+ */
+.creatHT {
+    display: none;
+    height: 100%;
+}
+
+.creatHTContent {
+    padding-top: 35px;
+    border-left: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+    border-top: 1px solid #cccccc;
+    display: flex;
+    flex-direction: row;
+    cursor: default;
+    height: 92%;
+}
+
+.creatHTHeader,.editorHTHeader {
+    height: 60px;
+    padding-top: 13px;
+}
+
+.backEidtor, .cancelSign, .backEidtorQtype, .quitEditor,.versionManageBack,.backVersionManage,.quitHTEditor {
+    background: #ffffff;
+    color: #878c9b;
+    border: 1px solid #cccccc;
+    width: 100px;
+    height: 30px;
+    display: inline-block;
+}
+
+.backEditorHide,.backToEditor {
+    background: #ffffff;
+    color: #878c9b;
+    border: 1px solid #cccccc;
+    width: 100px;
+    height: 30px;
+    display: none;
+}
+
+.ProcessBox {
+    display: inline-block;
+    margin: 0 auto;
+    text-align: center;
+    width: 75%;
+}
+
+.insureCreate {
+    background: #095963;
+    color: #ffffff;
+    float: right;
+}
+
+.creatLeft {
+    border-right: 1px solid #cccccc;
+    width: 240px;
+    padding-right: 10px;
+    display: inline-block;
+    cursor: default;
+}
+
+.creatHTSidebarTitle {
+    padding-bottom: 40px;
+    padding-left: 20px;
+}
+
+.creatHTSidebarTitleText {
+    color: #095963;
+    font-size: 16px;
+    font-weight: bold;
+    position: absolute;
+    top: 40px;
+    left: 20px;
+
+}
+
+.creatHTSidebarTitleTop{
+    padding-bottom: 40px;
+    padding-left: 20px;
+    color: #095963;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.htSignPreItem:nth-of-type(1) {
+    margin-left: 20px;
+}
+
+.htSignPage {
+    position: absolute;
+    right: 16px;
+    top: 40px;
+    font-weight: bold;
+}
+
+.htSignTitle {
+    color: #095963;
+    font-size: 16px;
+    font-weight: bold;
+    padding-left: 20px;
+    padding-bottom: 28px;
+}
+
+.creatHTSidebarPage {
+    padding-bottom: 40px;
+    padding-left: 20px;
+    font-size: 12px;
+}
+
+.creatHTSidebarItem {
+    padding-left: 20px;
+    font-size: 14px;
+    padding-bottom: 36px;
+    position: relative;
+}
+
+.creatHTSidebarItemActive,.versionManageSidebarItemActive{
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 6px solid transparent;
+    border-left: 9px solid #666666;
+    border-bottom: 6px solid transparent;
+    display: inline-block;
+    position: absolute;
+    left: 2px;
+    top: 3px;
+
+}
+
+.creatHTSidebarItemChild {
+    padding-left: 38px;
+    padding-bottom: 36px;
+}
+
+.creatRight {
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.createHTTitle {
+    text-align: center;
+    color: #000000;
+    font-weight: bold;
+    font-size: 23px;
+    padding-bottom: 40px;
+
+}
+
+.backTop {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    right: 30px;
+    bottom: 34px;
+}
+
+/**
+草拟合同搜索结果
+ */
+.draftSearchResult {
+    display: none;
+}
+
+/**
+版本修改
+ */
+.versionChange {
+    display: none;
+}
+
+.versionManageBtn {
+    background: #095963;
+    color: #ffffff;
+    width: 100px;
+    height: 36px;
+    text-align: center;
+    margin-top: 34px;
+    margin-left: 30px;
+    margin-right: 30px;
+    display: none;
+
+}
+
+.creatHTSideBar,.versionManageSidebar {
+    position: relative;
+}
+
+.versionChangeUser {
+    font-size: 15px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.versionChangeDate {
+    padding-bottom: 40px;
+    padding-left: 30px;
+    font-size: 12px;
+    color: #cccccc;
+}
+
+.versionCheck {
+    background: #095963;
+    color: #ffffff;
+    width: 132px;
+    height: 32px;
+    margin-right: 10px;
+    position: relative;
+    display: none;
+    text-align: right;
+}
+
+.versionEditor, .versionShare {
+    background: #095963;
+    color: #ffffff;
+    margin-right: 10px;
+    position: relative;
+    width: 100px;
+    height: 32px;
+    text-align: right;
+    padding-right: 20px;
+    display: none;
+}
+
+.versionPDF, .versionWord {
+    background: #095963;
+    color: #ffffff;
+    display: none;
+    margin-right: 10px;
+    position: relative;
+    width: 120px;
+    height: 32px;
+    text-align: right;
+    padding-right: 10px;
+}
+
+.insureDraft {
+    background: #095963;
+    color: #ffffff;
+    width: 160px;
+    height: 33px;
+    position: absolute;
+    bottom: 40px;
+    left: 20px;
+    display: none;
+}
+
+.eSign {
+    background: #ea2c50;
+    color: #ffffff;
+    width: 160px;
+    height: 33px;
+    position: absolute;
+    bottom: 40px;
+    left: 20px;
+    display: none;
+}
+
+.showPassInput{
+    position: absolute;
+    bottom: 86px;
+    left: 20px;
+    background: #ffffff ;
+}
+
+.insurePassword {
+    width: 160px;
+    height: 33px;
+    background: #ffffff;
+    border: 1px solid #cccccc;
+    left: 20px;
+
+}
+
+.insureTitle {
+    margin-bottom: 20px;
+    color: #095963;
+    font-size: 18px;
+    font-weight: bold;
+
+}
+
+.insureLine {
+    margin-bottom: 20px;
+    width: 159px;
+    height: 1px;
+    background: #cccccc;
+
+}
+
+.versionChangeUserActive {
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 6px solid transparent;
+    border-left: 9px solid #666666;
+    border-bottom: 6px solid transparent;
+    display: inline-block;
+    position: absolute;
+    left: 2px;
+    top: 3px;
+}
+
+.eSignModelText {
+
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #cccccc;
+}
+
+.eSignModelBtn {
+    margin-top: 18px;
+    margin-left: 100px;
+    margin-right: 100px;
+
+}
+
+/**
+合同预览
+ */
+
+.htPre {
+    display: none;
+}
+
+.creatHTSidebarTexts {
+    color: #095963;
+    font-size: 18px;
+    font-weight: bold;
+    padding-left: 20px;
+}
+
+.htPreLeft {
+    width: 280px;
+    overflow: auto;
+    border-right: 1px solid #cccccc;
+}
+
+.htPreSidebar {
+    margin-left: 20px;
+}
+
+.htPreSidebarItem {
+    width: 160px;
+    height: 220px;
+    border: 1px solid #cccccc;
+    margin-bottom: 22px;
+    margin-left: 20px;
+}
+
+.htPreSidebarItemActive {
+    width: 160px;
+    height: 220px;
+    border: 1px solid #379a9a;
+    margin-bottom: 22px;
+    margin-left: 20px;
+}
+
+.pageActive {
+    width: 0;
+    height: 0;
+    border-top: 50px solid #379a9a !important;
+    border-right: 50px solid transparent;
+    position: relative;
+}
+
+.page {
+    width: 0;
+    height: 0;
+    border-top: 50px solid #dbdce5;
+    border-right: 50px solid transparent;
+    position: relative;
+
+}
+
+.pageText {
+    position: absolute;
+    color: #ffffff;
+    top: -44px;
+    left: 5px;
+}
+
+/**
+合同签名
+ */
+.htSign {
+    display: none;
+    height: 100%;
+}
+
+.htSignHeader {
+    height: 58px;
+    margin-top: 16px;
+}
+
+.signNext {
+    background: #095963;
+    color: #ffffff;
+    float: right;
+    width: 100px;
+    height: 32px;
+    padding: 0;
+    line-height: 32px;
+}
+
+.htSignContent {
+    position: relative;
+    border-left: 1px solid #cccccc;
+    border-top: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+    height: 100%;
+
+}
+
+.htSignAdd {
+    margin-top:40px;
+    width: 100%;
+    height: 474px;
+    position: relative;
+}
+
+.htSignPre {
+    padding-top: 40px;
+    height: 372px;
+    overflow: auto;
+    white-space: nowrap;
+    overflow-y: hidden;
+    position: relative;
+
+}
+
+.page {
+    width: 0;
+    height: 0;
+    border-top: 50px solid #dbdce5;
+    border-right: 50px solid transparent;
+    position: relative;
+
+}
+
+.htSignPreItemActive {
+    border: 1px solid #379a9a !important;
+}
+
+.htSignPreItem {
+    display: inline-block;
+    width: 160px;
+    height: 220px;
+    border: 1px solid #cccccc;
+    position: relative;
+    margin-top: 58px;
+    margin-right: 40px;
+}
+
+.htSignPreModel {
+    width: 500px;
+    height: 500px;
+    border: 1px solid #cccccc;
+    position: absolute;
+    background: #ffffff;
+    z-index: 999;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: none;
+}
+
+.htSignPreModelTitle {
+    text-align: center;
+}
+
+.htSigonPreModelContent {
+    padding: 20px;
+}
+
+.shareSearchSign {
+    padding-top: 10px;
+    padding-left: 20px;
+    width: 100%;
+    height: 42px;
+    background: #ebebeb;
+}
+
+.shareModelSign{
+    height: 313px;
+    background: #ebebeb;
+    overflow: auto;
+}
+.shareListSign {
+    height: 37%;
+}
+
+.addContactSign {
+    width: 2%;
+    height: 30px;
+    margin-top: 2px;
+    display: inline-block;
+    background: url(../img/icon/addContact_nor.png) no-repeat;
+}
+
+.activeAddContactSign {
+    background: url(../img/icon/addContact_yes.png) no-repeat!important;
+}
+
+.shareModelSignEditorPerson {
+    display: inline-block;
+    float: right;
+    background: #095963;
+    color: #ffffff;
+    width: 43px;
+    height: 16px;
+    font-size: 11px;
+    text-align: center;
+    line-height: 16px;
+}
+
+.shareModelSignRemove {
+    margin-top: 10px;
+    float: right;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin-left: 4px;
+    background: url(../img/icon/tool_remove_nor.png) no-repeat;
+}
+
+.activeShareModelSignRemove {
+    background: url(../img/icon/tool_remove_yes.png) no-repeat;
+}
+/**
+合同盖章
+ */
+.htSeal {
+    display: none;
+    height:100%;
+}
+
+.sealPerson {
+    color: #095963;
+    font-weight: bold;
+    font-size: 18px;
+    margin-left: 20px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.signRecord {
+    background: #095963;
+    color: #ffffff;
+    margin-right: 10px;
+    position: relative;
+    width: 110px;
+    height: 32px;
+    text-align: right;
+    padding-right: 15px;
+
+}
+
+.addReceive {
+    background: #095963;
+    color: #ffffff;
+    margin-right: 10px;
+    position: relative;
+    width: 110px;
+    height: 32px;
+    padding-left: 26px;
+}
+
+.qifengzhang, .danyeqian {
+    width: 100px;
+    height: 32px;
+    background: #095963;
+    color: #ffffff;
+    margin-right: 10px;
+}
+
+.helpModel {
+    position: absolute;
+    width: 800px;
+    height: 65px;
+    background: #ebebeb;
+    padding: 10px 20px;
+    left: -282px;
+    top: 54px;
+    z-index: 999;
+    display: none;
+    border: 1px solid #747a8c;
+}
+
+.helpModel:before {
+    content: url(../img/icon/up_ink.png);
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 6px;
+    top: -15px;
+}
+
+.helpModel-l {
+    float: left;
+    display: inline-block;
+    line-height: 24px;
+}
+
+.helpModel-r {
+    margin-top: 7px;
+    float: right;
+    display: inline-block;
+}
+
+.noRemind {
+    width: 100px;
+    height: 30px;
+    background: #ffffff;
+    color: #bec1c9;
+    padding: 0;
+    margin-right: 10px;
+}
+
+.know {
+    padding: 0;
+    width: 100px;
+    height: 30px;
+    background: #095963;
+    color: #ffffff;
+}
+
+.sealLocal {
+    background: url(../img/icon/sealLocal.png) no-repeat;
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    right: 80px;
+    top: 80px;
+    display: none;
+}
+
+.sealSelect {
+    background: url(../img/icon/sealSelect.png) no-repeat;
+    width: 60px;
+    height: 120px;
+    position: absolute;
+    right: 0;
+    top: 330px;
+    display: none;
+}
+
+.sealPage {
+    padding-top: 20px;
+}
+
+.sealPageChoose {
+    padding-left: 142px;
+    line-height: 30px;
+}
+
+.sealLine {
+    background: #cccccc;
+    height: 1px;
+    width: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 4px;
+    display: inline-block;
+}
+
+.sealPageBtn, .eSignModelBtn {
+    margin-top: 24px;
+    margin-left: 100px;
+    margin-right: 100px;
+
+}
+
+.cancelSealPage, .cancelAuth {
+    width: 100px;
+    height: 32px;
+    color: #747a8c;
+    background: #ffffff;
+    margin-right: 70px;
+    border: 1px solid #cccccc;
+}
+
+.insureSealPage, .toAuth {
+    width: 100px;
+    height: 32px;
+    background: #095963;
+    color: #ffffff;
+
+}
+
+.radioSealAll, .radioSealPart {
+    background: url(../img/icon/radio.png) no-repeat;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    padding-right: 10px;
+}
+
+.activeRadioSealAll, .activeRadioSealPart {
+    background: url(../img/icon/radioSelect.png) no-repeat !important;
+}
+
+.authUserName {
+    margin-top: 30px;
+}
+
+.insureSealBtn {
+    width: 240px;
+    height: 32px;
+    color: #ffffff;
+    background: #dbdce5;
+    margin-top: 20px;
+    border: 1px solid #cccccc;
+}
+
+#sealPageModal, #authUserModel {
+    top: 300px;
+}
+
+/**
+版本管理
+ */
+.versionManage{
+    display: none;
+}
+
+.versionManageLeft{
+    border-right: 1px solid #cccccc;
+    width: 232px;
+    padding-right: 10px;
+    display: inline-block;
+}
+
+.versionManageSidebarItem {
+    padding-left: 20px;
+    font-size: 14px;
+    padding-bottom: 36px;
+    position: relative;
+}
+
+.versionNum{
+    color: #dbdce5;
+    font-size: 12px;
+    margin-right: 4px;
+}
+
+.versionTime{
+    position: absolute;
+    top: 18px;
+    left: 51px;
+    font-size: 12px;
+}
+
+.versionLaste{
+    color: red;
+    font-size: 10px;
+    font-weight: bold;
+
+}
+
+.versionManagePre {
+    width: 160px;
+    height: 220px;
+    border: 1px solid #cccccc;
+    margin-bottom: 22px;
+    margin-left: 20px;
+    float: left;
+}
+
+.versionManagePreActive {
+    width: 160px;
+    height: 220px;
+    border: 1px solid #379a9a;
+    margin-bottom: 22px;
+    margin-left: 20px;
+}
+
+/**
+版本查看
+ */
+
+.versionView{
+    display: none;
+}
+
+.compaseFile,.reStoryVersion,.View{
+    height: 32px;
+    width: 100px;
+    background: #095963;
+    color: #ffffff;
+    margin-right: 20px;
+}
+
+#compaseFileModel{
+    top:130px;
+}
+
+.compaseFileModelHeader{
+    text-align: center;
+    background: #ffffff;
+    padding: 7px;
+    border-bottom: 1px solid #cccccc;
+}
+
+.compaseFileModelHeaderTitle{
+    display: inline-block;
+
+}
+
+.versionModelBody{
+    background: #ebebeb;
+    height: 446px;
+    width: 100%;
+}
+
+.versionModelFileName{
+    color: #8a91a6;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.versionModelFileChoose{
+     color: #8a91a6;
+     font-size: 13px;
+ }
+
+.versionModelAll{
+    margin-top: 10px;
+    font-size: 12px;
+    color: #8a91a6;
+    float: right;
+}
+
+.versionModelItem{
+    height: 50px;
+    padding:18px 14px;
+    border-bottom:1px solid #cccccc;
+    background: #ffffff;
+}
+
+.versionModelItemActive{
+    background: #e8f4f6;
+}
+
+.versionModelNum{
+    font-size: 14px;
+    color: #dbdce5;
+}
+
+.versionModelDate{
+    color: #000000;
+    font-weight: bold;
+}
+
+.versionModelTitle{
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 60px;
+    padding-top: 10px;
+}
+
+.versionModelDetail{
+    font-size: 13px;
+}
+
+.versionModelDetailName{
+    color: #095963;border-bottom: 1px solid;margin: 0 4px;
+}
+
+.versionModelLaste{
+        color: red;
+    font-size: 11px;
+    float: right;
+}
+
+.versionModelFooter{
+    border-top: 1px solid #cccccc;
+    position: absolute;
+    bottom: 0;
+    padding: 10px 20px;
+}
+
+.cancelVersion,.composeFile{
+    width: 100px;
+    height: 32px;
+}
+
+.cancelVersion{
+    background: #ffffff;
+    color: #747a8c;
+    margin-left: 75px;
+    margin-right: 40px;
+}
+
+.composeFile{
+    background: #9b9b9b;
+    color: #ffffff;
+}
+
+/**
+编辑合同
+ */
+
+.editorHT{
+    display: none;
+    height: 100%;
+}
+
+.editor-tool-box{
+    height: 34px;
+    width: 34px;
+    border-radius: 20px;
+    position: relative;
+    display: inline-block;
+    border: 1px solid #cccccc;
+    margin-right: 10px;
+}
+
+.editor-tool-box-un{
+    height: 34px;
+    width: 34px;
+    border-radius: 20px;
+    position: relative;
+    display: inline-block;
+    border: 1px solid #cccccc;
+    margin-right: 10px;
+}
+
+.editor-tool{
+    display: inline-block;
+    margin-right:10px;
+}
+
+.editor-tool .active{
+    background: #095963;
+}
+
+.editor-b{
+    background: url(../img/icon/ed-b-yes.png) no-repeat;
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right:0;
+    left:0;
+    margin: auto;
+}
+
+.editor-i{
+    background: url(../img/icon/ed-i-yes.png) no-repeat;
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right:0;
+    left:0;
+    margin: auto;
+}
+
+.editor-u{
+    background: url(../img/icon/ed-u-yes.png) no-repeat;
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right:0;
+    left:0;
+    margin: auto;
+}
+
+.editor-left{
+    background: url(../img/icon/ed-left-yes.png) no-repeat;
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right:0;
+    left:0;
+    margin: auto;
+}
+
+.editor-center{
+    background: url(../img/icon/ed-center-yes.png) no-repeat;
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right:0;
+    left:0;
+    margin: auto;
+}
+
+.editor-right{
+    background: url(../img/icon/ed-right-yes.png) no-repeat;
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right:0;
+    left:0;
+    margin: auto;
+}
+
+.editor-a{
+    background: url(../img/icon/ed-a-yes.png) no-repeat;
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    top: 8px;
+    margin: auto;
+    left: 10px;
+
+}
+
+.color-box{
+    position: absolute;
+    height: 5px;
+    width: 14px;
+    background: #000000;
+    bottom: 6px;
+    left: 1px;
+    right: 0;
+    margin: auto;
+}
+
+.editor-background{
+    background: url(../img/icon/ed-back-yes.png) no-repeat;
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    top: 10px;
+    left: 12px;
+}
+
+.active .editor-b{
+    background: url(../img/icon/ed-b-nor.png) no-repeat;
+}
+
+.active .editor-i{
+    background: url(../img/icon/ed-i--nor.png) no-repeat ;
+}
+
+.active .editor-u{
+    background: url(../img/icon/ed-u-nor.png) no-repeat;
+}
+
+.active .editor-left{
+    background: url(../img/icon/ed-left-nor.png) no-repeat;
+}
+
+.active .editor-center{
+    background: url(../img/icon/ed-center-nor.png) no-repeat;
+}
+
+.active .editor-right{
+    background: url(../img/icon/ed-right-nor.png) no-repeat;
+}
+
+.editorHT-Content{
+    border: 1px solid #cccccc;
+    padding-left: 20px;
+    padding-top: 40px;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.insureDown {
+    background: #095963;
+    color: #ffffff;
+    position: relative;
+    float: right;
+    width: 100px;
+    height: 32px;
+    text-align: right;
+    padding-right: 20px;
+}
+
+
+/*编辑弹出框*/
+.Editor-model{
+    display: none;
+}
+
+.Editor-model-content {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 484px;
+    height: 180px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.editorUser{
+    color: #095963;
+    margin-right: 6px;
+    font-weight: bold;
+}
+
+.editorBox{
+    text-align: center;
+    padding-top: 24px;
+}
+
+.editorContact{
+    display: inline-block;
+    margin: 0 auto;
+    text-align: center;
+    vertical-align: middle;
+    padding-left: 8px;
+}
+
+/*盖章弹出框*/
+
+.sealPage-model-content {
+    width: 484px;
+    height: 200px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: #fff;
+}
+
+/*电子签名认证弹出框*/
+.eSignAuthModel{
+    display: none;
+}
+
+.eSignModel-content {
+    width: 484px;
+    height: 180px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: #fff;
+}
+
+/*验证账号弹出框*/
+
+.authUserModel{
+    display: none;
+}
+
+.authUserModel-content {
+    text-align: center;
+    width: 484px;
+    height: 264px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: #fff;
+}
+
+/*版本对比弹出框*/
+
+.compaseFileModel{
+    display: none;
+}
+
+.compaseFileModel-content {
+    width: 620px;
+    height: 490px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background: #ebebeb;
+}
+
+/*签署记录*/
+
+.signRecord-model{
+    display: none;
+}
+
+.signRecord-model-content{
+    width: 620px;
+    height: 270px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background: #ffffff;
+    z-index: 999;
+}
+
+.closeMargin{
+    margin-right: 10px;
+}
+.signRecord-box{
+    overflow: hidden;
+    height: 238px;
+}
+.signRecord-item{
+    padding: 18px 18px;
+    border-bottom: 1px solid #cccccc;
+}
+
+.siginRecord-item-left{
+    float: left;
+    padding-top: 10px;
+    padding-right: 20px;
+    font-weight: bold;
+}
+
+.siginRecord-item-right{
+    float: right;
+    font-weight: bold;
+}
+
+.siginRecord-item-contact{
+    display: inline-block;
+}
+
+.signRecord-contactimg{
+    padding-right: 8px;
+}
+
+.signRecord-contact-company{
+    color: #747a8c;
+    font-weight: bold;
+}
+
+.signRecord-contact-phone{
+    padding-right: 20px;
+    padding-top: 4px;
+    display: inline-block;
+    color: #747a8c;
+}
+
+.signRecord-contact-email{
+    color: #747a8c;
+    padding-left: 20px;
+    border-left: 1px solid#cccccc;
+}
+
+.noSign{
+    color: red;
+}
+
+.doSign{
+    color: #2a6f78;
+}
+
+
+/*添加签收方弹窗*/
+
+.addSignUser-model{
+    display: none;
+}
+
+.addSigonUser-content{
+    width: 620px;
+    height: 394px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background: #ebebeb;
+    z-index: 999;
+    overflow: auto;
+    cursor: default;
+}
+.shareModelSignModel{
+    height: 313px;
+    background: #ebebeb;
+    overflow: auto;
+}
+.addContactSignModel {
+    width: 3%;
+    height: 30px;
+    margin-top: 2px;
+    display: inline-block;
+    background: url(../img/icon/addContact_nor.png) no-repeat;
+}
+
+
+/*合同签名预览弹窗*/
+
+.htSignPre-model{
+    display: none;
+
+}
+
+.htSignPre-model-content{
+    width: 484px;
+    height: 690px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background: #ebebeb;
+    z-index: 999;
+    border:1px solid #747a8c;
+}
+@media (max-height: 800px) {
+    .shareModelSign{
+        height: 110px;
+        overflow: auto;
+    }
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/common.css">
+
+</head>
+<body>
+<div id="app">
+    <div class="loginModel">
+        <div class="loginContent clearfloat">
+        <a href="index.html">  <img src="img/pop_login_btn_cancel_nor@2x.png" alt="" class="closeModel"></a>         
+            <p class="loginTitle">登录</p>
+            <div class="login-box">
+                <input type="text" placeholder="输入手机号码" class="phoneInput" v-model="mobile">
+                <input type="password" placeholder="输入密码" class="passwordInput" v-model="passwd">
+
+                <a class="loginBtn" @click="login">登录</a>
+                <p class="forget">忘记密码</p>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="js/axios.min.js"></script>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+ <script type="text/javascript" src="js/login.js"></script>
+
+</body>
+</html>

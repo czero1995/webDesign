@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link rel="stylesheet" href="css/reset.css" />
+		<title>Document</title>
+		<style>
+			body {
+				background: #F8FAFB;
+			}
+			
+			.hdzx-top {
+				height: 0.8rem;
+				width: 100%;
+				background: #F0B20D;
+				display: flex;
+				justify-content: space-around;
+				text-align: center;
+				color: #ffffff;
+				line-height: 0.8rem;
+				font-size: 0.26rem;
+				position: relative;
+			}
+			
+			.top-text {
+				position: relative;
+			}
+			
+			.active.top-text:after {
+				content: '——';
+				position: absolute;
+				left: 0;
+				right: 0;
+				bottom: -19px;
+				margin: auto;
+			}
+			
+			.top-line {
+				width: 0.58rem;
+				height: 0.02rem;
+				background: #FFFFFF;
+				position: absolute;
+				bottom: 0.13rem;
+				left: 21%;
+			}
+			
+			.hdzx-top div {}
+			
+			.hdzx-select {
+				display: flex;
+				height: 0.8rem;
+				line-height: 0.8rem;
+				font-size: 0.26rem;
+				justify-content: space-around;
+				text-align: center;
+				border-bottom: 1px solid #cccccc;
+				position: relative;
+			}
+			
+			.lineone {
+				background: #cccccc;
+				width: 2px;
+				height: 0.26rem;
+				position: absolute;
+				left: 30%;
+				top: 0;
+				bottom: 0;
+				margin: auto;
+			}
+			
+			.linetwo {
+				background: #cccccc;
+				width: 2px;
+				height: 0.26rem;
+				position: absolute;
+				right: 34%;
+				top: 0;
+				bottom: 0;
+				margin: auto;
+			}
+			
+			.select-area {
+				/*position: relative;*/
+			}
+			
+			.hdzx-select img {
+				margin-left: 0.2rem;
+			}
+			
+			.company-item {
+				margin: 0 0.3rem;
+			}
+			
+			.company-time {
+				padding-top: 0.4rem;
+				padding-bottom: 0.3rem;
+				text-align: center;
+				font-size: 0.2rem;
+				color: #999999;
+			}
+			
+			.company-pic {
+				width: 100%;
+				height: 3.45rem;
+				position: relative;
+			}
+			
+			.company-img {
+				width: 100%;
+				height: 100%;
+			}
+			
+			.company-down {
+				position: absolute;
+				top: 0.35rem;
+				left: 0.28rem;
+				color: #F0B20D;
+				font-size: 0.18rem;
+				height: 0.4rem;
+				line-height: 0.4rem;
+				padding: 0 0.14rem;
+				text-align: center;
+				background: #000000;
+				border-radius: 0.08rem;
+			}
+			
+			.company-state {
+				position: absolute;
+				right: 0;
+				top: 0.35rem;
+				color: #ffffff;
+				font-size: 0.24rem;
+				height: 0.5rem;
+				line-height: 0.5rem;
+				text-align: center;
+				width: 1.12rem;
+				background: url(img/state.png) no-repeat 100% 100%;
+			}
+			
+			.company-info {
+				background: #ffffff;
+				padding-top: 0.32rem;
+				padding-left: 0.28rem;
+				padding-right: 0.22rem;
+			}
+			
+			.company-top {
+				display: flex;
+				justify-content: space-between;
+			}
+			
+			.company-title {
+				color: #1A1A1A;
+				font-size: 0.26rem;
+				width: 3.3rem;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+			
+			.company-member {
+				font-size: 0.22rem;
+				color: #999999;
+			}
+			
+			.company-member span {
+				color: #F0B20D;
+			}
+			
+			.company-dec {
+				padding: 0.33rem 0;
+				color: #999999;
+				font-size: 0.26rem;
+				width: 5.26rem;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+			
+			.company-bottom {
+				display: flex;
+				justify-content: space-between;
+				padding-top: 0.32rem;
+				border-top: 1px solid #cccccc;
+				padding-bottom: 0.38rem;
+			}
+			
+			.company-bottom p {
+				color: #333333;
+				font-weight: 600;
+				font-size: 0.24rem;
+			}
+			
+			.company-bottom img {
+				margin-top: 0.02rem;
+				width: 0.24rem;
+				height: 0.24rem;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="app">
+			<div class="hdzx-top">
+				<div class="top-text top-company" :class="{active: selected === 'company'}" @click="onSelected('company')">企业通告</div>
+				<div class="top-text top-platform" :class="{active: selected === 'platform'}" @click="onSelected('platform')">平台活动</div>
+				<!--<div class="top-line"></div>-->
+			</div>
+			<div class="hdzx-select">
+				<div class="select-area">
+					全国
+					<img src="img/triggle.png" alt="" />
+					<div class="lineone"></div>
+				</div>
+				<div class="select-time">工作时间<img src="img/triggle.png" alt="" />
+					<div class="linetwo"></div>
+				</div>
+				<div class="select-state">活动状态<img src="img/triggle.png" alt="" /></div>
+			</div>
+			<div class="company-contentBox" v-show="selected === 'company'">
+				<div class="company-item">
+					<a href="hdxq.html">
+						<p class="company-time">2017年6月24日</p>
+						<div class="company-pic">
+							<img class="company-img" src="img/hdzx.png" />
+							<div class="company-down">15天后截止</div>
+							<div class="company-state">进行中</div>
+						</div>
+						<div class="company-info clearfloat">
+							<div class="company-top">
+								<p class="company-title">通告主题通告主通告主通告主通告主</p>
+								<p class="company-member"><span>5147人</span>报名</p>
+							</div>
+
+							<p class="company-dec">招聘平面mute。要求相貌端正要求相貌端正要求相貌端正要求相貌端正</p>
+							<div class="company-bottom">
+								<p>查看详情</p>
+								<img src="img/arrow.png" alt="" />
+							</div>
+					</a>
+					</div>
+				</div>
+				<div class="company-item">
+					<p class="company-time">2017年6月24日</p>
+					<div class="company-pic">
+						<img class="company-img" src="img/hdzx.png" />
+						<div class="company-down">15天后截止</div>
+						<div class="company-state">进行中</div>
+					</div>
+					<div class="company-info clearfloat">
+						<div class="company-top">
+							<p class="company-title">通告主题通告主通告主通告主通告主</p>
+							<p class="company-member"><span>5147人</span>报名</p>
+						</div>
+
+						<p class="company-dec">招聘平面mute。要求相貌端正要求相貌端正要求相貌端正要求相貌端正</p>
+						<div class="company-bottom">
+							<p>查看详情</p>
+							<img src="img/arrow.png" alt="" />
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+			<div class="platform-contentBox" v-show="selected === 'platform'">
+				<div>平台活动界面</div>
+			</div>
+		</div>
+		<script src="js/rem.js"></script>
+		<script src="js/vue.js"></script>
+		<script>
+			new Vue({
+				el: "#app",
+				data() {
+					return {
+						selected: 'company'
+					}
+				},
+				methods: {
+					onSelected(select) {
+						this.selected = select;
+					}
+				}
+			})
+		</script>
+	</body>
+
+</html>

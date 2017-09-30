@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>My App</title>
+		<!-- Path to Framework7 Library CSS-->
+		<link rel="stylesheet" href="css/framework7.ios.min.css">
+		<!-- Path to your custom app styles-->
+		<link rel="stylesheet" href="css/common.css">
+		<link rel="stylesheet" href="css/my-app.css">
+	</head>
+	<style>
+		[v-cloak] {
+  		display: none;
+			}
+	</style>
+	<body>
+
+		<div class="views tabs" id="app">
+			<!--课程-->
+			<div id="home-lesson" class="view view-main tab active">
+				<!-- Pages-->
+				<div class="pages">
+					<!-- Page, data-page contains page name-->
+					<div data-page="index-1" class="page">
+						<!-- Scrollable page content-->
+						<div class="page-content">
+							<!--轮播-->
+							<div class="swiper-container swiper-lesson">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide"><img src="img/lession-detail.png" /></div>
+									<div class="swiper-slide"><img src="img/lession-detail.png" /></div>
+									<div class="swiper-slide"><img src="img/lession-detail.png" /></div>
+								</div>
+								<div class="swiper-pagination"></div>
+							</div>
+							<!--轮播end-->
+							<!--选择栏-->
+							<div class="lesson-tabbar" >
+								<div class="tabbar-item">
+									<img src="img/btn_recommend_sel@2x.png" alt="" />
+									<div class="tabbar-text">推荐</div>
+								</div>
+								<div class="tabbar-item" >
+									<img src="img/btn_Popularity_nor@2x.png" alt="" />
+									<div class="tabbar-text">人气</div>
+								</div>
+								<div class="tabbar-item" @click="onSelectModel">
+									<img src="img/btn_filter_nor@2x.png" alt="" />
+									<div class="tabbar-text">筛选</div>
+								</div>
+							</div>
+							<!--选择栏end-->
+
+							<!--课程推荐-->
+							<div class="lesson-recommend">
+
+								<div class="recommend-item " @click="onLessonDetail()">
+									<a href="page/lesson_detail.html">
+										<div class="lesson-box clearfloat">
+											<div class="lesson-text">
+												<div class="title-name">羽毛球课程</div>
+												<div class="lesson-title">第一阶段 初级技术入门</div>
+												<div class="lesson-content">握拍、挥拍、前后场初级技术、后场到前场、后场到前场的初级步法。</div>
+												<div class="lesson-price">¥5666</div>
+											</div>
+											<img src="img/lesson.png" class="lesson-img" />
+										</div>
+										<div class="lesson-label">
+											<div class="label-item">羽毛球</div>
+											<div class="label-item">羽毛球</div>
+											<div class="label-item">羽毛球羽毛球羽毛球</div>
+										</div>
+									</a>
+								</div>
+								<div class="recommend-item ">
+									<div class="lesson-box clearfloat">
+										<div class="lesson-text">
+											<div class="title-name">羽毛球课程</div>
+											<div class="lesson-title">第一阶段 初级技术入门</div>
+											<div class="lesson-content">握拍、挥拍、前后场初级技术、后场到前场、后场到前场的初级步法。</div>
+											<div class="lesson-price">¥5666</div>
+										</div>
+										<img src="img/lesson.png" class="lesson-img" />
+									</div>
+									<div class="lesson-label">
+										<div class="label-item">羽毛球</div>
+										<div class="label-item">羽毛球</div>
+										<div class="label-item">羽毛球</div>
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Bottom Tabbar-->
+			<div class="toolbar tabbar tabbar-labels">
+				<div class="toolbar-inner">
+					<a href="" class="tab-link active" @click="onIndex"> <i class="icon tabbar-demo-icon-1"></i><span class="tabbar-label">课程</span></a>
+					<a href="" class="tab-link" @click="onCoach"><i class="icon tabbar-demo-icon-2"></i><span class="tabbar-label">教练</span></a>
+					<a href="" class="tab-link" @click="onStadium"> <i class="icon tabbar-demo-icon-3"></i><span class="tabbar-label">场馆</span></a>
+					<a href="" class="tab-link" @click="onPerson"> <i class="icon tabbar-demo-icon-4"></i><span class="tabbar-label">我的</span></a>
+				</div>
+			</div>
+
+			<!--验证手机号码-->
+			<div class="phone-model" v-show="showPhone" v-cloak>
+				<div class="phone-content">
+					<p class="phone-title">验证手机号</p>
+					<div class="phone-box">
+						<input type="text" class="phone-input" placeholder="请输入手机号" />
+						<br />
+						<input type="text" class="yzm-input" placeholder="请输入验证码" />
+						<button class="get-yzm">获取验证码</button>
+					</div>
+					<span class="no-now">暂不</span>
+					<button class="insure">确定</button>
+				</div>
+			</div>
+			<!--选择性别-->
+			<div class="sex-model" v-show="showSex" v-cloak>
+				<div class="sex-content">
+					<p class="title-name">性别</p>
+					<img src="img/pop_Gender selection_woman_nor@2x.png" class="gril-img" />
+					<p class="gril-text">女</p>
+					<img src="img/pop_Gender selection_man@2x.png" class="boy-img" />
+					<p class="boy-text">男</p>
+				</div>
+			</div>
+			<!--成为会员-->
+			<div class="bevip-model" v-show="showBeVip" v-cloak>
+				<div class="bevip-content">
+					<img src="img/pop_img_Congratulations@2x.png" alt="" />
+					<p class="vip-code">会员号 888888</p>
+					<p class="vip-tip">恭喜您成为会员啦啦啦</p>
+					<p class="vip-btn">确定</p>
+				</div>
+			</div>
+			<!--完善会员信息-->
+			<div class="info-model" v-show="showInfo" v-cloak>
+				<div class="info-content">
+					<p class="title-name">完善会员信息</p>
+					<p class="info-tip">完善更多信息，可能会获得会员信息礼品哦</p>
+					<div>
+						<span class="no-now">取消</span>
+						<button class="insure">确定</button>
+					</div>
+				</div>
+			</div>
+			<!--筛选栏-->
+			<div class="select-model" v-show="showSelected" @click.stop="onSelectModel" v-cloak>
+				<div class="select-content" @click.stop="!onSelectModel">
+					<div class="lesson-tabbar select-bar">
+						<div class="tabbar-item select-item">
+							<img src="img/btn_recommend_nor@2x.png" alt="" />
+							<div class="tabbar-text">推荐</div>
+						</div>
+						<div class="tabbar-item select-item">
+							<img src="img/btn_Popularity_nor@2x.png" alt="" />
+							<div class="tabbar-text">人气</div>
+						</div>
+						<div class="tabbar-item select-item">
+							<img src="img/btn_filter_sel@2x.png" alt="" />
+							<div class="tabbar-text">筛选</div>
+						</div>
+					</div>
+
+					<div class="select-box">
+						<p class="title-name">类型</p>
+						<div class="select-label">
+							<div class="label-item" v-bind:class="{active:isLabel}" @click="onLabel($event)">羽毛球</div>
+							<div class="label-item" v-bind:class="{active:isLabel}" @click="onLabel($event)">羽毛球</div>
+							<div class="label-item" v-bind:class="{active:isLabel}" @click="onLabel($event)">羽毛球</div>
+							<div class="label-item" v-bind:class="{active:isLabel}" @click="onLabel($event)">羽毛球</div>
+							<div class="label-item" v-bind:class="{active:isLabel}" @click="onLabel($event)">羽毛球</div>
+							<div class="label-item" v-bind:class="{active:isLabel}" @click="onLabel($event)">羽毛球</div>
+						<div class="label-item" v-bind:class="{active:isLabel}" @click="onLabel($event)">羽毛球</div>
+							<div class="label-item" v-bind:class="{active:isLabel}" @click="onLabel($event)">羽毛球</div>
+							<div class="label-item" v-bind:class="{active:isLabel}" @click="onLabel($event)">羽毛球</div>
+							<div class="label-item" v-bind:class="{active:isLabel}" @click="onLabel($event)">羽毛球</div>
+
+
+						</div>
+						<p class="title-name title-address">位置</p>
+						<div class="select-label">
+							<div class="label-item">南山区</div>
+							<div class="label-item">南山区</div>
+							<div class="label-item">南山区</div>
+							<div class="label-item">南山区</div>
+							<div class="label-item">南山区</div>
+							<div class="label-item">南山区</div>
+							<div class="label-item">南山区</div>
+							<div class="label-item">南山区</div>
+							<div class="label-item">南山区</div>
+							<div class="label-item">南山区</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<script src="js/rem.js"></script>
+		<!-- Path to Framework7 Library JS-->
+
+		<!-- Path to your app js-->
+
+		<script type="text/javascript" src="js/framework7.js"></script>
+		<script type="text/javascript" src="js/my-app.js"></script>
+		<script src="js/vue.js"></script>
+		<script type="text/javascript">
+			new Vue({
+				el: '#app',
+				data() {
+					return {
+						showBeVip: false,
+						showPhone: false,
+						showSex: false,
+						showInfo: false,
+						showSelected: false,
+						isLabel: false
+					}
+				},
+				mounted: function() {
+					var myApp = new Framework7();
+					var mySwiper = myApp.swiper('.swiper-lesson', {
+						pagination: '.swiper-lesson .swiper-pagination',
+						speed: 400,
+						spaceBetween: 100
+					});
+				},
+				methods: {
+					onIndex: function() {
+						location.href = "index.html"
+					},
+					onCoach: function() {
+						location.href = "coach.html"
+					},
+					onStadium: function() {
+						location.href = "stadium.html"
+					},
+					onPerson: function() {
+						location.href = "person.html"
+					},
+					onLessonDetail: function() {
+						location.href = "page/lesson_detail.html"
+					},
+					onCoachDeatil: function() {
+						location.href = "page/coach_deatil.html"
+					},
+					onStadiumDetail: function() {
+						location.href = "page/stadium-detail.html"
+					},
+					onPersonInfo: function() {
+						location.href = "page/person_info.html"
+					},
+					onSelectModel: function() {
+						this.showSelected = !this.showSelected
+					},
+					onLabel: function(event) {/*
+						this.isLabel = !this.isLabel*/
+						event.currentTarget
+					},
+					onAgreement: function() {
+						location.href = "page/user_agreement.html"
+					},
+					onAbout: function() {
+						location.href = "page/about_us.html"
+					}
+				}
+
+			})
+		</script>
+	</body>
+
+</html>

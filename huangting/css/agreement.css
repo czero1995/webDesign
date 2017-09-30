@@ -1,0 +1,50 @@
+body{
+    overflow-x: hidden;
+}
+.contentBox{
+
+    padding: 0 14%;
+    margin-top:20px;
+}
+.agreement{
+    background: #ffffff;
+}
+.agreementTitle{
+    padding-top:70px;
+    padding-bottom:70px;
+    text-align: center;
+    color: #707070;
+    font-weight: 600;
+}
+.agreementContent{
+    padding: 0 38px;
+    text-indent: 20px;
+    color: #8d8d8d;
+    line-height: 26px;
+}
+.agree-box{
+    margin-top:65px;
+    margin-bottom:44px;
+    text-align: center;
+}
+.agree-box img{
+    vertical-align: middle;
+    margin-right: 8px;
+}
+.btn-box{
+    margin: 0 auto;
+    text-align: center;
+}
+.btn{
+    height: 48px;
+    width: 164px;
+    border-radius: 100px;
+    text-align: center;
+    line-height: 48px;
+    display: inline-block;
+    margin-bottom:52px;
+}
+.btnCancel{
+    border:1px solid #d59856;
+    margin-right:15px;
+}

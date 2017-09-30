@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link rel="stylesheet" href="css/reset.css" />
+		<title>Document</title>
+		<style>
+			body {
+				background: #F8FAFB;
+			}
+			
+			.alieditContainer {
+				position: relative;
+			}
+			
+			.alieditContainer .i-text {
+				position: absolute;
+				color: #fff;
+				opacity: 0.2;
+				100%;
+				height: 1.1rem font-size:0.12rem;
+				left: 0;
+				-webkit-user-select: initial;
+				/*取消禁用选择页面元素*/
+				z-index: 9;
+				padding: 0;
+				borde: 0;
+			}
+			
+			.alieditContainer .sixDigitPassword {
+				100%;
+				height: 0.9rem;
+				cursor: text;
+				background: #fff;
+				outline: none;
+				position: relative;
+				border: 2px solid #b3b3b3;
+				border-radius: 5px;
+			}
+			
+			.alieditContainer .sixDigitPassword i {
+				background: #fafafa;
+				width: 16.5%;
+				height: 0.9rem;
+				float: left;
+				display: block;
+				border-left: 1px solid #e6e6e6;
+			}
+			
+			.alieditContainer .sixDigitPassword i:first-child {
+				border-left: 0;
+			}
+			
+			.alieditContainer .sixDigitPassword i.active {
+				background: #fafafa;
+				background-repeat: no-repeat;
+				background-position: center center;
+			}
+			
+			.alieditContainer .sixDigitPassword b {
+				display: block;
+				width: 0.3rem;
+				height: 0.3rem;
+				line-height: 0.3rem;
+				margin: auto;
+				margin-top: 0.3rem;
+				overflow: hidden;
+				display: none;
+				/*visibility:hidden;*/
+				background: #000;
+				border-radius: 100%;
+			}
+			
+			.alieditContainer .sixDigitPassword .guangbiao {
+				width: 0.5rem;
+				height: 1.1rem;
+				position: absolute;
+				display: block;
+				left: 0px;
+				top: -1px;
+				border: 1px solid rgba(82, 168, 236, .8);
+				border: 1px solid #00ffff\9;
+				border-radius: 5px;
+				visibility: visible;
+				-webkit-box-shadow: inset 0px 2px 2px rgba(0, 0, 0, 0.75), 0 0 8px rgba(82, 168, 236, 0.6);
+				box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+			}
+			
+			.payContent {
+				padding: 0 0.4rem;
+				background: #FFFFFF;
+				border-bottom: 1px solid #CCCCCC;
+				padding-bottom: 0.2rem;
+			}
+			
+			.defaultFont {
+				font-size: 0.24rem;
+				color: #E1A400;
+				margin-bottom: 0.28rem;
+				padding-top: 0.4rem;
+			}
+			
+			.theme {
+				font-size: 0.3rem;
+				color: #1A1A1A;
+				font-weight: 600;
+				padding-bottom: 0.32rem;
+				border-bottom: 1px solid #CCCCCC;
+			}
+			
+			.payCoach {
+				display: flex;
+				justify-content: space-between;
+				border-bottom: 1px solid #CCCCCC;
+			}
+			
+			.payWay {
+				font-size: 0.24rem;
+				color: #CCCCCC;
+				display: flex;
+				justify-content: space-between;
+			}
+			
+			.payBottom {
+				height: 1.6rem;
+				background: #FFFFFF;
+				text-align: center;
+				width: 100%;
+				margin: 0 auto;
+				position: absolute;
+				bottom: 0;
+			}
+			
+			.payBox {
+				background: #F0B20D;
+				color: #FFFFFF;
+				height: 1rem;
+				line-height: 1rem;
+				margin-top: 0.3rem;
+				border-radius: 15px;
+				width: 90%;
+				text-align: center;
+				font-size: 0.32rem;
+				margin: 0 auto;
+				margin-top: 0.3rem;
+				text-align: center;
+			}
+			
+			input {
+				border: none;
+				background: transparent;
+				font-size: 0.24rem;
+			}
+			
+			.payWay-content {
+				width: 80%;
+				height: 6.92rem;
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				right: 0;
+				left: 0;
+				margin: auto;
+			}
+			
+			.payWay-top {
+				height: 1.6rem;
+				font-size: 0.32rem;
+				color: #000000;
+				font-weight: 600;
+				background: #f5f5f5;
+				padding-left: 0.68rem;
+				padding-right: 0.3rem;
+				padding-top: 0.32rem;
+			}
+			
+			.closeImg {
+				float: right;
+				width: 0.7rem;
+				height: 0.7rem;
+			}
+			
+			.payWay-top p {
+				margin-top: 0.6rem;
+			}
+			
+			.payWay-method {
+				padding-top: 0.2rem;
+				background: #FFFFFF;
+				padding-left: 0.56rem;
+				padding-right: 0.56rem;
+				padding-bottom: 0.7rem;
+			}
+			
+			.payWay-item {
+				border-bottom: 1px solid #CCCCCC;
+				padding-bottom: 0.46rem;
+				padding-top: 0.46rem;
+				font-size: 0.26rem;
+				display: flex;
+				justify-content: space-between;
+			}
+			
+			.itemImg {
+				margin-right: 0.3rem;
+				vertical-align: middle;
+			}
+			
+			.payPasswd-content {
+				position: absolute;
+				padding-bottom: 0.4rem;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				margin: auto;
+				width: 80%;
+				height: 6.44rem;
+				margin: auto;
+				background: #FFFFFF;
+			}
+			
+			.payPasswd-top {
+				text-align: center;
+				padding-top: 0.32rem;
+				padding-right: 0.3rem;
+				padding-left: 0.6rem;
+				font-size: 0.32rem;
+				height: 1.4rem;
+				border-bottom: 1px solid #CCCCCC;
+			}
+			
+			.payPasswd-top p {
+				margin-top: 0.34rem;
+			}
+			
+			.payPasswd-detail {
+				color: #e8a900;
+				text-align: center;
+				padding: 0 0.3rem;
+			}
+			
+			.payPasswd-way {
+				font-size: 0.32rem;
+				padding-top: 0.38rem;
+				padding-bottom: 0.1rem;
+			}
+			
+			.payPasswd-money {
+				font-size: 0.6rem;
+				margin-bottom: 0.6rem;
+			}
+			
+			.InsurePay {
+				height: 1rem;
+				line-height: 1rem;
+				color: #FFFFFF;
+				font-size: 0.32rem;
+				margin-top: 0.5rem;
+				width: 100%;
+				background: #f0b20d;
+				text-align: center;
+				border-radius: 0.1rem;
+			}
+			
+			.payState-content {
+				height: 5.68rem;
+				width: 80%;
+				position: absolute;
+				background: #FFFFFF;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				margin: auto;
+				text-align: center;
+			}
+			
+			.paySuccess-content img:nth-of-type(1) {
+				padding-top: 0.32rem;
+				padding-right: 0.3rem;
+			}
+			
+			.paySuccess-content img:nth-of-type(2) {
+				margin: 0 auto;
+				margin-top: 1.4rem;
+				display: block;
+				text-align: center;
+			}
+			
+			.paySuccess-content p:nth-of-type(1) {
+				font-size: 0.48rem;
+				color: #63cd1d;
+				margin-top: 0.4rem;
+				margin-bottom: 0.3rem;
+			}
+			
+			.paySuccess-content p:nth-of-type(2) {
+				font-size: 0.32rem;
+				color: #939393;
+			}
+			
+			.payFail-content img:nth-of-type(1) {
+				padding-top: 0.32rem;
+				padding-right: 0.3rem;
+			}
+			
+			.payFail-content img:nth-of-type(2) {
+				margin: 0 auto;
+				margin-top: 1.4rem;
+				display: block;
+				text-align: center;
+			}
+			
+			.payFail-content p {
+				font-size: 0.48rem;
+				color: #CCCCCC;
+				margin-top: 0.4rem;
+			}
+			
+			.payFail-content div {
+				background: #f0b20d;
+				color: #FFFFFF;
+				height: 0.98rem;
+				line-height: 0.98rem;
+				font-size: 0.32rem;
+				width: 80%;
+				margin: 0 auto;
+				margin-top: 0.4rem;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="app">
+			<div class="payContent">
+				<p class="defaultFont">套餐</p>
+				<div class="theme">百万美女会员提供国际顶级形象指导服务</div>
+				<p class="defaultFont">支付金额</p>
+				<div class="payCoach">
+					<input type="text" placeholder="请输入" />
+					<div class="defaultFont">元</div>
+				</div>
+				<p class="defaultFont">支付方式</p>
+				<div class="payWay" @click="payModel=true">
+					<input type="text" placeholder="请选择" readonly="readonly" :value="payValue" />
+					<img src="img/arrow.png" alt="" />
+				</div>
+
+			</div>
+			<div class="payBottom">
+				<div class="payBox" @click="passwdModel=true">立即支付</div>
+			</div>
+			<div class="model" v-show="payModel" v-cloak>
+				<div class="payWay-content">
+					<div class="payWay-top clearfloat">
+						<img src="img/closeGrey.png" @click="payModel=false" class="closeImg" />
+						<p>请选择支付方式</p>
+					</div>
+					<div class="payWay-method">
+						<div class="payWay-box">
+							<div class="payWay-item" @click="onPayChoose('payWechat')">
+								<div><img src="img/wechat.png" class="itemImg" /> 微信支付
+								</div>
+								<img src="img/paySelect.png" v-show="paySelected === 'payWechat'" />
+								<img src="img/payUnSelect.png" v-show="paySelected === 'payAcount'" />
+							</div>
+							<div class="payWay-item" @click="onPayChoose('payAcount')">
+								<div>
+									<img src="img/account.png" class="itemImg" /> 账户支付
+								</div>
+								<img src="img/paySelect.png" v-show="paySelected ===  'payAcount'" />
+								<img src="img/payUnSelect.png" v-show="paySelected === 'payWechat'" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="model" v-show="passwdModel" v-cloak>
+				<div class="payPasswd-content">
+					<div class="payPasswd-top clearfloat">
+						<img src="img/closeGrey.png" @click="passwdModel=false" class="closeImg" />
+						<p>请输入支付密码</p>
+					</div>
+					<div class="payPasswd-detail">
+						<p class="payPasswd-way">账户支付</p>
+						<p class="payPasswd-money">¥1000.00</p>
+						<div class="alieditContainer" id="payPassword_container">
+							<input minlength="6" maxlength="6" tabindex="1" id="payPassword_rsainput" name="payPassword_rsainput" class="ui-input i-text" oncontextmenu="return false" onpaste="return false" oncopy="return false" oncut="return false" autocomplete="off" value="" type="password">
+							<div class="sixDigitPassword" tabindex="0">
+								<i class="active"><b></b></i>
+								<i><b></b></i>
+								<i><b></b></i>
+								<i><b></b></i>
+								<i><b></b></i>
+								<i><b></b></i>
+
+							</div>
+						</div>
+						<div class="InsurePay" @click="paySuccessModel=true,passwdModel=false">
+							确认
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<div class="model" v-show="paySuccessModel" v-cloak>
+				<div class="payState-content paySuccess-content clearfloat">
+					<img src="img/closeGrey.png" class="closeImg" @click="paySuccessModel=false" />
+					<img src="img/paySuccess.png" alt="" />
+					<p>支付成功</p>
+					<p>客户会尽快与您联系</p>
+				</div>
+			</div>
+			<div class="model" v-show="payFailModel" v-cloak>
+				<div class="payState-content payFail-content clearfloat">
+					<img src="img/closeGrey.png" class="closeImg" @click="payFailModel=false" />
+					<img src="img/payFail.png" alt="" />
+					<p>支付失败</p>
+					<div>重新支付</div>
+				</div>
+			</div>
+		</div>
+		<script src="js/jquery.js"></script>
+		<script src="js/rem.js"></script>
+		<script src="js/vue.js"></script>
+		<script>
+			$(window).ready(function() {
+
+				$(".i-text").keyup(function() {
+					var inp_v = $(this).val();
+					var inp_l = inp_v.length;
+					//$("p").html( "input的值为：" + inp_v +"; " + "值的长度为:" + inp_l);//测试用
+
+					for(var x = 0; x <= 6; x++) {
+						//			$("p").html( inp_l );//测试
+
+						$(".sixDigitPassword").find("i").eq(inp_l).addClass("active").siblings("i").removeClass("active");
+						$(".sixDigitPassword").find("i").eq(inp_l).prevAll("i").find("b").css({
+							"display": "block"
+						});
+						$(".sixDigitPassword").find("i").eq(inp_l - 1).nextAll("i").find("b").css({
+							"display": "none"
+						});
+
+						$(".guangbiao").css({
+							"left": inp_l * 51
+						}); //光标位置
+
+						if(inp_l == 0) {
+							$(".sixDigitPassword").find("i").eq(0).addClass("active").siblings("i").removeClass("active");
+							$(".sixDigitPassword").find("b").css({
+								"display": "none"
+							});
+							$(".guangbiao").css({
+								"left": 0
+							});
+						} else if(inp_l == 6) {
+							$(".sixDigitPassword").find("b").css({
+								"display": "block"
+							});
+							$(".sixDigitPassword").find("i").eq(5).addClass("active").siblings("i").removeClass("active");
+							$(".guangbiao").css({
+								"left": 5 * 51
+							});
+						}
+
+					}
+				});
+
+			});
+			new Vue({
+				el: '#app',
+				data() {
+					return {
+						payModel: false,
+						passwdModel: false,
+						paySuccessModel: false,
+						payFailModel: false,
+						paySelected: 'payWechat',
+						payValue: ''
+					}
+				},
+				methods: {
+					onPayChoose(pay) {
+						const that = this;
+						that.paySelected = pay;
+						if(pay === 'payWechat') {
+							that.payValue = "微信支付"
+						} else if(pay === 'payAcount') {
+							that.payValue = "账户支付"
+						}
+						setTimeout(function() {
+							that.payModel = false;
+						}, 100)
+
+					}
+				}
+			})
+		</script>
+	</body>
+
+</html>

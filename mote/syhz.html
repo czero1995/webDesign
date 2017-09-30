@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link rel="stylesheet" href="css/reset.css" />
+		<title>Document</title>
+		<style>
+			body {
+				background: #FFFFFF;
+			}
+			.syhzImg{
+				width: 100%;
+				height: 100%;
+				margin-bottom: 1.6rem;
+			}
+			.syhzImg-bottom{
+				position: fixed;
+				bottom: 0;
+				height: 1.6rem;
+				font-size: 0.34rem;
+				width: 100%;
+				background: #FFFFFF;
+			}
+			.bottom-contact{
+				height: 1rem;
+				text-align: center;
+				color: #FFFFFF;
+				line-height: 1rem;
+				border-radius: 0.12rem;
+				width: 90%;
+				margin: 0 auto;
+				margin-top: 0.3rem;
+				background: #f0b20d;
+			}
+			.bottom-money{
+				height: 1rem;
+				text-align: center;
+				color:#FFFFFF;
+				background: #f0b20d;
+				border-radius: 0.12rem;
+				line-height: 1rem;
+				width: 45%;
+								margin-top: 0.3rem;
+			}
+			.contact-content{
+				height: 2.2rem;
+				background: #FFFFFF;
+
+				min-width: 100%;
+				position: absolute;
+				bottom: 0;
+			}
+			.contact-item{
+				font-size: 0.24rem;
+				text-align: center;
+				height: 1.1rem;
+				width: 100%;
+				line-height: 1.1rem;
+				vertical-align: middle;
+			}
+			.contact-item img{
+				margin-right: 0.1rem;
+				vertical-align: middle;
+			}
+			.contact-phone{
+				color: #F0B20D;
+				border-bottom: 1px solid #cccccc;
+			}
+			.contact-cancel{
+				color:#4D4D4D
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="app">
+			<img src="img/syhz.png" class="syhzImg" />
+			<div class="syhzImg-bottom">
+				<div class="bottom-contact" @click="contactModel=true">资讯客服</div>
+			</div>
+			<div class="model" v-show="contactModel">
+				<div class="contact-content">
+					<div class="contact-item contact-phone">
+						<img src="img/pop.png" alt="" />
+							拨打400-400-888
+					</div>
+					<div class="contact-item contact-cancel" @click="contactModel=false">
+						取消
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="js/rem.js"></script>
+		<script src="js/vue.js"></script>
+		<script>
+			new Vue({
+				el:'#app',
+				data(){
+					return{
+						contactModel:false,
+					}
+				},
+				methods:{
+					
+				}
+			})
+		</script>
+	</body>
+
+</html>
