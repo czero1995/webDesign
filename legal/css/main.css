@@ -1151,7 +1151,7 @@ body {
 
 .urlicon {
 	position: absolute;
-	top: 6px;
+	top: 16px;
 	margin-left: 10px;
 }
 
@@ -1163,7 +1163,7 @@ body {
 	display: inline-block;
 	margin: 0 auto;
 	text-align: center;
-	top: 2px;
+	top: 13px;
 	right: 12px;
 	border-radius: 20px;
 }

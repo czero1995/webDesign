@@ -1,0 +1,247 @@
+{extend name="layout/base"}
+{block name="title"}
+<title>教练详情</title>
+{/block}
+
+{block name="style"}
+<link rel="stylesheet" href="__STATIC__/wx/css/coach-detail.css">
+
+<style type="text/css">
+    .view, .pages {
+        overflow: auto;
+        background: #ebebeb;
+    }
+
+    .coachMore {
+        height: 0.66rem;
+        position: relative;
+        background: #ffffff;
+        border: 1px solid #CCCCCC;
+        margin-top: -0.2rem;
+    }
+
+    .coachMore img {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        height: 0.18rem;
+        width: 0.3rem;
+    }
+    .stadium-recommend{
+        padding-left:0;
+        margin-top: 0;
+    }
+    .lesson-recommend{
+        padding-bottom: 0 !important;
+    }
+</style>
+{/block}
+
+{block name="content"}
+<div id="app">
+    <div class="coachDetail-info">
+        <img :src="details.headimg" class="coach-img"/>
+        <p class="title-name">{{details.name}}
+            <img src="__STATIC__/wx/img/ic_gender_man@2x.png" class="gender-img" v-show="genderMan"/>
+            <img src="__STATIC__/wx/img/ic_gender_women@2x.png" class="gender-img" v-show="genderWomen"/>
+        </p>
+
+        <p class="coach-rand">{{details.title}}</p>
+        <div class="coach-label" v-for="tag in details.tags_name">
+            <div class="label-item">{{tag.name}}</div>
+        </div>
+        <p class="coach-introduce">{{details.intro}}</p>
+    </div>
+
+    <div class="coachDetail-tabBox">
+        <div class="tabBox-bar">
+            <p @click="onSelect('lessonService')" v-bind:class="{ active: selected === 'lessonService'}">课程&服务</p>
+            <p @click="onSelect('coachStadium')" v-bind:class="{ active: selected === 'coachStadium'}">场馆</p>
+        </div>
+        <!--课程和服务-->
+        <div class="tabBox-lessonService" v-show="selected === 'lessonService'">
+            <ul class="lesson-recommend">
+                <li class="lessonService-item " v-for="course in details.course_info">
+                    <a :href="course.url" class="external">
+                        <div class="lesson-box clearfloat">
+                            <div class="lesson-text">
+                                <div class="title-name">{{course.title}}</div>
+                                <div class="lesson-title">{{course.sub_title}}</div>
+                                <div class="lesson-content">{{course.sub_intro}}</div>
+                                <div class="lesson-price">¥{{course.price}}</div>
+                            </div>
+                            <img :src="course.post" class="lesson-img"/>
+                        </div>
+                        <div class="lesson-label">
+                            <div class="label-item">{{course.tags}}</div>
+                        </div>
+                    </a>
+                </li>
+                <div class="coachMore" @click="onShowLessonPlay" v-show="coursemore">
+                    <img src="__STATIC__/wx/img/btn_To recover_nor@2x.png" v-show="!showBoxCourse"/>
+                    <img src="__STATIC__/wx/img/btn_more_nor@2x.png" v-show="showBoxCourse"/>
+
+                </div>
+            </ul>
+        </div>
+        <!--场馆-->
+        <div class="tabBox-stadium" v-show="selected === 'coachStadium'">
+            <ul class="stadium-recommend">
+                <li class="stadium-item" v-for="stadium in details.stadium_info">
+                    <a :href="stadium.url" class="external">
+                        <p class="title-name">{{stadium.title}}</p>
+                        <div class="stadium-address clearfloat">
+                            <a :href="map" class="external">
+                                <img src="__STATIC__/wx/img/ic_position_nor@2x.png"/>
+                                <span>{{stadium.address}}</span></a>
+                            <a :href="tel" class="external">
+                            <span class="stadium-phone">
+                                <img src="__STATIC__/wx/img/btn_phone_nor@2x.png" class="phone-img"/>
+                            </span>
+
+                            </a>
+                        </div>
+                    </a>
+                </li>
+                <div class="coachMore" @click="onShowStadiumPlay" v-show="stadiummore">
+                    <img src="__STATIC__/wx/img/btn_To recover_nor@2x.png" v-show="!showBox"/>
+                    <img src="__STATIC__/wx/img/btn_more_nor@2x.png" v-show="showBox"/>
+
+                </div>
+            </ul>
+        </div>
+    </div>
+</div>
+{/block}
+
+{block name="script"}
+
+<script type="text/javascript">
+    var stateCoach = false;
+    var stateLesson = false;
+    var id = {$id};
+    new Vue({
+        el: '#app',
+        data() {
+            return {
+                selected: 'lessonService',
+                details: {},
+                genderMan: false,
+                genderWomen: false,
+                coursemore: false,
+                stadiummore:false,
+                showBox: false,
+                showBoxCourse:false,
+                tel: '',
+                map: ''
+            }
+        },
+        mounted: function () {
+            this.getCoachDetail();
+        },
+        methods: {
+            getCoachDetail: function () {
+                const that = this;
+                axios.post(path + 'coach/get_coach_info/coach_id/' + id)
+                    .then(function (response) {
+                        that.details = response.data.data;
+                        that.details.stadium_info.forEach(function (item) {
+                            that.tel = 'tel:' + item.tel;
+                            that.map = 'http://apis.map.qq.com/tools/poimarker?type=1&keyword=南山区&center=' + item.latitude + ',' + item.longitude + '&radius=1000&key=4JOBZ-RCJRD-22T4R-PZ3XT-S3MW7-BPFV5&referer=yunzhili';
+                            console.log('tel', item.phone);
+                        });
+                        console.log(response, 1)
+
+                        console.log('tel', that.tel);
+                        if (that.details.sex == 1) {
+                            that.genderMan = true;
+                        } else {
+                            that.genderWomen = true;
+                        }
+                        
+                        if (that.details.course_info != null) {
+                        	console.log('that.details.course_info', that.details.course_info);
+                            that.details.course_info.forEach(function (item) {
+                                item.url = "{:url('course/details')}" + "?id=" + item.id;
+                                console.log('item.url', item.url);
+                            });	
+                            if (that.details.course_info.length > 3) {
+                                that.coursemore = true;
+                            }
+                        }
+                        if (that.details.stadium_info != null) {
+                            that.details.stadium_info.forEach(function (item) {
+                                item.url = "{:url('stadium/details')}" + "?id=" + item.id;
+                                console.log('that.details', that.details);
+                            });
+                            if (that.details.stadium_info.length > 3) {
+                                that.stadiummore = true;
+                            }
+                        }
+                        setTimeout(function () {
+                            that.onShowStadium();
+                            that.onShowLesson();
+                        }, 200)
+
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+            },
+            getBanner: function () {
+                const that = this;
+                axios.post(path + 'index/get_banner_list/type/' + id)
+                    .then(function (response) {
+                        that.banners = response.data.data;
+                        console.log(that.banners);
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+            },
+            onSelect: function (selected) {
+                this.selected = selected
+            },
+            onShowLessonPlay:function(){
+                $('.lesson-recommend li').show();
+                this.coursemore=false;
+            },
+            onShowStadiumPlay:function(){
+
+                $('.stadium-recommend li').show();
+                this.stadiummore=false;
+    },
+            onShowStadium: function () {
+                this.showBox = !this.showBox;
+                if (stateCoach == false) {
+                    $('.stadium-recommend li').hide();
+                    $(".stadium-recommend li").eq(0).show();
+                    $(".stadium-recommend li").eq(1).show();
+                    $(".stadium-recommend li").eq(2).show();
+                    stateCoach = true;
+                } else {
+                    $('.stadium-recommend li').show();
+                    stateCoach = false;
+                }
+
+            },
+            onShowLesson:function(){
+                this.showBoxCourse = !this.showBoxCourse;
+                if (stateLesson == false) {
+                    $(".lesson-recommend li").hide();
+                    $(".lesson-recommend li").eq(0).show();
+                    $(".lesson-recommend li").eq(1).show();
+                    $(".lesson-recommend li").eq(2).show();
+                    stateLesson= true;
+                } else {
+                    $('.lesson-recommend li').show();
+                    stateLesson = false;
+                }
+            }
+        }
+    })
+</script>
+{/block}

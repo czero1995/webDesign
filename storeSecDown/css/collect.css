@@ -1,0 +1,19 @@
+#cart {
+  text-align: center;
+  margin-top: 0.4rem;
+}
+#cart img {
+  margin-bottom: 0.3rem;
+}
+#cart p {
+  margin-bottom: 0.4rem;
+}
+#cart a {
+  background: red;
+  display: block;
+  height: 0.8rem;
+  line-height: 0.8rem;
+  width: 4rem;
+  margin: 0 auto;
+  color: #fff;
+}

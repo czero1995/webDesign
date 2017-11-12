@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+		<title>首页</title>
+		<script src="js/rem.js"></script>
+		<link rel="stylesheet" href="css/base.css">
+		<link rel="stylesheet" href="css/index.css">
+		<link rel="stylesheet" href="css/swiper.min.css" />
+	</head>
+
+	<body>
+		<div id="app">
+			<div class="top" id="topBar">
+				<p>凡几</p>
+			</div>
+			<div class="container">
+				<!-- Swiper -->
+				<div class="swiper-container">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide" v-for="bannerItem in bannerList">
+							<img :src="bannerItem.img_url" />
+						</div>
+
+					</div>
+					<!-- Add Pagination -->
+					<div class="swiper-pagination"></div>
+				</div>
+				<div class="content inlinkFlex-spacebetween">
+					<div class="goods-item inlinkFlex" v-for="gooditem in goodsList">
+						<div class="goodsBox">
+							<a :href="'pages/detail.html?id='+gooditem.id">
+								<img :src="gooditem.goods_thumb" class="goods-img" />
+								<div class="goods-textBox">
+									<p class="goods-name text-ellipsis">{{gooditem.goods_name}}</p>
+									<p><span class="goods-coach">¥{{gooditem.present_price}}</span></p>
+								</div>
+							</a>
+							<div class="goods-cartBox">
+								<img src="img/icon/shop_addCart.png" @click="onAddCart(gooditem.id,gooditem.goods_name)" />
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+				<div class="footerTip">
+					————————别滑了，已经到底了———————
+				</div>
+			</div>
+			<div class="footer inlinkFlex-around">
+				<div class="footer-item active">
+					<a href="index.html">
+						<i class="icon footerIcon footerHomeIcon"></i>
+						<p class="footer-title">首页</p>
+					</a>
+				</div>
+				<div class="footer-item">
+					<a href="pages/categotry.html">
+						<i class="icon footerIcon footerCategoryIcon"></i>
+						<p class="footer-title">分类</p>
+					</a>
+				</div>
+				<div class="footer-item">
+					<a href="pages/cart.html">
+						<i class="icon footerIcon footerCartIcon"></i>
+						<p class="footer-title">购物车</p>
+					</a>
+				</div>
+				<div class="footer-item">
+					<a href="pages/member.html">
+						<i class="icon footerIcon footerMemberIcon"></i>
+						<p class="footer-title">我的</p>
+					</a>
+				</div>
+			</div>
+			<!--提示成功弹窗-->
+			<div class="model" v-show="successModel">
+				<div class="model-content tip-content">
+					<p>{{goodsName}} 添加成功</p>
+					<p @click="successModel=false">确定</p>
+				</div>
+			</div>
+		</div>
+
+		</div>
+		<script src="js/jquery.js"></script>
+		<script src="js/axios.js"></script>
+		<script src="js/http.js"></script>
+		<script src="js/swiper.min.js"></script>
+		<script src="js/vue.js"></script>
+		<script>
+			new Vue({
+				el: '#app',
+				data() {
+					return {
+						successModel: false,
+						goodsList: [],
+						/*商品列表*/
+						bannerList: [],
+						/*轮播列表*/
+						goodsName: '', /*商品名字*/
+						page:1,
+						code:'',
+						openid:''
+					}
+				},
+				mounted: function() {
+					const that = this;
+					setTimeout(function() {
+						var swiper = new Swiper('.swiper-container', {
+							pagination: '.swiper-pagination',
+							paginationClickable: true,
+							spaceBetween: 30,
+						});
+					}, 1000)
+					
+					that.getGoodsList();
+					that.getBannerList();
+					window.onscroll = function() {												
+						if(that.getScrollTop() + that.getClientHeight() == that.getScrollHeight()) {
+							axios.post(path + 'goods/getGoodsList', {
+								'page': that.page++
+							}).then(function(res) {
+								that.goodsList = that.goodsList.concat(res.data.data.data);
+								console.log(that.goodsList);
+							})
+							.catch(function(error) {
+								console.log(error);
+							});
+						}
+					}
+				},
+				methods: {										
+					/*获取商品列表*/
+					getGoodsList: function() {
+						const that = this;
+						axios.post(path + 'goods/getGoodsList', {
+							'page':that.page
+						}).then(function(res) {
+								that.goodsList = res.data.data.data;
+								console.log(that.goodsList);
+							})
+							.catch(function(error) {
+								console.log(error);
+							});
+					},
+					/*获取轮播列表*/
+					getBannerList: function() {
+						const that = this;
+						axios.post(path + 'banner/getBannerList', {}).then(function(res) {
+								that.bannerList = res.data.data.data;
+								console.log(that.bannerList);
+							})
+							.catch(function(error) {
+								console.log(error);
+							});
+					},
+					/*添加到购物车*/
+					onAddCart(id, name) {
+						const that = this;
+						
+						axios.post(path + 'cart/addGoodsInCart/', {
+								'goods_id': id,
+								'goods_number': 1,
+							}).then(function(res) {
+								if(res.data.errcode == 200) {
+									that.goodsName = name;
+									that.successModel = true;
+
+								}
+								console.log('addcartData', res.data)
+							})
+							.catch(function(error) {
+								console.log(error);
+							});
+					},
+					
+					//获取滚动条当前的位置 
+					getScrollTop() {
+						var scrollTop = 0;
+						if(document.documentElement && document.documentElement.scrollTop) {
+							scrollTop = document.documentElement.scrollTop;
+						} else if(document.body) {
+							scrollTop = document.body.scrollTop;
+						}
+						return scrollTop;
+					},
+
+					//获取当前可视范围的高度 
+					getClientHeight() {
+						var clientHeight = 0;
+						if(document.body.clientHeight && document.documentElement.clientHeight) {
+							clientHeight = Math.min(document.body.clientHeight, document.documentElement.clientHeight);
+						} else {
+							clientHeight = Math.max(document.body.clientHeight, document.documentElement.clientHeight);
+						}
+						return clientHeight;
+					},
+
+					//获取文档完整的高度 
+					getScrollHeight() {
+						return Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+					}
+				}
+			})
+		</script>
+	</body>
+
+</html>

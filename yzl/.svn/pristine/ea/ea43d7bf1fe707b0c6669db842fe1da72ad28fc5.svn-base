@@ -1,0 +1,112 @@
+{extend name="common/layouts" /} {block name="title"}{$sidename}{/block} {block name="main"}
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            {$sidename}
+        </h1>
+        <ol class="breadcrumb">
+           <!--  <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Dashboard</li> -->
+        </ol>
+    </section>
+    <section class="content">
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box box-default">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">管理员列表</h3>
+                    </div>
+                    <div class="box-body">
+
+                        <div id="toolbar">
+                        
+                            <div class="form-group pull-left" style="margin-right: 0.5rem;">
+                                <a href="{:url('/admin/account/add')}" class="btn btn-primary pull-right"><i class="fa fa-plus"></i>新增管理员</a>
+                            </div>
+                        </div>
+                        <div id="app">
+                            <table class="table table-bordered">
+                                <tbody>
+                                    <tr>
+                                        <th style="width: 20px">用户名</th>
+                                        <th style="width: 20px">所属角色</th>
+                                        <th style="width: 40px">真实名</th>
+                                        <th style="width: 40px">创建时间</th>
+                                        <th style="width: 60px">操作</th>
+                                    </tr>
+                                    <tr v-for="(item,index) in itemlist">
+                                        <td>{{item.account}}</td>
+                                        <td>{{item.role}}</td>
+                                        <td>{{item.realname}}</td>
+                            
+                                        <td>{{item.create_time}}</td>
+                                        <td>
+                                        
+                                            <a class="btn btn-primary" title="编辑" :href="'edit/id/'+item.id"><i class="fa fa-pencil"></i></a>
+                                            
+                                            <a class="btn btn-danger js_del" title="删除" href="javascript:void(0)" v-on:click="del(item.id,index)" data-id="7"><i class="fa fa-trash-o"></i></a>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+   
+
+</div>
+{/block} {block name="jss"}
+<script src="/admin/js/vue.js"></script>
+<script src="__STATIC__/admin/dist/js/axios.min.js"></script>
+<script src="__STATIC__/admin/dist/js/es6-promise.auto.min.js"></script>
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#app',
+        data: {
+            itemlist: {},
+           
+        },
+        created: function () {
+            this.getData();
+        },
+
+        methods: {
+            getData: function (page) {
+                var self = this;
+                $.getJSON(api_url+"account/getAccountList?page=" + page, function (res) {
+                    self.itemlist = res.data.list;
+                   
+                })
+            },
+           
+            //删除操作
+            del: function (id, index) {
+
+                if (confirm('确定要删除吗？')) {
+                    $.getJSON(api_url+"account/delAccount/id/" + id, function (res) {
+                        app.itemlist.splice(index, 1);
+                    });
+
+                }
+            },
+
+        }
+    });
+
+   
+
+
+     
+
+
+</script>
+{/block}

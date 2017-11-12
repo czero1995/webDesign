@@ -640,6 +640,7 @@ li.fileFolder {
 .filte-dropdown span {
     position: absolute;
     top: 0;
+    margin-left: 110px;
     right: 10px;
 }
 
@@ -948,12 +949,6 @@ li.fileFolder {
     float: right;
 }
 
-.contackList {
-    margin-right: -13px;
-    padding-right: 7px;
-    overflow-y: auto;
-    height: 500px;
-}
 
 .contackList-item {
     padding-right: 20px;

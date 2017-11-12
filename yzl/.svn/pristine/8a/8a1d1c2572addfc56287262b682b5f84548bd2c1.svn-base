@@ -1,0 +1,747 @@
+{extend name="layout/base"}
+
+{block name="title"}
+<title xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">云之力</title>
+{/block}
+
+{block name="style"}
+<style type="text/css">
+    #view, .view {
+        overflow: auto !important;
+    }
+
+    .infinite-scroll-preloader {
+        margin-top: -20px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .infinite-scroll-preloader .preloader {
+        width: 34px;
+        height: 34px;
+    }
+
+.category-all,.area-all{
+    padding: 0.05rem 0.1rem;
+    margin-top: 0.2rem;
+    border-radius: 100px;
+    border: 1px solid #c9c9c9;
+    height: 0.4rem;
+    font-size: 0.24rem;
+    text-align: center;
+    line-height: 0.4rem;
+    color: #000000;
+    letter-spacing: 0.71px;
+    float: left;
+    margin-right: 0.2rem;
+}
+
+</style>
+{/block}
+
+{block name="content"}
+<!-- Page, data-page contains page name-->
+<div class="page lesson-page" id="lesson-page">
+    <!-- Scrollable page content-->
+    <div class="page-content infinite-scroll">
+        <!--轮播-->
+        <div class="swiper-container swiper-stadium">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" v-for="banner in banners">
+                    <img :src="banner.post"/></div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+        <!--选择栏-->
+        <div class="lesson-tabbar">
+            <div class="tabbar-item" @click="onSelect('lessonRecommend')">
+                <img src="__STATIC__/wx/img/btn_recommend_sel@2x.png" class="item-recommend-img"
+                     v-bind:class="{ active: selected === 'lessonRecommend'}"/>
+                <div class="tabbar-text tabbartext-select tabbartext-recommend">推荐</div>
+            </div>
+            <div class="tabbar-item" @click="onSelect('lessonHot')">
+                <img src="__STATIC__/wx/img/btn_Popularity_nor@2x.png" class="item-hot-img"
+                     v-bind:class="{ active: selected === 'lessonHot'}"/>
+                <div class="tabbar-text tabbartext-hot">人气</div>
+            </div>
+            <div class="tabbar-item" @click="onSelect('lessonFilter')">
+                <img src="__STATIC__/wx/img/btn_filter_nor@2x.png" class="item-filter-img"
+                     v-bind:class="{ active: selected === 'lessonFilter'}"/>
+                <div class="tabbar-text tabbartext-filter">筛选</div>
+            </div>
+        </div>
+        <!--推荐-->
+        <div class="lesson-recommend" v-show="selected === 'lessonRecommend'">
+            <div class="recommend-item" v-for="courseList in courseLists">
+                <a :href="courseList.url" class="external">
+                    <div class="lesson-box clearfloat">
+                        <div class="lesson-text">
+                            <div class="title-name">{{ courseList.title }}</div>
+                            <div class="lesson-title">{{ courseList.sub_title }}</div>
+                            <div class="lesson-content"></div>
+                            <div class="lesson-price">¥{{ courseList.price }}</div>
+                        </div>
+                        <img :src="courseList.post" class="lesson-img"/>
+                    </div>
+                    <div class="lesson-label">
+                        <div class="label-item">{{courseList.tags}}</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <!--人气-->
+        <div class="lesson-hot" v-show="selected === 'lessonHot'">
+            <div class="recommend-item" v-for="itemHot in hotLists">
+                <a :href="itemHot.url" class="external">
+                    <div class="lesson-box clearfloat">
+                        <div class="lesson-text">
+                            <div class="title-name">{{ itemHot.title }}</div>
+                            <div class="lesson-title">{{ itemHot.sub_title }}</div>
+                            <div class="lesson-content"></div>
+                            <div class="lesson-price">¥{{ itemHot.price }}</div>
+                        </div>
+                        <img :src="itemHot.post" class="lesson-img"/>
+                    </div>
+                    <div class="lesson-label">
+                        <div class="label-item">{{itemHot.tags}}</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <!--筛选-->
+        <div class="lesson-filter" v-show="selected === 'lessonFilter'">
+            <div class="recommend-item" v-for="itemFilter in filterLists">
+                <a :href="itemFilter.url" class="external">
+                    <div class="lesson-box clearfloat">
+                        <div class="lesson-text">
+                            <div class="title-name">{{ itemFilter.title }}</div>
+                            <div class="lesson-title">{{ itemFilter.sub_title }}</div>
+                            <div class="lesson-content"></div>
+                            <div class="lesson-price">¥{{ itemFilter.price }}</div>
+                        </div>
+                        <img :src="itemFilter.post" class="lesson-img"/>
+                    </div>
+                    <div class="lesson-label">
+                        <div class="label-item">{{itemFilter.tags}}</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+    </div>
+    <!--底部导航栏-->
+    <div class="toolbar tabbar tabbar-labels">
+        <div class="toolbar-inner">
+            <a href="{:url('stadium/index')}" class="tab-link "> <i
+                    class="icon tabbar-demo-icon-3"></i><span
+                    class="tabbar-label">场馆</span></a>
+            <a href="{:url('coach/index')}" class="tab-link"><i
+                    class="icon tabbar-demo-icon-2"></i><span
+                    class="tabbar-label">教练</span></a>
+            <a href="{:url('course/index')}" class="tab-link active"> <i
+                    class="icon tabbar-demo-icon-1"></i><span
+                    class="tabbar-label active">课程</span></a>
+            <a href="{:url('member/index')}" class="tab-link "> <i
+                    class="icon tabbar-demo-icon-4"></i><span
+                    class="tabbar-label">我的</span></a>
+        </div>
+    </div>
+    <!--选择栏弹出框-->
+    <div class="select-model" v-show="showSelected" @click.stop="showSelected=false">
+        <div class="select-content" @click.stop="showSelected=true">
+            <div class="lesson-tabbar select-bar">
+                <div class="tabbar-item select-item" @click="onSelect('lessonRecommend')" @click.stop="showSelected=false">
+                    <img src="__STATIC__/wx/img/btn_recommend_nor@2x.png" alt=""/>
+                    <div class="tabbar-text">推荐</div>
+                </div>
+                <div class="tabbar-item select-item" @click="onSelect('lessonHot')" @click.stop="showSelected=false">
+                    <img src="__STATIC__/wx/img/btn_Popularity_nor@2x.png" alt=""/>
+                    <div class="tabbar-text">人气</div>
+                </div>
+                <div class="tabbar-item select-item" @click="onSelect('lessonFilter')">
+                    <img src="__STATIC__/wx/img/btn_filter_sel@2x.png" alt=""/>
+                    <div class="tabbar-text tabbartext-filter tabbartext-select">筛选</div>
+                </div>
+            </div>
+
+            <div class="select-box ">
+                <div class="clearfloat">
+                    <p class="title-name">类型</p>
+
+                    <div class="select-label" >
+                        <div class="category-all" @click="onCategoryAll">全部</div>
+                        <div v-for="(itemCategory,indexCategory ) in category">
+                        <div class="label-item category-item" @click="onCategoryLabel(indexCategory,itemCategory.id)">
+                            {{itemCategory.title}}
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="select-address clearfloat">
+
+                    <p class="title-name title-address">位置</p>
+                    <div class="select-label" >
+                        <div class="area-all" @click="onAreaAll">全部</div>
+                        <div v-for="(itemArea,indexArea) in area">
+                        <div class="label-item area-item" @click="onAreaLabel(indexArea,itemArea.district_code)">
+                            {{itemArea.district_name}}
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="selectBtn">
+                    <p class="selectCancel" @click.stop="showSelected=false">取消</p>
+                    <p class="selectInsure" @click.stop="onSelectInsure">确定</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--验证手机号码-->
+    <div class="phone-model" v-if="showPhone">
+        <div class="phone-content">
+            <p class="phone-title">验证手机号</p>
+            <div class="phone-box">
+                <input type="text" class="phone-input" placeholder="请输入手机号" v-model="phoneInput"/>
+                <div class="yzm-box">
+                    <input type="text" class="yzm-input" placeholder="请输入验证码" v-model="yzmInput"/>
+                    <button class="get-yzm" @click="getYZM">获取验证码</button>
+                </div>
+            </div>
+            <span class="no-now" @click="noNow">暂不</span>
+            <button class="insure" @click="confirmBtn" v-bind:class="{ active: checked }" v-bind:disabled="btnPhone">确定
+            </button>
+        </div>
+
+    </div>
+    <!--成为会员-->
+    <div class="bevip-model" v-if="showBeVip">
+        <div class="bevip-content">
+            <img src="__STATIC__/wx/img/pop_img_Congratulations@2x.png" alt=""/>
+            <p class="vip-code">会员号 {{vipNumber}}</p>
+            <p class="vip-tip">恭喜您成为会员啦啦啦</p>
+            <p class="vip-btn" @click="vipBtn">确定</p>
+        </div>
+    </div>
+    <!--选择性别-->
+    <div class="sex-model" v-if="showSex">
+        <div class="sex-content">
+            <p class="title-name">性别</p>
+            <img src="__STATIC__/wx/img/pop_Gender selection_woman_nor@2x.png" class="gril-img"
+                 @click="chooseGirl"/>
+            <p class="gril-text">女</p>
+            <img src="__STATIC__/wx/img/pop_Gender selection_man@2x.png" class="boy-img" @click="chooseMan"/>
+            <p class="boy-text">男</p>
+        </div>
+    </div>
+    <!--完善会员信息-->
+    <div class="info-model" v-if="showInfo">
+        <div class="info-content">
+            <p class="title-name">完善会员信息</p>
+            <p class="info-tip">完善更多信息，可能会获得会员信息礼品哦</p>
+            <div>
+                <span class="no-now" @click="infoCancel">取消</span>
+                <button class="insure" @click="infoInsure">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+
+{block name="script"}
+<script type="text/javascript" src="__STATIC__/wx/js/framework7.js"></script>
+
+<script type="text/javascript">
+//    var res = document.cookie.indexOf("name");
+//    alert(res);
+//    var needRefresh = sessionStorage.getItem("need-refresh");
+//    var state = false;
+    var arr1 = [];
+    var categoryId;
+    new Vue({
+        el: '#app',
+        data() {
+            return {
+                selected: 'lessonRecommend',
+                showPhone: false,
+                showSex: false,
+                showInfo: false,
+                showSelected: false,
+                isLabel: false,
+                recommendimg: true,
+                hotimg: false,
+                showBeVip: false,
+                btnPhone: true,
+                chooseSex: '',
+                phoneInput: '',
+                yzmInput: '',
+                courseLists: [],
+                hotLists: [],
+                filterLists: [],
+                banners: [],
+                category: [],
+                area: [],
+                page: 1,
+                responseLength: '',
+                categoryId: '',
+                arr1: [],
+            }
+        },
+        mounted: function () {
+            var that = this;
+            that.$nextTick(function () {
+                var myApp = new Framework7();
+                var $$ = Dom7;
+                that.getCourseList();
+                that.getBanner();
+                that.getInfo();
+                setTimeout(" var myApp = new Framework7();var mySwiper = myApp.swiper('.swiper-stadium', {pagination: '.swiper-stadium .swiper-pagination',speed: 400,spaceBetween: 100});", 500);
+                var loading = false;
+                // Attach 'infinite' event handler
+                $$('.infinite-scroll').on('infinite', function () {
+                    if (loading) return;
+                    loading = true;
+                    // Emulate 1s loading
+                    setTimeout(function () {
+                        loading = false;
+                        if (that.responseLength >= 5) {
+                            if (that.selected === 'lessonRecommend') {
+                                that.getCourseList();
+                            }
+                            if (that.selected === 'lessonHot') {
+                                that.getHotList();
+                            }
+                            if (that.selected === 'lessonFilter') {
+                                that.getFilterList();
+                            }
+                        }
+
+                    }, 1000);
+                });
+
+            });
+        },
+        computed: {
+            checked() {
+                return !(this.phoneInput.trim().length === 0 || this.yzmInput.trim().length <6)
+            }
+        },
+        methods: {
+            /*获取个人信息*/
+            getInfo: function () {
+                const that = this;
+                axios.get(path + 'member/get_user_info/openid/' + "{$openid}")
+                    .then(function (response) {
+                        that.infos = response.data;
+                        console.log(2, that.infos.member_num.length);
+                        if (that.infos.member_num.length < 2) {
+                            if (!sessionStorage.pagecount) {
+                                that.showPhone = true;
+                                //console.log('unvip state');
+                                state=true;
+                                sessionStorage.pagecount=Number(sessionStorage.pagecount) +1;
+                            }
+                        }
+                        //console.log('infos', that.infos);
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+            },
+            /*获取验证码*/
+            getYZM: function () {
+                var phoneReg = /(1[3-9]\d{9}$)/;
+                const that = this;
+                if (!phoneReg.test(that.phoneInput)) {
+                    myApp.modal({
+                        text: '手机号码格式错误,请重试！',
+                        buttons: [
+                            {
+                                text: '确定'
+                            }
+                        ]
+                    });
+                } else {
+                    axios.post(path + 'member/sendSMSCode?mobile=' + that.phoneInput)
+                        .then(function (response) {
+                            if (response.status == 200) {
+                                var wait = 30;
+                                that.btnPhone = false;
+                                var yzm = $('.get-yzm');
+                                time();
+
+                                function time() {
+                                    if (wait < 0) {
+                                        yzm.text("获取验证码");
+                                        yzm.removeAttr("disabled");
+                                        wait = 60;
+                                    } else {
+                                        yzm.attr("disabled", "true");
+                                        yzm.text(wait + "秒后重获取");
+                                        wait--;
+                                        setTimeout(function () {
+                                            time();
+                                        }, 1000)
+                                    }
+                                }
+
+                            } else {
+                                myApp.modal({
+                                    text: response.data.errmsg,
+                                    buttons: [
+                                        {
+                                            text: '确定'
+                                        }
+                                    ]
+                                });
+                            }
+                            console.log(response.data);
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+                }
+
+            },
+            /*验证新号码*/
+            confirmBtn: function () {
+                const that = this;
+                if(that.yzmInput.length<5){
+                    myApp.modal({
+
+                        text: "验证码出错",
+                        buttons: [
+                            {
+                                text: '确定'
+
+                            }
+                        ],
+
+                    });
+                }else{
+                    axios.post(path + 'member/register', {
+                        'openid': "{$openid}",
+                        'mobile': that.phoneInput,
+                        'sms_code': that.yzmInput
+                    }).then(function (response) {
+                        console.log(response.status);
+                        if (response.data.status == true) {
+                            that.vipNumber = response.data.member_num;
+                            that.showPhone = false;
+                            that.showBeVip = true;
+                            //console.log("vipNumber", that.vipNumber)
+
+                        } else {
+                            myApp.modal({
+                                text: response.data.msg,
+                                buttons: [
+                                    {
+                                        text: '确定'
+                                    }
+                                ]
+                            });
+                        }
+                        console.log(response.data);
+                    })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+                }
+
+            },
+            hidePhoneModel: function () {
+                this.showPhone = false;
+                this.showEditorName = false;
+                axios.post(path + '/member/remind')
+                    .then(function (response) {
+                        console.log(response);
+                    }).catch(function (error) {
+
+                });
+                this.getInfo();
+            },
+            vipBtn: function () {
+                this.showBeVip = false;
+                this.showSex = true;
+            },
+            chooseGirl: function () {
+                this.chooseSex = 2;
+                this.showSex = false;
+                this.showInfo = true;
+            },
+            chooseMan: function () {
+                this.chooseSex = 1;
+                this.showSex = false;
+                this.showInfo = true;
+            },
+            infoCancel: function () {
+                this.showInfo = false;
+                this.onSave();
+            },
+            infoInsure: function () {
+                this.showInfo = false;
+                this.onSave();
+                location.href = "{:url('member/profile')}";
+            },
+            onSave: function () {
+                const that = this;
+                axios.post(path + 'member/perfectInfo', {
+                    'sex': that.chooseSex,
+                    'mobile': that.phoneInput,
+                    'realname': '',
+                    'birthday': '',
+                    'tshirt': '',
+                }).then(function (response) {
+                    if (response.data.errcode == 200) {
+
+                    } else {
+                        myApp.modal({
+                            text: response.data.msg,
+                            buttons: [
+                                {
+                                    text: '确定'
+                                }
+                            ]
+                        });
+                    }
+                    console.log('editor', response);
+                    console.log('choose', that.chooseSex);
+
+                }).catch(function (error) {
+                    console.log(error);
+                });
+                $('body .item-sex,.item-info,.item-clothes,.item-birth').css("pointer-events", "none");
+                $('.input-username').attr('disabled', false);
+            },
+            /*获取推荐课程*/
+            getCourseList: function () {
+                const that = this;
+                axios.post(path + 'course/get_course_list', {
+                    'type': 'tuijian',
+                    'page': that.page,
+                }).then(function (response) {
+                    that.responseLength = response.data.data.data.length;
+                    if (response.data.data.page == 1) {
+                        that.courseLists = response.data.data.data;
+                        that.page = JSON.parse(response.data.data.page) + 1;
+                    }
+
+                    else {
+                        if (that.responseLength >= 5) {
+                            that.page = JSON.parse(response.data.data.page) + 1;
+                        }
+                        that.courseLists = that.courseLists.concat(response.data.data.data);
+
+                    }
+                    that.courseLists.forEach(function (item) {
+                        item.url = "{:url('course/details')}" + "?id=" + item.id;
+                        console.log(11,item.url);
+                    });
+                    console.log('courseList', that.courseLists);
+                })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+
+            },
+            /*人气*/
+            getHotList: function () {
+                const that = this;
+                axios.post(path + 'course/get_course_list', {
+                    'type': 'renqi',
+                    'page': that.page,
+                }).then(function (response) {
+                    that.responseLength = response.data.data.data.length;
+                    if (response.data.data.page == 1) {
+                        that.hotLists = response.data.data.data;
+                        that.page = JSON.parse(response.data.data.page) + 1;
+                    } else {
+                        if (that.responseLength >= 5) {
+                            that.page = JSON.parse(response.data.data.page) + 1;
+                        }
+                        that.hotLists = that.hotLists.concat(response.data.data.data);
+
+                    }
+                    that.hotLists.forEach(function (item) {
+                        item.url = "{:url('course/details')}" + "?id=" + item.id;
+                    });
+                    console.log('hostList', that.hotLists);
+                });
+            },
+            /*筛选类型*/
+            getFilterList: function (categoryId, arr1) {
+                const that = this;
+                axios.post(path + 'course/get_course_list', {
+                    'type': 'screen',
+                    'page': that.page,
+
+                    'where': {
+                        'type': categoryId ? categoryId : '',
+                        'area': arr1 ? arr1 : []
+                    }
+                }).then(function (response) {
+                    that.responseLength = response.data.data.data.length;
+                    if (response.data.errcode == 500) {
+                        console.log('筛选无结果');
+                        myApp.modal({
+                            text: '无筛选的结果',
+                            buttons: [
+                                {
+                                    text: '确定'
+                                }
+                            ]
+                        });
+
+                    } else {
+                        if (response.data.data.page == 1) {
+                            that.filterLists = response.data.data.data;
+                            that.page = JSON.parse(response.data.data.page) + 1;
+                        } else {
+                            if (that.responseLength >= 5) {
+                                that.page = JSON.parse(response.data.data.page) + 1;
+                            }
+                            that.filterLists = that.filterLists.concat(response.data.data.data);
+                        }
+
+//                        that.showSelected = false;
+                    }
+                    if (that.filterLists != null) {
+                        that.filterLists.forEach(function (item) {
+                            item.url = "{:url('course/details')}" + "?id=" + item.id;
+                        });
+                    }
+
+                    console.log('filter response.data', response.data);
+                });
+            },
+            /*选择切换*/
+            onSelect: function (selected) {
+                const that = this;
+                that.selected = selected;
+                if (selected === 'lessonRecommend') {
+                    that.page = 1;
+                    that.showSelected = false;
+                    that.getCourseList();
+                    $(' .active .item-recommend-img').attr("src", "__STATIC__/wx/img/btn_recommend_sel@2x.png");
+                    $(' .item-hot-img').attr("src", "__STATIC__/wx/img/btn_Popularity_nor@2x.png");
+                    $('.item-filter-img').attr("src", "__STATIC__/wx/img/btn_filter_nor@2x.png");
+                    $('.tabbar-text').removeClass('tabbartext-select');
+                    $('.tabbartext-recommend').addClass('tabbartext-select');
+
+
+                }
+                if (selected === 'lessonHot') {
+                    that.page = 1;
+                    that.getHotList();
+                    $(' .active .item-hot-img').attr("src", "__STATIC__/wx/img/btn_Popularity_sel@2x.png");
+                    $('.item-recommend-img').attr("src", "__STATIC__/wx/img/btn_recommend_nor@2x.png");
+                    $('.item-filter-img').attr("src", "__STATIC__/wx/img/btn_filter_nor@2x.png");
+                    $('.tabbar-text').removeClass('tabbartext-select');
+                    $('.tabbartext-hot').addClass('tabbartext-select');
+                    that.showSelected = false;
+                    console.log('that.page', that.page);
+                }
+                if (selected === 'lessonFilter') {
+                    that.page = 1;
+                    that.showSelected = true;
+                    that.onSelectModel();
+                    that.getFilterList();
+                    $('.category-item').removeClass('active');
+                    $('.area-item').removeClass('active');
+                    $(' .active .item-filter-img').attr("src", "__STATIC__/wx/img/btn_filter_sel@2x.png");
+                    $('.item-recommend-img').attr("src", "__STATIC__/wx/img/btn_recommend_nor@2x.png");
+                    $(' .item-hot-img').attr("src", "__STATIC__/wx/img/btn_Popularity_nor@2x.png");
+                    $('.tabbar-text').removeClass('tabbartext-select');
+                    $('.tabbartext-filter').addClass('tabbartext-select');
+
+                }
+            },
+            /*轮播*/
+            getBanner: function () {
+                const that = this;
+                axios.post(path + 'index/get_banner_list/type/3')
+                    .then(function (response) {
+                        that.banners = response.data.data;
+                        console.log('banner', that.banners);
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+            },
+            /*筛选弹出框*/
+            onSelectModel: function () {
+                const that = this;
+//                that.showSelected = !that.showSelected;
+                axios.post(path + 'index/get_course_type')
+                    .then(function (response) {
+                        that.category = response.data.data;
+                        console.log('category', response.data);
+                    });
+                axios.post(path + 'index/get_area_type')
+                    .then(function (response) {
+                        that.area = response.data.data;
+                        console.log("area", that.area);
+                    });
+            },
+            /*筛选类型全部*/
+            onCategoryAll:function () {
+                arr1=[];
+                categoryId='';
+                $('.category-item').removeClass('active');
+                $('.category-all').toggleClass('active');
+            },
+            /*筛选区域全部*/
+            onAreaAll:function(){
+                arr1=[];
+                categoryId='';
+                $('.area-item').removeClass('active');
+                $('.area-all').toggleClass('active');
+            },
+            /*筛选类型*/
+            onCategoryLabel: function (i, id) {
+                $('.category-item').removeClass('active');
+                $('.category-item').eq(i).toggleClass('active');
+                categoryId = id;
+                console.log('categoryId', categoryId);
+                if($('.category-item').hasClass('active')){
+                    $('.category-all').removeClass('active');
+                }
+            },
+            /*筛选区域*/
+            onAreaLabel: function (i, id) {
+                $('.area-item').eq(i).toggleClass('active');
+                var itemId;
+                /*数组去重*/
+                for (var x = 0; x < arr1.length; x++) {
+                    if (arr1[x] == id) {
+                        itemId = x;
+                    }
+                }
+
+                if (arr1.indexOf(id) !== -1) {
+                    arr1.splice(itemId, 1);
+                } else {
+                    arr1.push(id);
+                }
+                if($('.area-item').hasClass('active')){
+                    $('.area-all').removeClass('active');
+                }
+                console.log('itemId', itemId);
+                console.log('arr1', arr1);
+            },
+            /*确定筛选*/
+            onSelectInsure: function () {
+                this.page=1;
+                this.getFilterList(categoryId, arr1);
+                this.showSelected=false;
+            },
+            noNow:function(){
+                this.showPhone=false;
+                document.cookie="0";
+            }
+        },
+
+
+    })
+</script>
+
+{/block}

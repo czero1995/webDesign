@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+		<title>已支付详情</title>
+		<script src="../js/rem.js"></script>
+		<link rel="stylesheet" href="../css/base.css">
+		<link rel="stylesheet" href="../css/paydownDetail.css" />
+	</head>
+
+	<body>
+
+		<div id="app">
+			
+			<div class="container">
+				<div class="header clearfloat">
+					<a href="javascript:history.back(-1)" id="topBar">
+						<img src="../img/icon/arrowBack.png" />
+					</a>
+					<p>订单详情</p>
+				</div>
+				<a href="address.html" >
+					<div class="chooseAddress inlinkFlex-spacebetween">
+						<div class="inlinkFlex chooseBox">
+							<img src="../img/icon/item_address.png" />
+							<p>选择送货地址</p>
+						</div>
+						<img src="../img/icon/arrowRight.png" alt="" />
+					</div>
+				</a>
+				<div class="addressBox inlinkFlex">
+					<img src="../img/icon/item_address.png" />
+					<div class="address-text">
+						<div class="inlinkFlex-spacebetween">
+							<p class="address-user">收件人:深大</p>
+							<p class="address-phone">{{orderDetail.mobile}}</p>
+						</div>
+						<p class="address-location">收获地址:{{orderDetail.province_name}}{{orderDetail.city_name}}{{orderDetail.district_name}}{{orderDetail.address}}</p>
+					</div>
+				</div>
+				<div class="orderContent">
+					<div class="order-item inlinkFlex" v-for="goodsItem in orderDetail.goods_list">
+						<div class="order-image">
+							<img :src="goodsItem.goods_thumb" />
+						</div>
+
+						<div class="order-textBox">
+							<div class="order-text">
+								<div class="inlinkFlex">
+									<p class="order-name text-ellipsis">{{goodsItem.goods_name}}</p>
+
+								</div>
+
+								<p class="order-coach">¥{{goodsItem.present_price}}</p>
+								<p class="order-num">x{{goodsItem.buy_number}}</p>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+				<div class="pageBottom inlinkFlex-spacebetween">
+					<div class="bottom-left">
+						<p>商品总金额: <span class="shopCoach">¥ {{orderDetail.goods_amount}}</span> </p>
+					</div>
+					
+				</div>
+			</div>				
+
+		</div>
+
+		<script src="../js/axios.js"></script>
+		<script src="../js/http.js"></script>
+		<script src="../js/vue.js"></script>
+		<script>
+			new Vue({
+				el: '#app',
+				data() {
+					return {
+						orderDetail:{}, /*获取订单详情*/
+						aid:'', /*获取地址传值*/
+					}
+				},
+				mounted:function(){
+					this.getUrlParam('id');
+					this.getOrderDetail();
+				},
+				methods: {
+					/*获取订单详情*/
+					getOrderDetail: function() {
+						const that = this;
+						axios.post(path + 'order/getOrderById/?id='+that.aid, {
+						}).then(function(res) {
+								that.orderDetail = res.data.data;
+								console.log('orderDetail',that.orderDetail);
+							})
+							.catch(function(error) {
+								console.log(error);
+							});
+					},
+					/*获取地址传值*/
+					getUrlParam(name) {
+						const that = this;
+						var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+						var r = window.location.search.substr(1).match(reg);
+						if(r != null) {
+							that.aid = r[2];
+							return(r[2]);
+						}
+					},
+				}
+			})
+		</script>
+		
+	</body>
+
+</html>

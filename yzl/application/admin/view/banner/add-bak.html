@@ -1,0 +1,222 @@
+{extend name="common/layouts" /}
+{block name="title"}{$sidename}{/block}
+
+{block name="main"}
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            {$sidename}
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Dashboard</li>
+        </ol>
+    </section>
+    <section class="content">
+        <div class="container-fluid">
+            <div class="pull-right">
+                <a href="javascript:history.go(-1)" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="返回管理员列表"><i class="fa fa-reply"></i></a>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="fa fa-list"></i> 添加轮播图</h3>
+                </div>
+                <div class="panel-body ">
+                
+                    <div class="tab-content col-md-12">
+                        <div class="tab-pane active" id="bannerEdit">
+                           <form method="post" id="js_upForm" action="" enctype="multipart/form-data">
+                            <table class="table table-bordered">
+                                <tbody>
+                                <tr>
+                                    <td class="col-sm-2">封面图：</td>
+                                    <td class="col-sm-10">
+                                        <div class="form-group" style="clear: both;">
+
+                                        <div class="col-sm-4">
+                                        <div class="text-center">
+                                            <img id="ImgPr" alt="image" class="img-thumbnail m-t-xs img-responsive " src="/admin/img/man.jpg">
+
+                                            <div class="m-t-xs font-bold">最佳尺寸：450 * 600 </div>
+                                        </div>
+                                        </div>
+                                        <div class="col-sm-2 pbtn" style="text-align:right;bottom: -130px;">
+                                            <span class="btn btn-warning btn-file"> 选择图片
+                                            <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
+                                                <input type="file" name="post" id="post" value="">
+                                            </span>
+                                        </div>
+                                    </div>
+                                       
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-sm-2">轮播图类型：</td>
+                                    <td class="col-sm-10">
+                                        <select  class="form-control" name="type" id="type" >
+                                            <option value="0">请选择</option>
+                                            <option value="1">场馆</option>
+                                            <option value="2">教练</option>
+                                            <option value="3">课程</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                             
+                                <tr>
+                                    <td class="col-sm-2">轮播图说明：</td>
+                                    <td class="col-sm-10">
+                                        <textarea class="form-control" name="title" id="title" " style="height: 100px;"></textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-sm-2">跳转链接:</td>
+                                    <td class="col-sm-10">
+                                         <input type="text" class="form-control" id="url" name="url"  placeholder="">
+                                    </td>
+                                </tr>
+                              
+                                <tr>
+                                    <td>状态</td>
+                                    <td>
+                                        <input checked="checked" type="radio" name="status"  value="1"> 启用
+                                        <input type="radio"    name="status" value="2"> 禁用
+                                    </td>
+                                </tr>
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <td></td>
+                                    <td class="text-left">
+                                         <button type="button" class="btn btn-success" id="add_banner">提交</button>
+                                         <!--  <td class="text-left"><input class="btn btn-primary js_submit" type="button" idvalue="保存"></td> -->
+                                    </td>
+                                </tr>
+                                </tfoot>
+                                </table>
+                            </form>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+
+    </section>
+</div>
+{/block}
+{block name="jss"}
+<!-- <script src="/admin/js/vue.js"></script>
+<script src="__STATIC__/admin/dist/js/axios.min.js"></script> -->
+<!-- <script src="__STATIC__/admin/dist/js/es6-promise.auto.min.js"></script> -->
+<script src="__STATIC__/admin/plugins/uploadify/jquery.uploadify.js" type="text/javascript"></script>
+
+<script src="/admin/js/ajaxfileupload.js"></script>
+<script>
+ 
+    $('#add_banner').click(function(){
+   
+        $.ajaxFileUpload({
+            url: api_url+"banner/addBanner/",
+            type: 'post',
+            data: {
+                'type': $('#type option:selected').val(),
+                'title': $.trim($('#title').val()),
+                'url': $.trim($('#url').val()),
+                'status':  $.trim($('#status').val()),
+            },
+            secureuri: false, //一般设置为false
+            fileElementId: 'post', // 上传文件的id、name属性名
+            dataType: 'JSON', //返回值类型，一般设置为json、application/json  这里要用大写  不然会取不到返回的数据
+            success: function(data) {
+                //此处返回的json被<pre>包含
+                var start = data.indexOf(">");
+                if(start != -1) {
+                    var end = data.indexOf("<", start + 1);
+                    if(end != -1) {
+                        data = data.substring(start + 1, end);
+                    }
+                }
+                //以上代码 去除<pre></pre> 保留json格式数据 此时json为字符串格式
+
+                var res = $.parseJSON(data); //把json数据转换成对象
+                if(res.status == 200 || res.errcode == 200) {
+
+                    layer.msg('添加成功',{icon:6,title:'温馨提示'},function () {
+                            window.location = admin_url+"admin/coach";
+                        })
+                } else if(res.status == 500 || res.errcode == 500) {
+                    $(this).attr('disabled',false);
+                    layer.msg('添加失败',{icon:5,title:'温馨提示'});
+                } else {
+                    $(this).attr('disabled',false);
+                    layer.msg(res.message,{icon:0,title:'温馨提示'});
+                }
+
+            }
+        },'json');
+
+    });
+/*var app = new Vue({
+        el:'#bannerAdd',
+        data: {
+            form: {},
+            images: []
+        },
+        methods: {
+            
+            onFileChange(e) {
+              var files = e.target.files || e.dataTransfer.files;
+              if (!files.length)
+               return;
+               this.createImage(files[0]);
+              },
+            createImage(file) {
+              var image = new Image();
+              var reader = new FileReader();
+              var vm = this;
+             
+              reader.onload = (e) => {
+                vm.image = e.target.result;
+              };
+                reader.readAsDataURL(file);
+            },
+                        
+            add_banner:function(){
+                self = this;
+                    axios.post(api_url +"banner/addBanner/",{
+                        type: self.form.type,
+                       // post: self.form.post,
+                       // obj.images: self.form.post,
+                        title: self.form.title,
+                        url: self.form.url,
+                        status: self.form.status
+                    })  
+                    .then(function(res){
+                        if(response.data.errcode == 200){
+                            layer.msg('添加成功',{icon:6,title:'温馨提示'},function () {
+                                window.location =admin_url+"banner/index";
+                            })
+                        } else {
+                            layer.msg('添加失败',{icon:5,title:'温馨提示'});
+                        }
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    })
+               
+            }
+        }
+    });
+*/
+   
+
+</script>
+
+<script src="/admin/js/uploadPreview.js"></script>
+<script>
+    //图片上传预览
+    $("#post").uploadPreview({ Img: "ImgPr", Width: 375, Height: 250 });
+    $("#epost").uploadPreview({ Img: "eImgPr", Width: 375, Height: 250 });
+</script>
+{/block}

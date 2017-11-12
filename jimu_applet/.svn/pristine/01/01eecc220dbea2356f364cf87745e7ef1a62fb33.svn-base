@@ -1,0 +1,113 @@
+/* .OrderTab {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  background: #fff;
+  margin-bottom: 10px;
+}
+
+.TabBox {
+  text-align: center;
+  color: #323232;
+  font: normal 24rpx/70rpx "微软雅黑";
+  width: 20%;
+  position: relative;
+}
+
+.OrderTab .cur {
+  border-bottom: 2px solid #2670df;
+  color: #2670df;
+}
+
+.TabBox .Hot {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #2670df;
+  font: normal 12px/15px "微软雅黑";
+  color: #fff;
+  border-radius: 15px;
+  min-width: 15px;
+} */
+
+.list {
+  background: #fff;
+  margin-bottom: 10px;
+}
+
+.list .Time {
+  font: normal 20rpx/50rpx "微软雅黑";
+  color: #323232;
+  padding: 5rpx 35rpx;
+  border-bottom: 1px solid #f5f4f9;
+}
+
+.list .Time .status {
+  float: right;
+}
+
+.list .ProBox {
+  border-bottom: 1px solid #f5f4f9;
+  padding: 25rpx 25rpx 25rpx 45rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list .ProBox image {
+  width: 90rpx;
+  height: 90rpx;
+}
+
+.list .ProBox .Pro {
+  width: 565rpx;
+  padding-left: 25rpx;
+}
+
+.list .ProBox .Pro text {
+  display: block;
+}
+
+.list .ProBox .Pro .title {
+  font: normal 26rpx/30rpx "微软雅黑";
+  color: #464545;
+}
+
+.list .ProBox .Pro .text {
+  font: normal 24rpx/40rpx "微软雅黑";
+  color: #838383;
+  text-align: right;
+}
+
+.list .Pri {
+  display: block;
+  text-align: right;
+  font: normal 24rpx/40rpx "微软雅黑";
+}
+.TotalPrice{
+  border-bottom: 1px solid #f5f4f9;
+  text-align: right;
+}
+.TotalPrice text{
+  font: normal 26rpx/40rpx "微软雅黑";
+  display: inline-block;
+  padding: 12rpx;
+}
+.list .Btn {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 15px;
+}
+.list .Btn view{
+  width: 200rpx;
+  text-align: center;
+  font: normal 24rpx/54rpx "微软雅黑";
+}
+.list .Btn .cancel{
+  width: 150rpx;
+}
+.list .Btn .goods {
+  border-radius: 5px;
+  color: #fff;
+  margin-left: 15px;
+}

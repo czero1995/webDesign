@@ -1,0 +1,69 @@
+var paths = {
+	'dev': 'http://api.jimuapi.com/wx/',
+	'dt': 'http://wechat.fullstack.cn/',
+	'product': 'http://api.szyunzhili.com/wx/'
+
+}
+
+path = paths.dev;
+var code;
+var openid;
+if(!sessionStorage.openid) {
+	getAuth();
+	getUrlParam('code');
+	getOpenId();
+	getInfo();
+	sessionStorage.openid = Number(sessionStorage.openid) + 1;
+}
+
+/*获取授权*/
+function getAuth() {
+	var test = encodeURI(window.location.href);
+	var openurls;
+	axios.get(path + 'auth/getRedirectUrl?redirect=' + test, {}).then(function(res) {
+			console.log('test', test)
+			if(res.data.errcode == 200) {
+				location.href = res.data.data.url;
+			}
+
+		})
+		.catch(function(error) {
+			console.log(error);
+		});
+},
+
+/*获取地址传值*/
+function getUrlParam(name) {
+	const that = this;
+	var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+	var r = window.location.search.substr(1).match(reg);
+	if(r != null) {
+		code = r[2];
+		return(r[2]);
+	}
+}
+
+/*获取openid*/
+function getOpenId() {
+	axios.get(path + 'auth/getOpenid?code=' + code, {}).then(function(res) {
+			openid = res.data.data.data.openid;
+			console.log('openid', res, openid);
+
+		})
+		.catch(function(error) {
+			console.log(error);
+		});
+}
+
+/*获取会员信息*/
+function getInfo() {
+	axios.get(path + 'member/getByOpenid' + openid, {
+
+		}).then(function(res) {
+			console.log('info', info);
+
+		})
+		.catch(function(error) {
+			console.log(error);
+		});
+}

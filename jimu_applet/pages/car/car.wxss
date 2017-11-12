@@ -1,0 +1,89 @@
+.CarListBox{
+  padding-bottom: 80rpx;
+}
+.CarList{
+  background: #fff;
+  margin-bottom: 20rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20rpx 0;
+}
+
+.CarList icon{
+  margin: 0 15rpx;
+}
+.CarList image{
+  width: 150rpx;
+  height: 150rpx;
+margin-right: 20rpx;
+}
+.CarList .Car{
+width: 60%;
+}
+.CarList .Car text{
+  display: block;
+  font: normal 24rpx/35rpx "微软雅黑";
+}
+.CarList .Car .h2{
+  font: normal 28rpx/35rpx "微软雅黑";
+}
+.CarList .Car .num{
+  text-align: right;
+  margin: 10rpx 0;
+}
+.CarList .Car .pri{
+  text-align: right;
+
+}
+
+
+.NavSub{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+}
+.NavSub label{
+  padding: 0 10rpx;
+  height: 100%;
+}
+.NavSub label checkbox {
+  transform:scale(.7);
+  display: block;
+}
+.NavSub view{
+  font-family: "微软雅黑";
+  font-size: 24rpx;
+  line-height: 35rpx;
+  font-weight: normal;
+}
+
+.NavSub .pay{
+  padding: 20rpx 40rpx;
+  color: #fff;
+  display: block;
+  font-family: "微软雅黑";
+  font-size: 24rpx;
+  line-height: 35rpx;
+  font-weight: normal;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

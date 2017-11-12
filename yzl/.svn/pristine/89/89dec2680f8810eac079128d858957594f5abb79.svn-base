@@ -1,0 +1,295 @@
+body {
+  background: #EFEFEF;
+}
+body p {
+  margin: 0;
+  padding: 0;
+}
+.stadium-item {
+  background: #FFFFFF;
+  padding: 0.3rem;
+  margin-bottom: 0.2rem;
+
+}
+.stadium-item img {
+  vertical-align: middle;
+  width: 0.2rem;
+  height:0.3rem;
+}
+.stadium-item .phone-img {
+  float: right;
+  width: 0.26rem;
+  height: 0.26rem;
+  margin-top: 0.06rem;
+}
+.stadium-item span {
+  font-family: PingFangSC-Regular;
+  margin-left: 0.2rem;
+  font-size: 0.24rem;
+  color: #666666;
+  letter-spacing: 1px;
+  vertical-align: middle;
+}
+.stadium-introduce {
+  background: #FFFFFF;
+  padding: 0.3rem;
+}
+
+.stadium-introduce img {
+  width: 100%;
+  height: 3.72rem;
+}
+.stadium-introduce{
+  font-family: PingFangSC-Regular;
+  font-size: 0.26rem;
+  color: #666666;
+  letter-spacing: 0.78px;
+  line-height: 44px;
+  text-align: justify;
+  /*height: 100%;*/
+}
+.stadium-content{
+  height: 100%;
+}
+.stadium-introduce p{
+  min-height: 100%;
+  font-size: 0.28rem!important;
+}
+.stadium-introduce span{
+	font-size: 0.28rem!important;
+}
+.introduce-p{
+  min-height: 100%;
+  line-height: 0.44rem;
+}
+
+.stadium-address{
+  padding-top:0.2rem;
+}
+.stadiumDetail-tabBox {
+  margin-top: 0.2rem;
+  /*min-height: 100%;*/
+  overflow: hidden;
+  /*margin-bottom:1.2rem;*/
+}
+
+.tabBox-stadium{
+  min-height: 100%;
+  padding-bottom:0.4rem;
+}
+.tabBox-lessonService{
+  padding-bottom: 1rem;
+}
+.stadiumDetail-tabBox .tabBox-bar {
+  height: 0.88rem;
+  background: #FFFFFF;
+  line-height: 0.88rem;
+  border-bottom: 1px solid #CCCCCC;
+}
+.stadiumDetail-tabBox .tabBox-bar p {
+  width: 50%;
+  float: left;
+  font-family: PingFangSC-Regular;
+  font-size: 0.28rem;
+  color: #000000;
+  text-align: center;
+  letter-spacing: 0.82px;
+  height: 100%;
+}
+.stadiumDetail-tabBox .tabBox-bar .active {
+  border-bottom: 4px solid #000000;
+  font-weight: bold;
+}
+.introduce-p img{
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+  border-radius: 4px;
+}
+.stadium-phone{
+  display: inline-block;
+  height: 0.3rem;
+  width: 0.6rem;
+  float: right;
+}
+.stadiumDetail-tabBox .tabBox-lessonService .lessonService-item {
+  margin-bottom: 0.2rem;
+  background: #FFFFFF;
+}
+.stadiumDetail-tabBox .tabBox-lessonService .lessonService-item .lesson-box {
+  padding: 0.3rem;
+  border-bottom: 1px solid #CCCCCC;
+  padding-bottom: 0.32rem;
+}
+.stadiumDetail-tabBox .tabBox-lessonService .lessonService-item .lesson-box .lesson-text {
+  float: left;
+  width: 62%;
+  word-wrap:break-word;
+}
+.stadiumDetail-tabBox .tabBox-lessonService .lessonService-item .lesson-box .lesson-text .lesson-name {
+  font-size: 0.28rem;
+  color: #000000;
+  letter-spacing: 0.82px;
+  margin-bottom: 0.25rem;
+  font-weight: 400;
+}
+.lesson-price {
+  font-family: PingFangSC-Medium;
+  font-size: 0.26rem;
+  color: #FF0000;
+  letter-spacing: 0.76px;
+  margin-top: 0.3rem;
+}
+
+.stadiumDetail-tabBox .tabBox-lessonService .lessonService-item .lesson-box .lesson-text .lesson-title {
+  font-size: 0.24rem;
+  color: #666666;
+  letter-spacing: 0.71px;
+  overflow: hidden;
+  line-height: 0.4rem;
+  height: 1.2rem;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+.stadiumDetail-tabBox .tabBox-lessonService .lessonService-item .lesson-box .lesson-text .lesson-content {
+  font-size: 0.24rem;
+  color: #666666;
+  letter-spacing: 0.71px;
+}
+.stadiumDetail-tabBox .tabBox-lessonService .lessonService-item .lesson-box .lesson-text .lesson-price {
+  font-family: PingFangSC-Medium;
+  font-size: 0.26rem;
+  color: #FF0000;
+  letter-spacing: 0.76px;
+  margin-top: 0.3rem;
+}
+.stadiumDetail-tabBox .tabBox-lessonService .lessonService-item .lesson-box .lesson-img {
+  float: right;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 4px;
+}
+.stadiumDetail-tabBox .tabBox-lessonService .lessonService-item .lesson-label {
+  height: 0.8rem;
+  margin-left: 0.3rem;
+  display: flex;
+}
+.stadiumDetail-tabBox .tabBox-lessonService .lessonService-item .lesson-label .label-item {
+  margin-right: 0.2rem;
+  padding-left: 0.1rem;
+  padding-right: 0.1rem;
+  border-radius: 100px;
+  border: 1px solid #C9C9C9;
+  height: 0.4rem;
+  line-height: 0.4rem;
+  font-size: 0.24rem;
+  text-align: center;
+  color: #000000;
+  letter-spacing: 0.71px;
+  margin-top: 0.2rem;
+}
+.stadiumDetail-tabBox .coach-recommend {
+  min-height: 100%;
+  margin-top:0;
+  margin-bottom: 0.8rem;
+}
+.stadiumDetail-tabBox .coach-recommend p {
+  margin: 0;
+  padding: 0;
+}
+.stadiumDetail-tabBox .coach-recommend .coach-item {
+  margin-bottom: 0.2rem;
+  background: #ffffff;
+  padding: 0.3rem;
+  height: 100%;
+}
+.stadiumDetail-tabBox .coach-recommend .coach-item .coach-img {
+  float: left;
+  border-radius: 1rem;
+  width: 1rem;
+  height: 1rem;
+}
+.stadiumDetail-tabBox .coach-recommend .coach-item .coach-info {
+  margin-left: 1.3rem;
+}
+.stadiumDetail-tabBox .coach-recommend .coach-item .coach-info .coach-name {
+  float: left;
+  font-family: PingFangSC-Medium;
+  font-size: 0.26rem;
+  color: #000000;
+  letter-spacing: 0.76px;
+}
+.stadiumDetail-tabBox .coach-recommend .coach-item .coach-info .coach-sex-img {
+  margin-left: 0.2rem;
+  display: inline-block;
+}
+.stadiumDetail-tabBox .coach-recommend .coach-item .coach-info .coach-address {
+  float: right;
+  font-family: PingFangSC-Light;
+  font-size: 0.24rem;
+  color: #666666;
+  letter-spacing: 1px;
+}
+.stadiumDetail-tabBox .coach-recommend .coach-item .coach-info .coach-address img {
+  margin-right: 0.1rem;
+}
+.stadiumDetail-tabBox .coach-recommend .coach-item .coach-info .coach-introduce {
+  padding-top: 0.22rem;
+  font-size: 0.26rem;
+  color: #666666;
+  letter-spacing: 0.76px;
+  word-wrap:break-word;
+}
+.stadiumDetail-tabBox .coach-recommend .coach-item .coach-info .coach-label {
+  margin-top: 0.28rem;
+  display: flex;
+  justify-content: flex-start;
+}
+.stadiumDetail-tabBox .coach-recommend .coach-item .coach-info .coach-label .label-item {
+  margin-right: 0.2rem;
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+  border-radius: 100px;
+  border: 1px solid #838383;
+  height: 0.4rem;
+  font-size: 0.24rem;
+  text-align: center;
+  line-height: 0.4rem;
+  color: #000000;
+  letter-spacing: 0.71px;
+}
+.coachMore {
+  height: 0.66rem;
+  position: relative;
+  background: #ffffff;
+  border: 1px solid #CCCCCC;
+  margin-top: -0.2rem;
+}
+.coachMore img {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 0.18rem;
+  width: 0.3rem;
+}
+.preBtn {
+  background: #000000;
+  height: 0.88rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-family: PingFangSC-Medium;
+  font-size: 0.28rem;
+  color: #FFFFFF;
+  line-height: 0.88rem;
+  text-align: center;
+  z-index: 999999999999999;
+}
+.preBtn a{
+  color: #FFFFFF;
+  display: block;
+}

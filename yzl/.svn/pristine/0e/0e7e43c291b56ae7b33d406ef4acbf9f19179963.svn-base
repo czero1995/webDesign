@@ -1,0 +1,99 @@
+{extend name="common/base"}
+{block name="content-header"}
+<link rel="stylesheet" href="__STATIC__/admin/plugins/select2/select2.min.css">
+    <h1>
+        {$module_names[0]}
+        <small>
+        {$module_names[1]}</small>
+    </h1>
+    <ol class="breadcrumb">
+        {volist name="module_names" id="vo"}
+            <li {if condition="$module_nums==$key"}class="active"{/if}>{if condition="0==$key"}<i class="fa fa-dashboard"></i>{/if} {$vo}</li>
+        {/volist}
+    </ol>
+{/block}
+
+{block name="content"}
+       <div class="row">
+       		<div class="col-xs-12">
+	       		<div class="box">
+	             <div class="box-header">
+	               	<nav class="navbar navbar-default">
+				        <div class="collapse navbar-collapse">
+				          <form class="navbar-form form-inline" action="" method="post">
+				            <div class="form-group pull-right">
+					            <a href="{:url('admin/module/add')}" class="btn btn-primary pull-right"><i class="fa fa-plus"></i>添加模块</a>
+				            </div>
+				          </form>
+				      	</div>
+	    			</nav>
+	             </div>
+	             <div class="box-body">
+	           		<div class="row">
+	            	<div class="col-sm-12">
+		              <table id="list-table" class="table table-bordered table-striped dataTable">
+		                 <thead>
+		                   <tr role="row">
+			                   <th>ID</th>
+			                   <th>菜单名称</th>
+			                   <th>模块</th>
+			                   <th>控制器</th>
+			                   <th>方法</th>
+			                   <th>描述</th>
+			                   <th>是否显示</th>
+			                   <th>创建时间</th>
+			                   <th>操作</th>
+		                   </tr>
+		                 </thead>
+						<tbody>
+                            {volist name="list" id="vo"}
+							<tr role="row">
+								<td>{$vo.id}</td>
+								<td>{$vo.level-1|str_repeat="--------", ###}{$vo.module_name}</td>
+								<td>{$vo.module}</td>
+								<td>{$vo.controller}</td>
+								<td>{$vo.action}</td>
+								<td>{$vo.description}</td>
+								<td>{$vo.if_display ? '显示' : '不显示'}</td>
+								<td>{$vo.create_time}</td>
+								<td>
+									<a class="btn btn-primary" title="编辑模块" href="{:url('admin/module/edit',array('id'=>$vo['id']))}"><i class="fa fa-pencil"></i></a>
+									<a class="btn btn-danger js_del" title="删除模块" href="javascript:void(0)" data-url="{:url('admin/module/del')}" data-id="{$vo.id}"><i class="fa fa-trash-o"></i></a>
+								</td>
+							</tr>
+                            {/volist}
+		                   </tbody>
+		                 <tfoot>
+		                 </tfoot>
+		               </table>
+	               </div>
+	          </div>
+	         </div>
+	        </div>
+       	</div>
+       </div>
+{/block}
+
+{block name="script"}
+<script>
+$(".js_del").on("click",function(){
+  	var id = $(this).attr("data-id"),
+  		url = $(this).attr("data-url");
+	layer.confirm('确认删除？', function(){
+		$.ajax({
+			type : 'post',
+			url : url,
+			data : {id:id},
+			dataType : 'json',
+			success : function(res){
+                if( res.status == true ){
+                    location.href = res.url;
+                }else {
+                    layer.alert(res.msg, {icon: 2});
+                }
+			}
+		})
+	});
+});
+</script>
+{/block}

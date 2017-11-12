@@ -1,0 +1,96 @@
+.header{
+  background: #2670df;
+  margin-bottom: 20rpx;
+  padding: 40rpx 0;
+}
+.header image{
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 150rpx;
+  margin: 0 auto 25rpx;
+  display: block;
+}
+.header text{
+  display: block;
+  text-align: center;
+  font: normal 24rpx/35rpx "微软雅黑";
+  color: #fff;
+}
+
+.AccountList {
+  background: #fff;
+  border-bottom: 1px solid #f1f0f6;
+}
+
+.AccountList navigator {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.AccountList .text {
+  /**padding-left: 45px;background-image: url(../../images/icon.png);background-repeat: no-repeat;background-size: 45px auto;**/
+  font: normal 24rpx/77rpx "微软雅黑";
+  color: #323232;
+  display: flex;
+  align-items: center;
+}
+
+.AccountList .text image {
+  display: inline-block;
+  width: 30rpx;
+  margin: 0 30rpx;
+}
+
+.right {
+  display: flex;
+  width: 150px;
+  justify-content: flex-end;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.icon {
+  width: 50px;
+  text-align: center;
+  color: #bebebe;
+  font: normal 30rpx/77rpx "微软雅黑";
+}
+.HorizontalList {
+  padding: 0 15px;
+  display: flex;
+  justify-content: space-between;
+  background: #fff;
+  margin-bottom: 10px;
+}
+
+.HorizontalList .list {
+  /**padding-top: 40px;background-image: url(../../images/icon.png);background-repeat: no-repeat;background-size: 45px auto;**/
+  width: 22%;
+  text-align: center;
+  font: normal 24rpx/65rpx "微软雅黑";
+  color: #323232;
+}
+
+.HorizontalList .list image {
+  display: block;
+  width: 46rpx;
+  margin: 25rpx auto 0;
+}
+
+.HorizontalList .list01 {
+  background-position: center -1300px;
+}
+
+.HorizontalList .list02 {
+  background-position: center -1382px;
+}
+
+.HorizontalList .list03 {
+  background-position: center -970px;
+}
+
+.HorizontalList .list04 {
+  background-position: center -1135px;
+}

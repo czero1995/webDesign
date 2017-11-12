@@ -1,0 +1,36 @@
+<ul class="sidebar-menu">
+  <li class="header">导航栏</li>
+
+  {volist name="privilegesModules" id="vo"}
+  <li class="{if condition='$module_parent_id==$key'}active{/if} treeview">
+    <a href="#">
+      <i class="fa fa-th"></i> <span>{$moduleNames[$key]}</span>
+      <span class="pull-right-container">
+        <i class="fa fa-angle-left pull-right"></i>
+      </span>
+    </a>
+    <ul class="treeview-menu">
+      {volist name="vo" id="v"}
+      <li class="{if condition='strtolower($curController)==strtolower($v.controller) && strtolower($curAction)==strtolower($v.action)'}active{/if}"><a href="{:url($v.controller.'/'.$v.action)}"><i class="fa fa-circle-o text-red"></i>{$v.module_name}</a></li>
+      {/volist}
+    </ul>
+  </li>
+  {/volist}
+
+
+<!--   <li class="treeview">
+    <a href="#">
+      <i class="fa fa-th"></i> <span>系统管理</span>
+      <span class="pull-right-container">
+        <i class="fa fa-angle-left pull-right"></i>
+      </span>
+    </a>
+    <ul class="treeview-menu">
+      <li class=""><a href="{:url('account/index')}"><i class="fa fa-circle-o text-red"></i>操作员管理</a></li>
+      <li><a href="{:url('role/index')}"><i class="fa fa-circle-o text-yellow"></i>角色管理</a></li>
+      <li><a href="{:url('module/index')}"><i class="fa fa-circle-o text-aqua"></i>模块管理</a></li>
+    </ul>
+  </li> -->
+
+  
+</ul>

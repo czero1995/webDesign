@@ -1,0 +1,90 @@
+@white: #fff;
+@grey: #ccc;
+@red: red;
+@black: #000;
+@background: #FAF7FA;
+@textcolor: #000;
+@textsize:.28rem;
+
+.container {
+    margin-bottom: 1.76rem;
+}
+
+.cart-item {
+    border-bottom: 1px solid @grey;
+    padding: .2rem;
+    align-items: flex-start;
+}
+
+.goods-img {
+    height: 2rem;
+    width: 2rem;
+    margin-right: .2rem;
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}
+.goods-num{
+    margin: .1rem 0;
+}
+.goods-radio {
+    align-self: center;
+    margin-right: .2rem;
+}
+
+.goods-radio img {
+    display: block;
+    width: .32rem;
+    height: .32rem;
+}
+
+
+.goods-textBox {
+    flex: 1;
+    align-items: flex-start;
+    text-align: left;
+    width: 40%;  
+    
+}
+a{
+    width: 100%;
+}
+.goods-name{
+    font-size: @textsize;
+    color:@textcolor
+}
+.goods-coach {
+    text-align: right;
+    color: @red;
+    font-size: @textsize;
+}
+.goods-num{
+    text-align: right;
+    font-size: @textsize;
+}
+
+.cartBottom-detail {
+    position: fixed;
+    bottom: 0.88rem;
+    width: 100%;
+    height: .88rem;
+    line-height: .88rem;
+    background: @white;
+    border-top: 1px solid @grey;
+    padding-left: .3rem;
+    font-size: @textsize;
+}
+
+.bottom-left {
+    flex: 1;
+}
+.delete{
+    margin-right: .4rem;
+}
+.subminCart {
+    width: 2.6rem;
+    background: @red;
+    color: @white;
+    text-align: center;
+}

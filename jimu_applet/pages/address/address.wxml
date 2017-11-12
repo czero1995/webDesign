@@ -1,0 +1,36 @@
+<!--header.wxml-->
+<view class="address">
+  <view class="AddCar">
+    <view class="NaClass">
+      <icon type="success" size="20" color="#2670df"/>
+      <view class="Text">
+        <text><text>18680686106</text>收货人：傻大姐</text>
+        <text class="text">收货地址：纳税登记卡速度快拉数据都快来静安寺</text>
+      </view>
+    </view>
+    <view class="editorBox">
+      <!--<view class="Btn1">默认收货地址</view>-->
+      <view class="Delete">删除</view>
+      <navigator url="url" class="editor">编辑</navigator>
+    </view>
+  </view>
+
+  <view class="AddCar">
+    <view class="NaClass">
+      <icon type="success" size="20" color="#c2c2c2"/>
+      <view class="Text">
+        <text><text>18680686106</text>收货人：傻大姐</text>
+        <text class="text">收货地址：纳税登记卡速度快拉数据都快来静安寺</text>
+      </view>
+    </view>
+    <view class="editorBox">
+      <!--<view class="Btn1">默认收货地址</view>-->
+      <view class="Delete">删除</view>
+      <navigator url="url" class="editor">编辑</navigator>
+    </view>
+  </view>
+
+  <view class="AddBtn">
+    <navigator url="/pages/addaddress/addaddress" hover-class="none">添加新地址</navigator>
+  </view>
+</view>

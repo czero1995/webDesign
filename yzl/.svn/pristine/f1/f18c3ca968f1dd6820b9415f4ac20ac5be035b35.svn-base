@@ -1,0 +1,261 @@
+{extend name="common/base"}
+{block name="content-header"}
+<link rel="stylesheet" href="__STATIC__/admin/plugins/select2/select2.min.css">
+    <h1>
+        {$module_names[0]}
+        <small>
+        {$module_names[1]}</small>
+    </h1>
+    <ol class="breadcrumb">
+        {volist name="module_names" id="vo"}
+            <li {if condition="$module_nums==$key"}class="active"{/if}>{if condition="0==$key"}<i class="fa fa-dashboard"></i>{/if} {$vo}</li>
+        {/volist}
+    </ol>
+{/block}
+
+{block name="content"}
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box box-default">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">课程类型</h3>
+                    </div>
+                    <div class="box-body">
+
+                        <div id="toolbar" >
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add_cate" data-backdrop="static">
+                                <span class="fa fa-plus" aria-hidden="true"></span> 新增分类
+                            </button>
+                          
+                        </div>
+
+                        <div class="box-body">
+                        <div id="app">
+                            <table class="table table-bordered"  id="app">
+                                <tbody>
+                                    <tr>
+                                        <th style="width: 20px">排序</th>
+                                        <th style="width: 40px">分类名称</th>
+                                        <th style="width: 40px">创建时间</th>
+                                        <th style="width: 60px">操作</th>
+                                    </tr>
+                                    <tr v-for="val in cate">
+                                        <td>{{val.sort}}</td>
+                                        <td>{{val.title}}</td> 
+                        
+                                        <td>{{val.create_time}}</td> 
+                                        <td>
+                
+                                            <a class="btn btn-primary" title="编辑" :data-id="val.id" onclick="javascript:editCate.getData(this)"><i class="fa fa-pencil"></i></a>
+                                            <a class="btn btn-danger js_del" title="删除" v-on:click="delCate(val.id)" data-id="7"><i class="fa fa-trash-o"></i></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="box-footer clearfix" id="page_bar">
+                                <ul class="pagination pagination-sm no-margin pull-right">
+                                    <li><a v-on:click="previous()">«</a></li>
+                                    <li><a v-on:click="getData(startPage)">{{startPage}}</a></li>
+                                    <li><a v-on:click="getData(startPage+1)">{{startPage+1}}</a></li>
+                                    <li><a v-on:click="getData(startPage+2)">{{startPage+2}}</a></li>
+                                    <li><a v-on:click="getData(startPage+3)">{{startPage+3}}</a></li>
+                                    <li><a v-on:click="next()">»</a></li>
+                                </ul>
+                            </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!-- 添加课程类型 start -->
+    <div class="modal fade" id="add_cate" style="color: #333;line-height:20px;font-size: 14px;" tabindex="-1" aria-hidden="true" data-backdrop="static">
+        <div class="modal-dialog" style="width: 600px;margin-top: 100px !important;">
+            <div class="modal-content">
+                <div class="modal-header bordered-blue">
+                    <button class="close" data-dismiss="modal"><span>&times;</span></button>
+                    <h4 class="modal-title"><i class="fa fa-user"></i>新增课程类型</h4>
+                </div>
+                <div class="modal-body" style="margin-top: 10px !important;">
+                    <form class="form-horizontal" method="post" id="form1" >
+                        
+                        <div class="form-group">
+                            <label for="truename" class="col-sm-3 control-label" style="margin-right: -20px;">课程类型名称：</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="title" v-model="form.title" name="title" placeholder="课程类型名称">
+                            </div>
+                        </div>
+                        
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" v-on:click="cate_add">提交</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 添加课程类型 end-->
+
+    <!-- 编辑课程类型 start -->
+    <div class="modal fade" id="modal-id" style="color: #333;line-height:20px;font-size: 14px;" tabindex="-1" aria-hidden="true" data-backdrop="static">
+        <div class="modal-dialog" style="width: 600px;margin-top: 100px !important;">
+            <div class="modal-content">
+                <div class="modal-header bordered-blue">
+                    <button class="close" data-dismiss="modal"><span>&times;</span></button>
+                    <h4 class="modal-title"><i class="fa fa-user"></i>编辑课程类型</h4>
+                </div>
+                <div class="modal-body" style="margin-top: 10px !important;">
+                    <form class="form-horizontal" method="post" id="form1" >
+                        
+                        <div class="form-group">
+                            <label for="truename" class="col-sm-3 control-label" style="margin-right: -20px;">课程类型名称：</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="title" v-model="form.title" name="title" placeholder="课程类型名称">
+                            </div>
+                        </div>
+                        
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" v-on:click="cate_edit">提交</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 编辑课程类型 end-->
+</div>
+{/block}
+{block name="jss"}
+<script src="/admin/js/vue.js"></script>
+<script src="__STATIC__/admin/dist/js/axios.min.js"></script>
+<script src="__STATIC__/admin/dist/js/es6-promise.auto.min.js"></script>
+<script type="text/javascript">
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            cate: {},
+            pagelist: [],
+            startPage: 1,
+            nowPage: 1,
+            perPage:6 //每页数量
+        },
+        created: function () {
+            this.getData(1);
+        },
+
+        methods: {
+            getData: function (page) {
+                this.nowPage = page;
+                var self = this;
+                $.getJSON(api_url + "Coursecategory/getCourseCateList?page=" + page, function (res) {
+                    console.log('res', res);
+                    self.cate = res.data.data;
+                    self.pagelist = res.page
+                })
+            },
+            previous: function () {
+                var page = this.nowPage <= 1 ? 1 : this.nowPage - 1;
+                this.startPage = this.startPage <= 1 ? 1 : this.startPage - 1;
+                this.getData(page);
+            },
+            next: function () {
+                this.startPage ++;
+                this.getData(this.startPage);
+            },
+           
+            //删除操作
+            delCate: function (id, index) {
+
+                if (confirm('确定要删除吗？')) {
+                    $.getJSON(api_url + "Coursecategory/delCourseCate/id/" + id, function (res) {
+                        app.cate.splice(index, 1);
+                    });
+
+                }
+            },
+
+        }
+    });
+    //添加分类
+      var addCate = new Vue({
+        el: '#add_cate',
+        data: {
+            form: {}
+        },
+        methods: {
+            cate_add: function () {
+                self = this;
+                axios.post(admin_url+'Course/addcate/',{           
+                    title:self.form.title,
+                })
+                .then(function (response) {
+                    if(response.data.errcode == 200){
+                        //console.log(response);
+                        layer.msg('添加成功',{icon:6,title:'温馨提示'},function () {
+                            window.location =admin_url+"course/cate";
+                        })
+                    }else{
+                        layer.msg('添加失败',{icon:5,title:'温馨提示'});
+                    }
+                })
+                .catch(function (error) {
+                    console.log(error);
+                })   
+            },
+
+        }
+    });
+
+      //编辑分类
+      var editCate = new Vue({
+        el: '#modal-id',
+        data: {
+            form: {
+                title: '',
+            }
+        },
+        methods: {
+            getData: function (element) {
+                this.id = $(element).data('id');
+                var self = this;
+                $.getJSON(admin_url+'Course/editCate/id/' + this.id, function (res) {
+                    console.log(res.data);
+                    self.form = res.data;
+                    $('#modal-id').modal('show');
+                })
+            },
+            cate_edit: function () {
+               
+                var self = this;
+                axios.post(api_url+'CourseCategory/editCourseCate/id/'+this.id, {
+                    title: self.form.title, 
+                })
+                .then(function (response) {
+                    console.log(response.data);
+                    if(response.data.errcode == 200)
+                    {
+                        layer.msg('修改成功',{icon:6,title:'温馨提示'},function () {
+                            window.location =admin_url+"course/cate";
+                        })
+                    } else {
+                        layer.msg('修改失败',{icon:5,title:'温馨提示'},function () {
+                            window.location.reload();
+                        });
+                    }
+                })
+                .catch(function (error) {
+                    layer.msg('系统出错，请稍候再试！',{icon:5,title:'温馨提示'},function () {
+                        window.location.reload();
+                    });
+                });
+
+            },
+        },
+    });
+</script>
+{/block}

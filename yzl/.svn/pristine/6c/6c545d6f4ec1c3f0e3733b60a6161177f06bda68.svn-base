@@ -1,0 +1,183 @@
+{extend name="common/base"}
+{block name="content-header"}
+<link rel="stylesheet" href="__STATIC__/admin/plugins/select2/select2.min.css">
+<link rel="stylesheet" href="/admin/layui/css/layui.css">
+    <h1>
+        {$module_names[0]}
+        <small>
+        {$module_names[1]}</small>
+    </h1>
+    <ol class="breadcrumb">
+        {volist name="module_names" id="vo"}
+            <li {if condition="$module_nums==$key"}class="active"{/if}>{if condition="0==$key"}<i class="fa fa-dashboard"></i>{/if} {$vo}</li>
+        {/volist}
+    </ol>
+{/block}
+
+{block name="content"}
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box box-default">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">课程列表</h3>
+                    </div>
+                    <div class="box-body" id="course">
+                        <div id="toolbar" >
+    
+                            <div class="form-group pull-left" style="margin-right: 0.5rem;">
+                                <a href="{:url('/admin/course/add')}" class="btn btn-primary pull-right"><i class="fa fa-plus"></i>新增课程</a>
+                            </div>
+                        
+                            <div class="columns columns-right btn-group pull-right" >
+                                <button class="btn btn-default" type="button" style="margin-right: 1rem;" name="refresh" aria-label="refresh" title="刷新"  v-on:click="refresh">
+                                <i class="glyphicon glyphicon-refresh icon-refresh"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="box-body"  id="app">
+                            <table class="table table-bordered" >
+                                <tbody>
+                                    <tr>
+                                        <th style="width: 20px; ">
+                                            <input type="checkbox" id="first_c">
+                                        </th>
+                                        <th style="width: 20px">排序</th>
+                                        <th style="width: 20px">课程分类</th>
+                                        <th style="width: 40px">课程封面</th>
+                                        <th style="width: 40px">场馆处封面</th>
+                                        <th style="width: 40px">课程名称</th>
+                                        <th style="width: 40px">课程简介</th>
+                                        <th style="width: 40px">价格</th>
+                                        <th style="width: 40px">状态</th>
+                                        <th style="width: 60px">操作</th>
+                                    </tr>
+                                    <tr v-for="(item,index) in itemList">
+                                        <td>
+                                            <input type="checkbox" class="ck_box" :id="item.id">
+                                        </td>
+                                        <td>{{item.sort}}</td>
+                                        <td>{{item.cate_name}}</td>
+                                        <td><img class="img-polaroid" style="height:50px;text-align: center;" :src="item.post"></td>
+                                        <td><img class="img-polaroid" style="height:50px;text-align: center;" :src="item.spost"></td>
+                                        <td>{{item.title}}</td>
+                                        <td>{{item.sub_title}}</td> 
+                                        <td>{{item.price}}¥</td> 
+                                        <td>
+                                            <span v-if="item.is_recommend == 1">推荐</span>
+                                            <span v-if="item.is_recommend == 2">不推荐</span>
+                                        </td> 
+                                       <!--  <td>
+                                            <a type="button" class="btn btn-primary" :href="'/admin/course/edit/id/'+item.id">修改</a>
+                                            <a type="button" class="btn btn-danger" v-on:click="delCourse(item.id,index)">删除</a>
+                                        </td> -->
+                                        <td>
+                                            <a class="btn btn-primary" title="编辑" :href="'edit/id/'+item.id"><i class="fa fa-pencil"></i></a>
+                                            <a class="btn btn-danger js_del" title="删除" href="javascript:void(0)" v-on:click="delCourse(item.id,index)" data-id="7"><i class="fa fa-trash-o"></i></a>
+                                            
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="box-footer clearfix pull-right" id="pages">
+
+                            </div>
+                        </div>
+                    </div>
+                       
+                </div>
+            </div>
+        </div>
+
+    </section>
+   
+
+</div>
+{/block}
+{block name="script"}
+<script src="/admin/js/vue.js"></script>
+<script src="__STATIC__/admin/dist/js/axios.min.js"></script>
+<script src="/admin/layui/layui.all.js"></script>
+
+<script type="text/javascript">
+    
+    var app = new Vue({
+        el:"#app",
+        data:{
+            //声明空数组，进行数据接收，最后传递到前端页面
+            page: 1,
+            pageSize: 10,
+            itemList:[]
+        },
+        //向data数组里添加数据
+        created:function(){
+            this.getData(1);
+            },
+        methods: {
+
+            //获取课程信息
+            getData:function (page) {
+                  this.nowPage = page;
+                var self = this;
+                $.getJSON(api_url+"course/getCourseList?page="+self.page+'&pageSize='+self.pageSize, function (res) {
+                    self.itemList = res.data.data;
+                    layui.use('laypage', function()
+                    {
+                        var laypage = layui.laypage;
+
+                        //执行一个laypage实例
+                        laypage.render({
+
+                            elem: 'pages', //注意，这里的ID，不用加 # 号
+                            layout: ['count', 'prev', 'page', 'next', 'limit', 'skip'],
+                            curr: self.page, //设置页码选中
+                            count: res.data.count, //数据总数，从服务端得到
+                            limit: self.pageSize, //设置条数选中
+                            theme: '#1E9FFF',
+                            prev: '<<',
+                            next: '>>',
+                            jump: function(obj, first)
+                            {
+                                //jump 分页触发函数
+                                //obj包含了当前分页的所有参数，比如：
+                                //console.log(obj.curr); //得到当前页，以便向服务端请求对应页的数据。
+                                //console.log(obj.limit); //得到每页显示的条数
+
+                                self.page = obj.curr;
+                                self.pageSize = obj.limit;
+
+                                //首次不执行
+                                if(!first){
+                                    self.getData();
+                                }
+                            }
+
+                        });
+                    });
+                });
+            },
+            //删除单条数据
+            delCourse:function(id,index){
+                if (confirm('确定要删除吗？')) {
+                    $.getJSON(api_url+"course/delCourse/id/"+id,function(res){
+
+                        app.itemList.splice(index,1);
+                    })
+                    
+                }
+            },
+            
+        },
+    });
+
+  </script>
+
+<script src="/admin/js/ajaxfileupload.js"></script>
+<script src="/admin/use/coach.js"></script>
+<script src="/admin/js/uploadPreview.js"></script>
+<!--<script src="/admin/js/icheck.min.js"></script>-->
+    <script>
+        //图片上传预览
+        $("#image").uploadPreview({ Img: "ImgPr", Width: 375, Height: 250 });
+        
+    </script>
+{/block}

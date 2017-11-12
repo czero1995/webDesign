@@ -1,0 +1,89 @@
+<view class="OrderBox">
+  <view class="ListBox">
+
+    <view class="list">
+      <navigator url=''>
+        <view class="Time">
+          <text>订单号：1235532355</text>
+          <text>2017-06-06</text>
+          <text class='status'>已发货</text>
+        </view>
+        <view class="ProBox">
+          <image src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg" mode="scaleToFill"></image>
+          <view class="Pro">
+            <text class="title">这里是商品名称</text>
+            <text class="text">X 1</text>
+            <text class="Pri TextColor">￥1234</text>
+          </view>
+        </view>
+        <view class='TotalPrice'>
+            <text>商品总额： <text class='TextColor'>￥1234</text></text>
+        </view>
+      </navigator>
+    </view>
+
+    <view class="list">
+      <navigator url=''>
+        <view class="Time">
+          <text>订单号：1235532355</text>
+          <text>2017-06-06</text>
+          <text class='status'>已发货</text>
+        </view>
+        <view class="ProBox">
+          <image src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg" mode="scaleToFill"></image>
+          <view class="Pro">
+            <text class="title">这里是商品名称</text>
+            <text class="text">X 1</text>
+            <text class="Pri TextColor">￥1234</text>
+          </view>
+        </view>
+        <view class='TotalPrice'>
+            <text>商品总额： <text class='TextColor'>￥1234</text></text>
+        </view>
+      </navigator>
+    </view>
+
+    <view class="list">
+      <navigator url=''>
+        <view class="Time">
+          <text>订单号：1235532355</text>
+          <text>2017-06-06</text>
+          <text class='status'>已发货</text>
+        </view>
+        <view class="ProBox">
+          <image src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg" mode="scaleToFill"></image>
+          <view class="Pro">
+            <text class="title">这里是商品名称</text>
+            <text class="text">X 1</text>
+            <text class="Pri TextColor">￥1234</text>
+          </view>
+        </view>
+        <view class='TotalPrice'>
+            <text>商品总额： <text class='TextColor'>￥1234</text></text>
+        </view>
+      </navigator>
+    </view>
+
+    <view class="list">
+      <navigator url=''>
+        <view class="Time">
+          <text>订单号：1235532355</text>
+          <text>2017-06-06</text>
+          <text class='status'>已发货</text>
+        </view>
+        <view class="ProBox">
+          <image src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg" mode="scaleToFill"></image>
+          <view class="Pro">
+            <text class="title">这里是商品名称</text>
+            <text class="text">X 1</text>
+            <text class="Pri TextColor">￥1234</text>
+          </view>
+        </view>
+        <view class='TotalPrice'>
+            <text>商品总额： <text class='TextColor'>￥1234</text></text>
+        </view>
+      </navigator>
+    </view>
+
+  </view>
+</view>

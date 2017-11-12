@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+		<title>购物车</title>
+		<script src="../js/rem.js"></script>
+		<link rel="stylesheet" href="../css/base.css">
+		<link rel="stylesheet" href="../css/cart.css" />
+	</head>
+
+	<body>
+		<div id="app">
+			<div class="top">
+				<p>购物车</p>
+			</div>
+			<div class="container">
+				<div class="cart-item inlinkFlex" v-for="cartItem in cartList">
+					<div class="goods-radio" @click="onGoodsRadio(cartItem)">
+						<img src="../img/icon/radio.png" v-show="!cartItem.goodsRadio" />
+						<img src="../img/icon/radio_select.png" v-show="cartItem.goodsRadio" />
+					</div>
+					<a :href="'detail.html?id='+cartItem.goods_id" class="inlinkFlex">
+						<div class="goods-img">
+							<img :src="cartItem.goods_thumb" />
+						</div>
+						<div class="goods-textBox">
+							<p class="text-ellipsis goods-name">{{cartItem.goods_name}}</p>
+							<p class="goods-num">x{{cartItem.goods_number}}</p>
+							<p class="goods-coach">¥{{cartItem.present_price}}</p>
+						</div>
+					</a>
+				</div>
+
+				<div class="cartBottom-detail inlinkFlex">
+					<div class="goods-radio" @click="onGoodsRadioAll()">
+						<img src="../img/icon/radio.png" v-show="!goodsRadioAll" />
+						<img src="../img/icon/radio_select.png" v-show="goodsRadioAll" />
+					</div>
+					<div class="bottom-left">
+						<p>合计: <span class="goods-coach">¥{{allCoach}}</span> </p>
+					</div>
+					<p class="delete" @click="onGoodsDel()">删除</p>
+					<div class="subminCart" @click="onBuy()">
+						购买
+					</div>
+				</div>
+				<div class="footer inlinkFlex-around">
+					<div class="footer-item">
+						<a href="../index.html">
+							<i class="icon footerIcon footerHomeIcon"></i>
+							<p class="footer-title">首页</p>
+						</a>
+					</div>
+					<div class="footer-item">
+						<a href="categotry.html">
+							<i class="icon footerIcon footerCategoryIcon"></i>
+							<p class="footer-title">分类</p>
+						</a>
+					</div>
+					<div class="footer-item active">
+						<a href="cart.html">
+							<i class="icon footerIcon footerCartIcon"></i>
+							<p class="footer-title">购物车</p>
+						</a>
+					</div>
+					<div class="footer-item">
+						<a href="member.html">
+							<i class="icon footerIcon footerMemberIcon"></i>
+							<p class="footer-title">我的</p>
+						</a>
+					</div>
+				</div>
+				<!--提示成功弹窗-->
+				<div class="model" v-show="tipModel">
+					<div class="model-content tip-content">
+						<p>{{tipText}}</p>
+						<p @click="tipModel=false">确定</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="../js/axios.js"></script>
+		<script src="../js/http.js"></script>
+		<script src="../js/vue.js"></script>
+		<script>
+			new Vue({
+				el: '#app',
+				data() {
+					return {
+						goodsRadio: false,
+						goodsRadioAll: false,
+						cartList: [], //购物车列表
+						allCoach: '',
+						/*所以商品价格*/
+						tipModel: false,
+						tipText: '' /*弹窗提示文字*/
+					}
+				},
+				mounted: function() {
+					this.getCartList();
+				},
+				methods: {
+					/*获取购物车列表*/
+					getCartList() {
+						const that = this;
+						axios.post(path + 'cart/getCartList', {
+
+							}).then(function(res) {
+								that.cartList = res.data.data.data;
+								console.log('cartListData', that.cartList);
+							})
+							.catch(function(error) {
+								console.log(error);
+							});
+					},
+					/*选择单个商品*/
+					onGoodsRadio(item) {
+						const that = this;
+						if(typeof item.goodsRadio == 'undefined') {
+							that.$set(item, "goodsRadio", true);
+						} else {
+							item.goodsRadio = !item.goodsRadio;
+						}
+						if(item.goodsRadio == false) {
+							that.goodsRadioAll = false;
+						}
+						that.onCalAllCoach();
+					},
+					/*选择所有商品*/
+					onGoodsRadioAll() {
+						const that = this;
+						that.goodsRadio = !that.goodsRadio;
+						that.goodsRadioAll = !that.goodsRadioAll;
+						if(that.goodsRadioAll == true) {
+							that.cartList.forEach(function(item) {
+								item.goodsRadio = true;
+							})
+						} else {
+							that.cartList.forEach(function(item) {
+								item.goodsRadio = false;
+							})
+						}
+						that.onCalAllCoach();
+					},
+					/*计算价格*/
+					onCalAllCoach() {
+						const that = this;
+						that.allCoach = 0;
+						that.cartList.forEach(function(item) {
+							if(item.goodsRadio) {
+								that.allCoach += item.goods_number * item.present_price;
+
+							}
+						})
+					},
+					/*商品购买*/
+					onBuy() {
+						const that = this;
+						goodsArr = []
+						that.cartList.forEach(function(item) {
+							if(item.goodsRadio == true) {
+								goodsArr.push(item.id);
+							}
+						});
+						if(goodsArr.length === 0) {
+							that.tipText = '请选择要的商品'
+							that.tipModel = true;							
+						}else{
+							location.href = "paywaitDetail.html?id=" + goodsArr;
+						}
+						
+					},
+					/*商品删除*/
+					onGoodsDel() {
+						const that = this;
+						delArr = [];
+						that.cartList.forEach(function(item) {
+							if(item.goodsRadio == true) {
+								delArr.push(item.id);
+							}
+						});
+						if(delArr.length === 0) {
+							that.tipText = '请选择要删除的商品'
+							that.tipModel = true;							
+						}else {
+							axios.post(path + 'cart/delGoodsInCart/', {
+									'ids': delArr.join(','),
+								}).then(function(res) {
+									if(res.data.errcode == 200) {
+										that.getCartList();
+										that.tipText = '删除成功';
+										that.tipModel = true;
+									}
+									console.log('goodsDel', res);
+								})
+								.catch(function(error) {
+									console.log(error);
+								});
+						}
+
+					},
+				},
+			})
+		</script>
+	</body>
+
+</html>

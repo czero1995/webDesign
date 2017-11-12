@@ -1,0 +1,348 @@
+{extend name="layout/base"}
+
+{block name="title"}
+<title>会员中心</title>
+{/block}
+
+{block name="style"}
+
+<style type="text/css">
+</style>
+
+{/block}
+
+{block name="content"}
+<!--我的-->
+
+
+        <div  class="page member-page">
+            <div class="page-content">
+                <div class="mine-top" >
+                    <img :src="members.headimg" class="mine-img" v-show="userImg" />
+                    <img src="__STATIC__/wx/img/user-photo.jpg" class="mine-img" v-show="!userImg"/>
+                    <p class="mine-user" v-show="userName">{{members.nickname}} </p>
+                    <p class="mine-user" v-show="!userName">昵称</p>
+                    <div class="mine-vip">
+                        <p class="mine-vipText" v-show="!memberText" @click="onBecomeVip" >成为会员</p>
+                        <p v-show="memberText">会员号{{members.member_num}}</p>
+                    </div>
+                </div>
+                <a href="{:url('member/profile')}" class="external"><div class="mine-item">个人信息</div></a>
+                <a href="{:url('member/aggreement')}" class="external"> <div class="mine-item agreement">用户协议</div></a>
+                <a href="{:url('member/aboutus')}" class="external"><div class="mine-item">关于我们</div></a>
+            </div>
+            <!-- Bottom Tabbar-->
+            <div class="toolbar tabbar tabbar-labels">
+                <div class="toolbar-inner">
+                    <a href="{:url('stadium/index')}" class="tab-link "> <i
+                            class="icon tabbar-demo-icon-3"></i><span
+                            class="tabbar-label">场馆</span></a>
+                    <a href="{:url('coach/index')}" class="tab-link"><i
+                            class="icon tabbar-demo-icon-2"></i><span
+                            class="tabbar-label">教练</span></a>
+                    <a href="{:url('course/index')}" class="tab-link"> <i
+                            class="icon tabbar-demo-icon-1"></i><span
+                            class="tabbar-label">课程</span></a>
+                    <a href="{:url('member/index')}" class="tab-link active"> <i
+                            class="icon tabbar-demo-icon-4"></i><span
+                            class="tabbar-label active">我的</span></a>
+                </div>
+            </div>
+
+
+            <!--验证手机号码-->
+            <div class="phone-model" v-if="showPhone" >
+                <div class="phone-content">
+                    <p class="phone-title">验证手机号</p>
+                    <div class="phone-box">
+                        <input type="text" class="phone-input" placeholder="请输入手机号" v-model="phoneInput"/>
+                        <div class="yzm-box">
+                        <input type="text" class="yzm-input" placeholder="请输入验证码" v-model="yzmInput"/>
+                        <button class="get-yzm" @click="getYZM">获取验证码</button>
+                        </div>
+                    </div>
+                    <span class="no-now" @click="hidePhoneModel">暂不</span>
+                    <button class="insure" @click="confirmBtn" v-bind:class="{ active: checked }" v-bind:disabled="btnPhone">确定
+                    </button>
+                </div>
+            </div>
+            <!--成为会员-->
+            <div class="bevip-model" v-if="showBeVip" >
+                <div class="bevip-content">
+                    <img src="__STATIC__/wx/img/pop_img_Congratulations@2x.png" alt=""/>
+                    <p class="vip-code">会员号 {{vipNumber}}</p>
+                    <p class="vip-tip">恭喜您成为会员啦啦啦</p>
+                    <p class="vip-btn" @click="vipBtn">确定</p>
+                </div>
+            </div>
+            <!--选择性别-->
+            <div class="sex-model" v-if="showSex" >
+                <div class="sex-content">
+                    <p class="title-name">性别</p>
+                    <img src="__STATIC__/wx/img/pop_Gender selection_woman_nor@2x.png" class="gril-img" @click="chooseGirl"/>
+                    <p class="gril-text">女</p>
+                    <img src="__STATIC__/wx/img/pop_Gender selection_man@2x.png" class="boy-img" @click="chooseMan"/>
+                    <p class="boy-text">男</p>
+                </div>
+            </div>
+            <!--完善会员信息-->
+            <div class="info-model" v-if="showInfo" >
+                <div class="info-content">
+                    <p class="title-name">完善会员信息</p>
+                    <p class="info-tip">完善更多信息，可能会获得会员信息礼品哦</p>
+                    <div>
+                        <span class="no-now" @click="infoCancel">取消</span>
+                        <button class="insure" @click="infoInsure">确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+{/block}
+
+{block name="script"}
+<script type="text/javascript">
+
+    var myApp = new Framework7();
+
+    new Vue({
+        el: '#app',
+        data() {
+            return {
+                members:{},
+                userImg:false,
+                userName:false,
+                memberText:false,
+                showBeVip: false,
+                showPhone: false,
+                showSex: false,
+                showInfo: false,
+                btnPhone:true,
+                phoneInput:'',
+                yzmInput:'',
+                chooseSex: '',
+            }
+        },
+        mounted: function() {
+            var myApp = new Framework7();
+            var mySwiper = myApp.swiper('.swiper-stadium', {
+                pagination: '.swiper-stadium .swiper-pagination',
+                speed: 400,
+                spaceBetween: 100
+            });
+            this.getMember();
+//            var needRefresh = sessionStorage.getItem("need-refresh");
+//            if(needRefresh){
+//                sessionStorage.removeItem("need-refresh");
+//                myApp.modal({
+//
+//                    text:'刷新,请重试！',
+//                    buttons:[
+//                        {
+//                            text:'确定'
+//                        }
+//                    ]
+//                });
+//            }
+        },
+        computed: {
+            checked() {
+                return !(this.phoneInput.trim().length === 0 || this.yzmInput.trim().length === 6)
+            }
+        },
+        methods: {
+            getMember:function(){
+                const that = this;
+                axios.get(path+'member/get_user_info/openid/'+"{$openid}")
+                    .then(function (response){
+                        that.members = response.data;
+                        if(that.members){
+                            that.userImg = !that.userImg;
+                            that.userName = !that.userName;
+                        }
+                        if(that.members.member_num > 0)
+                        {
+                            that.memberText = !that.memberText;
+                        }
+                        console.log(response);
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+            },
+            onBecomeVip:function () {
+                this.showPhone=true;
+            },
+            /*获取验证码*/
+            getYZM: function () {
+                var phoneReg = /(1[3-9]\d{9}$)/;
+                const that = this;
+                if (!phoneReg.test(that.phoneInput)) {
+
+                    myApp.modal({
+                        text:'手机号码格式错误,请重试！',
+                        buttons:[
+                            {
+                                text:'确定'
+                            }
+                        ]
+                    });
+                } else {
+                    axios.post(path + 'member/sendSMSCode?mobile=' + that.phoneInput)
+                        .then(function (response) {
+                            if (response.status == 200) {
+                                var wait = 30;
+                                that.btnPhone=false;
+                                var yzm = $('.get-yzm');
+                                time();
+
+                                function time() {
+                                    if (wait < 0) {
+                                        yzm.text("获取验证码");
+                                        yzm.removeAttr("disabled");
+                                        wait = 60;
+                                    } else {
+                                        yzm.attr("disabled", "true");
+                                        yzm.text(wait + "秒后重获取");
+                                        wait--;
+                                        setTimeout(function () {
+                                            time();
+                                        }, 1000)
+                                    }
+                                }
+
+                            } else {
+                                myApp.modal({
+
+                                    text:response.data.errmsg,
+                                    buttons:[
+                                        {
+                                            text:'确定'
+                                        }
+                                    ]
+                                });
+                            }
+                            console.log(response.data);
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+                }
+
+            },
+            /*验证新号码*/
+            confirmBtn: function () {
+                const that = this;
+                if(that.yzmInput.length<5){
+                    myApp.modal({
+
+                        text: "验证码出错",
+                        buttons: [
+                            {
+                                text: '确定'
+
+                            }
+                        ],
+
+                    });
+                }else{
+                    axios.post(path + 'member/register', {
+                        'openid': "{$openid}",
+                        'mobile': that.phoneInput,
+                        'sms_code': that.yzmInput
+                    }).then(function (response) {
+                        console.log(response.status);
+                        if (response.data.status == true) {
+                            that.vipNumber = response.data.member_num;
+                            that.showPhone = false;
+                            that.showBeVip = true;
+                            console.log("vipNumber", that.vipNumber)
+
+                        } else {
+                            myApp.modal({
+
+                                text:'注册失败',
+                                buttons:[
+                                    {
+                                        text:'确定'
+                                    }
+                                ]
+                            });
+                        }
+                        console.log(response.data);
+                    })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+                }
+
+            },
+            hidePhoneModel: function () {
+                this.showPhone = false;
+                this.showEditorName=false;
+            },
+            vipBtn: function () {
+                this.showBeVip = false;
+                this.showSex = true;
+            },
+            chooseGirl: function () {
+                this.showSex = false;
+                this.showInfo = true;
+                this.chooseSex=2;
+
+            },
+            chooseMan: function () {
+                this.showSex = false;
+                this.showInfo = true;
+                this.chooseSex=1
+            },
+            infoCancel: function () {
+                this.onSave();
+                this.getMember();
+                this.showInfo = false;
+            },
+            infoInsure: function () {
+                this.onSave();
+                this.showInfo = false;
+                location.href="{:url('member/profile')}";
+
+
+            },
+            onSave: function () {
+                const that = this;
+                axios.post(path + 'member/perfectInfo', {
+                    'mobile': that.phoneInput,
+                    'sex': that.chooseSex,
+                    'realname': '',
+                    'birthday': '',
+                    'tshirt': '',
+                }).then(function (response) {
+                    console.log('resoponse',response.data)
+                    if (response.data.errcode == 200) {
+
+                    } else {
+                        myApp.modal({
+                            text: response.data.msg,
+                            buttons: [
+                                {
+                                    text: '确定'
+                                }
+                            ]
+                        });
+                    }
+                    console.log('editor', response);
+
+                }).catch(function (error) {
+                    console.log(error);
+                });
+
+                $('body .item-sex,.item-info,.item-clothes,.item-birth').css("pointer-events", "none");
+                $('.input-username').attr('disabled', false);
+            }
+
+        }
+    })
+</script>
+{/block}

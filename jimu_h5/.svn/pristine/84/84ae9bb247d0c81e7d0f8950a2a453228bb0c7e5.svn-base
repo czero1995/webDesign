@@ -1,0 +1,57 @@
+#app {
+  background: #faf7fa;
+}
+.container {
+  padding-bottom: 0.88rem;
+}
+.content {
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+.swiper-container {
+  height: 3rem;
+}
+.swiper-container img {
+  width: 100%;
+  height: 100%;
+}
+.goodsBox {
+  width: 100%;
+  text-align: center;
+}
+.goods-item {
+  width: 49%;
+  background: #ffffff;
+  margin-bottom: .2rem;
+}
+.goods-name {
+  margin: .1rem 0;
+}
+.goods-img {
+  width: 100%;
+  height: 2.8rem;
+}
+.goods-textBox {
+  text-align: left;
+  padding-left: .2rem;
+  font-size: 0.28rem;
+  color: #000000;
+}
+.goods-coach {
+  color: #ff0000;
+  font-size: 0.28rem;
+}
+.goods-cartBox {
+  text-align: right;
+  margin-right: .2rem;
+}
+.goods-cartBox img {
+  width: .4rem;
+  height: .4rem;
+}
+.footerTip {
+  width: 100%;
+  text-align: center;
+  padding: 0.3rem 0;
+  color: #000000;
+}

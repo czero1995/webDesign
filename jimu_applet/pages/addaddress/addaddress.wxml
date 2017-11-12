@@ -1,0 +1,22 @@
+<view class="ADDaddress">
+  <view class="InpBox">
+    <label>收货人</label><input type="text" value="傻大姐" placeholder="" />
+  </view>
+  <view class="InpBox">
+    <label>联系电话</label><input type="text" value="125698562" placeholder="" />
+  </view>
+  <view class="InpBox">
+    <label>所在地区</label><input type="text" value="广州省深圳市" placeholder="" />
+  </view>
+  <view class="InpBox">
+    <label>详细地址</label><input type="text" value="福田区商厦春" placeholder="" />
+  </view>
+
+  <!--<view class="switch">
+    <label>设置为默认地址</label>
+    <switch checked bindchange="switch1Change" color="#2670df"/>
+  </view>-->
+
+  <button class="Save">保存并使用</button>
+  <button class="Delete">删除</button>
+</view>

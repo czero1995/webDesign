@@ -1,0 +1,166 @@
+body {
+  background: #EFEFEF;
+  overflow: auto!important;
+}
+.lessonDetail-item {
+  padding: 0.3rem;
+  background: #FFFFFF;
+  margin-top: 0.2rem;
+}
+.lessonDetail-item p {
+  margin: 0;
+  padding: 0;
+}
+.introduce-all img{
+  margin-bottom: 0.2rem;
+}
+.lessonDetail-item .lessionDetail-title {
+  padding-top: 0.2rem;
+  font-family: PingFangSC-Regular;
+  font-size: 0.26rem;
+  color: #666666;
+  letter-spacing: 0.76px;
+  line-height: 0.44rem;
+}
+.lessonDetail-item .lessionDetail-content {
+  font-family: PingFangSC-Regular;
+  font-size: 0.26rem;
+  color: #666666;
+  letter-spacing: 0.76px;
+  line-height: 40px;
+}
+.lessonDetail-item .lessionDetail-label {
+  padding-top: 0.21rem;
+  display: flex;
+}
+.lessonDetail-item .lessionDetail-label .label-item {
+  margin-right: 0.2rem;
+  border: 1px solid #C9C9C9;
+  border-radius: 1rem;
+  font-size: 0.24rem;
+  color: #000000;
+  letter-spacing: 0.71px;
+  height: 0.4rem;
+  text-align: center;
+  line-height: 0.4rem;
+  padding-left: 0.1rem;
+  padding-right: 0.1rem;
+}
+.lessonDetail-coach {
+  margin-top: 0.2rem;
+  padding: 0.3rem;
+  background: #FFFFFF;
+}
+.lessonDetail-coach .coach-box {
+  padding-top: 0.3rem;
+  display: flex;
+  width: 25%;
+  justify-content: center;
+}
+.coachContent{
+	display: flex;
+	flex-wrap: wrap;
+}
+.lessonDetail-coach .coach-box .coach-item {
+  /*margin-right: 0.4rem;*/
+}
+.lessonDetail-coach .coach-box .coach-item img {
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 1rem;
+}
+.lessonDetail-coach .coach-box .coach-item p {
+  font-size: 0.24rem;
+  color: #666666;
+  letter-spacing: 0.71px;
+  line-height: 40px;
+  text-align: center;
+  padding-top: 0.2rem;
+}
+.lessonDetail-contact {
+  background: #FFFFFF;
+  margin-top: 0.2rem;
+  padding: 0.3rem;
+}
+.lessonDetail-contact p {
+  margin: 0;
+  padding: 0;
+}
+.lessonDetail-address span{
+  display: inline-block;
+  float: right;
+  width: 0.6rem;
+  height: 0.3rem;
+}
+.lessonDetail-contact .lessonDetail-address {
+  font-size: 0;
+  padding-top: 0.28rem;
+}
+.lessonDetail-contact .lessonDetail-address p {
+  font-family: PingFangSC-Regular;
+  font-size: 0.24rem;
+  color: #666666;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding-left: 0.18rem;
+}
+.lessonDetail-contact .lessonDetail-address .address-img {
+  float: left;
+  width: 0.2rem;
+  height: 0.3rem;
+}
+.lessonDetail-contact .lessonDetail-address .phone-img {
+  float: right;
+  width: 0.24rem;
+  height: 0.24rem;
+  margin-top: 0.05rem;
+  display: block;
+}
+.lessonDetail-introduce {
+  margin-top: 0.2rem;
+  padding: 0.3rem;
+  background: #FFFFFF;
+  height: 100%;
+}
+.lessonDetail-introduce p {
+  margin: 0;
+  padding: 0;
+}
+.lessonDetail-introduce img {
+  width: 100%;
+  display: block;
+  height: 5rem;
+  overflow: hidden;
+  border-radius: 4px;
+}
+.lessonDetail-box{
+  min-height: 100%;
+
+}
+
+.lessonDetail-introduce .introduce-all {
+  /*padding-top: 0.28rem;*/
+  /*padding-bottom: 0.6rem;*/
+  font-size: 0.26rem;
+  color: #666666;
+  letter-spacing: 0.78px;
+  line-height: 0.44rem;
+  height: 100%;
+  word-wrap:break-word;
+}
+.lessonDetail-introduce .introduce-item {
+  padding-bottom: 0.44rem;
+}
+.lessonDetail-introduce .introduce-item .introduce-title {
+  font-size: 0.26rem;
+  color: #000000;
+  letter-spacing: 0.78px;
+  font-weight: bold;
+}
+.lessonDetail-introduce .introduce-item .introduce-content {
+  font-family: PingFangSC-Regular;
+  font-size: 0.26rem;
+  color: #2A2A2A;
+  letter-spacing: 0.78px;
+  line-height: 44px;
+}

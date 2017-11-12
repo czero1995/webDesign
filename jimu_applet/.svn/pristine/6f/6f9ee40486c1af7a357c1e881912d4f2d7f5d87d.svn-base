@@ -1,0 +1,62 @@
+
+<import src="../../wxParse/wxParse.wxml"/> 
+
+<view class="">
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-active-color="#fff">
+    <block wx:for="{{Pro.imgs_url}}">
+      <swiper-item>
+        <image src="{{item.imgs_url}}" class="slide-image" width="355" height="150" />
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <view class='ProDescription'>
+    <text class='h2'>{{Pro.goods_name}}</text>
+    <text class='p'>{{Pro.goods_brief}}</text>
+    <text class='Pri TextColor'>￥{{Pro.present_price}}</text>
+  </view>
+
+  <view class='DetBox'>
+    <text class='title'>商品详情</text>
+    <view class='Det'>
+    
+      <view class="wxParse">
+          <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+      </view>
+    
+    </view>
+  </view>
+
+  <view class='NavBox'>
+    <navigator url='/pages/car/car' class='shop' open-type="switchTab">购物车</navigator>
+    <text class='JoinCarBtn JoinCarColor' bindtap="cascadePopup">加入购物车</text>
+    <navigator url='/pages/car/car' class='shop BtnColor' open-type="switchTab">立即购买</navigator>
+  </view>
+
+  <view class='JoinCarBox'>
+    <view class='JoinCarMask {{maskVisual}}' bindtap="cascadeDismiss"></view>
+    <view class='JoinCar' animation="{{animationData}}">
+      <view class='Car'>
+        <image src='{{Pro.goods_thumb}}'></image>
+        <view class='JoinCarText'>
+          <text class='title'>{{Pro.goods_name}}</text>
+          <text class='p TextColor'>￥{{Pro.present_price}}</text>
+        </view>
+      </view>
+
+      <view class='numBox'>
+        <text>购买数量</text>
+        <view class='num'>
+          <text bindtap="minusCount">-</text>
+          <input type='text' value='{{num}}'></input>
+          <text bindtap="addCount">+</text>
+        </view>
+      </view>
+
+      <view class='CarBtn BtnColor' bindtap="toast1Tap">加入购物车</view> 
+    </view>
+
+    
+  </view>
+</view>
+

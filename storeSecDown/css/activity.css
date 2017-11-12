@@ -1,0 +1,49 @@
+.ms-item {
+	padding: 20px;
+	align-items: flex-start;
+	border-bottom: 1px solid #ccc;
+}
+
+.msImg {
+	margin-right: 0.2rem;
+	width: 2rem;
+	height: 2rem;
+}
+
+.ms-now {
+	color: red;
+	font-size: 0.3rem;
+}
+
+.timeColor {
+	color: red;
+	font-size: 0.22rem;
+}
+
+.ms-Text {
+	flex: 1;
+	padding-right: 0.3rem;
+}
+
+.oldCoach {
+	text-decoration: line-through;
+	font-size: 0.3rem;
+}
+
+.msBtnBox {
+	display: flex;
+	justify-content: flex-end;
+	margin-top: 0.2rem;
+}
+
+.msBtn {
+	width: 1.2rem;
+	height: 0.4rem;
+	font-size: 0.24rem;
+	background: red;
+	color: #fff;
+}
+
+.msTime {
+	display: none;
+}

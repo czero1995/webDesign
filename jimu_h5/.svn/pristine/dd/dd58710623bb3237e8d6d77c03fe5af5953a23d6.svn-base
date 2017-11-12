@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>个人信息</title>
+		<link rel="stylesheet" href="../css/framework7.ios.min.css">
+		<link rel="stylesheet" href="../css/base.css">
+		<style>
+			.item-inner{
+				font-size: 0.24rem;
+				padding-bottom: 0.2rem!important;
+			}
+			.list-block ul li{
+				margin-bottom: 0.2rem;
+			}
+			.upload img{
+				width: 0.6rem;
+				height: 0.6rem;
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div class="views tabs" id="app">
+			<div id="home-lesson" class="view view-main tab active">
+				<div class="pages">
+					<div class="page">
+						<div class="page-content">							
+							<div class="list-block">								
+							  <ul>
+							  	<li class="item-content">						       
+						          <div class="item-inner">
+						            <div class="item-title">昵称</div>
+						            <div class="item-after">凡几</div>
+						          </div>
+						        </li>
+						        <li class="item-content">						       
+						          <div class="item-inner">
+						            <div class="item-title">真实姓名</div>
+						            <div class="item-after">凡几</div>
+						          </div>
+						        </li>
+						        <li class="item-content">						       
+						          <div class="item-inner list-sex" >
+						            <div class="item-title">性别</div>
+						            <div class="item-after">{{sex}}</div>
+						          </div>
+						        </li>
+						        <li class="item-content">						       
+						          <div class="item-inner">
+						            <div class="item-title">手机号码</div>
+						            <div class="item-after">123456789</div>
+						          </div>
+						        </li>
+						       </ul>
+						     </div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+			<script src="../js/rem.js"></script>
+			<script type="text/javascript" src="../js/framework7.min.js"></script>
+			<script type="text/javascript" src="../js/my-app.js"></script>
+			<script type="text/javascript" src="../js/mui.min.js"></script>
+			<script type="text/javascript" src="../js/immersed.js"></script>
+			<script src="../js/vue.js"></script>
+			<script>
+				new Vue({
+					el: '#app',
+					data() {
+						return {
+							sex:'请选择',
+						}
+					},
+					mounted: function() {
+						const that = this;
+	 					$$('.list-sex').on('click', function () {
+						    var buttons = [
+						        {
+						            text: '男',
+						            bold: true,
+						            onClick:function(){
+						            	that.sex='男'
+						            }
+						        },
+						        {
+						            text: '女',
+						             bold: true,
+						             onClick:function(){
+						            	that.sex='女'
+						            }
+						        },				       
+						    ];
+						    myApp.actions(buttons);
+							});		
+					},					
+				})
+			</script>
+	</body>
+
+</html>

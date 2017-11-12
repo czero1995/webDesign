@@ -1,0 +1,11 @@
+var paths = {
+    'dev': 'http://wechat.fullstack.cn/api/wx/',
+    'dt': 'http://wechat.fullstack.cn/',
+    'product': 'http://api.szyunzhili.com/wx/'
+
+}
+
+dt = paths.product;
+path = paths.product;
+
+

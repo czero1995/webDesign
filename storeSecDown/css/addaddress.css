@@ -1,0 +1,49 @@
+#address {
+  background: #EFEFEF;
+  height: 100%;
+}
+.top {
+  height: 0.8rem;
+  background: red;
+  line-height: 0.8rem;
+  font-size: 0.3rem;
+  color: #fff;
+  text-align: center;
+  padding-left: 0.3rem;
+}
+.top p {
+  width: 100%;
+  margin-right: 0.76rem;
+}
+.back {
+  width: 0.3rem;
+  height: 0.3rem;
+}
+.addressItem {
+  border-bottom: 1px solid #ccc;
+  padding-left: 0.3rem;
+  height: 0.88rem;
+  line-height: 0.88rem;
+  background: #fff;
+}
+.addressItem p {
+  margin-right: 0.4rem;
+}
+.addressItem input {
+  font-size: 0.26rem;
+  width: 3rem;
+  border: none;
+}
+.addressItem img {
+  margin-left: 1.4rem;
+}
+.save {
+  height: 0.8rem;
+  line-height: 0.8rem;
+  color: #FFFFFF;
+  width: 90%;
+  text-align: center;
+  background: red;
+  margin: 0 auto;
+  margin-top: 0.8rem;
+}

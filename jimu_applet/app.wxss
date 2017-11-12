@@ -1,0 +1,9 @@
+/**app.wxss**/
+page{background-color: #f5f4f9;}
+
+.TextColor{
+  color: #2670df;
+}
+.BtnColor{
+  background: #2670df;
+}

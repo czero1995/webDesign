@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>我的订单</title>
+		<link rel="stylesheet" href="../css/framework7.ios.min.css">
+		<link rel="stylesheet" href="../css/base.css">
+		<link rel="stylesheet" href="../css/footer.css">
+		<link rel="stylesheet" href="../css/myorder.css" />
+	</head>
+
+	<body>
+
+		<div class="views tabs" id="app">
+			<div id="home-lesson" class="view view-main tab active">
+				<!-- Pages-->
+				<div class="pages">
+					<div class="page">
+						<div class="page-content">
+							<div id="myorder">
+								<div class="top inlinkFlex-spacebetween">
+									<p class="topItem" :class="{active:orderState === 'dfk'}" @click="onOrderState('dfk')">待付款 </p>
+									<p class="topItem" :class="{active:orderState === 'yzf'}" @click="onOrderState('yzf')">已支付</p>
+									<p class="topItem" :class="{active:orderState === 'psz'}" @click="onOrderState('psz')">配送中</p>
+									<p class="topItem" :class="{active:orderState === 'ywc'}" @click="onOrderState('ywc')">已完成</p>
+									<p class="topItem" :class="{active:orderState === 'yqx'}" @click="onOrderState('yqx')">已取消</p>
+								</div>
+								<div class="center">
+									<div v-show="orderState === 'dfk'">
+										<div class="orderItem ">
+											<div class="orderBox inlinkFlex">
+												<img src="../img/product/6-1.jpg" class="orderImg" />
+												<div class="orderText">
+													<div class="inlinkFlex-spacebetween">
+														<p class="orderName">13.3英寸笔记本电脑 深空灰色Core i5处理器/8GB</p>
+														<p class="orderState">代付款</p>
+													</div>
+													<p>一个装</p>
+													<p class="orderNum shopCoach">¥26.60x1</p>
+													<p>配送时间</p>
+													<p>2017-10-14 周六 12:08</p>
+												</div>
+
+											</div>
+											<div class="orderMoney">
+												<p class="moneyItem">服务费:¥0.00</p>
+												<p class="moneyItem">共三件商品</p>
+												<p class="moneyItem shopCoach">合计:¥91.8</p>
+											</div>
+											<div class="orderOpera">
+												<p class="cancelOrder">取消订单</p>
+												<a href="../pages/orderDetail.html" class="external">
+													<p class="insureOrder">付款</p>
+												</a>
+											</div>
+										</div>
+										<div class="orderItem ">
+											<div class="orderBox inlinkFlex">
+												<img src="../img/product/6-2.jpg" class="orderImg" />
+												<div class="orderText">
+													<div class="inlinkFlex-spacebetween">
+														<p class="orderName">APPLE 苹果(Apple) iPhone8/X Plus</p>
+														<p class="orderState">待支付</p>
+													</div>
+													<p>一个装</p>
+													<p class="orderNum shopCoach">¥26.60x1</p>
+													<p>配送时间</p>
+													<p>2017-10-14 周六 12:08</p>
+												</div>
+
+											</div>
+											<div class="orderMoney">
+												<p class="moneyItem">服务费:¥0.00</p>
+												<p class="moneyItem">共三件商品</p>
+												<p class="moneyItem shopCoach">合计:¥91.8</p>
+											</div>
+											<div class="orderOpera">
+												<p class="cancelOrder">取消订单</p>
+												<a href="../pages/orderDetail.html" class="external">
+													<p class="insureOrder">付款</p>
+												</a>
+											</div>
+										</div>
+									</div>
+									<div v-show="orderState === 'yzf'">
+										<div class="orderItem ">
+											<div class="orderBox inlinkFlex">
+												<img src="../img/product/6-2.jpg" class="orderImg" />
+												<div class="orderText">
+													<div class="inlinkFlex-spacebetween">
+														<p class="orderName">APPLE 苹果(Apple) iPhone8/X Plus</p>
+														<p class="orderState">已支付</p>
+													</div>
+													<p>一个装</p>
+													<p class="orderNum shopCoach">¥26.60x1</p>
+													<p>配送时间</p>
+													<p>2017-10-14 周六 12:08</p>
+												</div>
+
+											</div>
+											<div class="orderMoney">
+												<p class="moneyItem">服务费:¥0.00</p>
+												<p class="moneyItem">共三件商品</p>
+												<p class="moneyItem shopCoach">合计:¥91.8</p>
+											</div>
+											<div class="orderOpera">
+												<p class="cancelOrder">取消订单</p>
+												<a href="../pages/orderDetail.html" class="external">
+													<p class="insureOrder">付款</p>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<script src="../js/rem.js"></script>
+		<script type="text/javascript" src="../js/framework7.min.js"></script>
+		<script type="text/javascript" src="../js/my-app.js"></script>
+		<script src="../js/vue.js"></script>
+		<script>
+			new Vue({
+				el: '#app',
+				data() {
+					return {
+						orderState: 'dfk'
+					}
+				},
+				methods: {
+					onOrderState(item) {
+						const that = this;
+						that.orderState = item;
+					}
+				}
+			})
+		</script>
+	</body>
+
+</html>
