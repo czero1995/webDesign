@@ -1,9 +1,0 @@
-.InpBox{display: flex;flex-wrap: nowrap;padding: 10rpx 0;border-top:1px solid #f1f0f6;background: #fff;font: normal 24rpx/70rpx "微软雅黑";color:#323232;}
-.InpBox label, .switch label{width: 200rpx;padding: 0 0 0 50rpx;height: 70rpx;}
-.InpBox input{width: 100%;height: 70rpx;}
-
-.switch{margin-top: 8px;background: #fff;padding: 10rpx 0;font: normal 24rpx/70rpx "微软雅黑";color:#323232;overflow: hidden;}
-.switch switch{float: right;margin-right: 10px;width: 72px;}
-
-.Save{width: 630rpx;margin: 30px auto 10px;background: #2670df;color:#fff;font: normal 28rpx/90rpx "微软雅黑";border-radius: 5px;}
-.Delete{width: 630rpx;margin: 0 auto;background: #dedde1;color:#6f6f6f;font: normal 28rpx/90rpx "微软雅黑";border-radius: 5px;}
